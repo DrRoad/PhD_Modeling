@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  First attempt for Cali-TEST demand generation -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+<flow id="DUA-1" begin="0" end="60" vehsPerHour="186.757680005916" from="START" to="FINISH"/>
+<flow id="DUA-2" begin="35" end="95" vehsPerHour="790.422242276644" from="START" to="FINISH"/>
+<flow id="DUA-3" begin="78" end="138" vehsPerHour="458.659967744882" from="START" to="FINISH"/>
+<flow id="DUA-4" begin="89" end="149" vehsPerHour="213.649993788474" from="START" to="FINISH"/>
+<flow id="DUA-5" begin="107" end="167" vehsPerHour="401.630048700211" from="START" to="FINISH"/>
+<flow id="DUA-6" begin="127" end="187" vehsPerHour="355.021752837549" from="START" to="FINISH"/>
+<flow id="DUA-7" begin="169" end="229" vehsPerHour="551.92775341931" from="START" to="FINISH"/>
+<flow id="DUA-8" begin="180" end="240" vehsPerHour="69.5842593765672" from="START" to="FINISH"/>
+<flow id="DUA-9" begin="197" end="257" vehsPerHour="321.699100017562" from="START" to="FINISH"/>
+<flow id="DUA-10" begin="251" end="311" vehsPerHour="332.61674848064" from="START" to="FINISH"/>
+<flow id="DUA-11" begin="283" end="343" vehsPerHour="846.435428960109" from="START" to="FINISH"/>
+<flow id="DUA-12" begin="300" end="360" vehsPerHour="484.305333459762" from="START" to="FINISH"/>
+
+
+</routes>
