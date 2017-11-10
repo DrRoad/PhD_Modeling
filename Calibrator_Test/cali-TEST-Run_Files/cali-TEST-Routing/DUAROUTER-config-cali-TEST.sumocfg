@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+<!-- http://sumo.dlr.de/wiki/DUAROUTER -->
+    <input>
+        <net-file value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\Calibrator_Test-Track_V0.net.xml"/>
+        <additional-files value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\cali-TEST.vType.add.xml"/>
+		<route-files value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\cali-TEST-Routing\caliTEST-netROUTING.rou.xml"/>
+    </input>
+	<output> 
+		<output-prefix value="caliTEST-netROUTING"/>
+        <output-file value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\cali-TEST-Routing\-V_0.1.rou.xml"/>
+    </output>
+
+    <processing> <!-- http://sumo.dlr.de/wiki/DUAROUTER#Processing -->
+		<with-taz value="false"/>
+		<departlane value="best"/> <!-- http://sumo.dlr.de/wiki/Definition_of_Vehicles,_Vehicle_Types,_and_Routes#departPos-->
+		<departpos value="last"/>
+		<departspeed value="0"/>
+		<arrivalpos value="random"/>
+        <remove-loops value="true"/>
+        <repair value="true"/>
+        <weight-period value="10"/>
+        <routing-threads value="2"/>
+    </processing>
+
+</configuration>
