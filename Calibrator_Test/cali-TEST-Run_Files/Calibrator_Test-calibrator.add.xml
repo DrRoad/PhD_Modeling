@@ -73,8 +73,8 @@
 	<route id="Bottom-RIGHT" edges="START 0_0-1_0  1_0-2_0  2_0-3_0 3_0-3_1 3_1-3_2 FINISH" probability="1"/>
 </routeDistribution>
 
-<routeProbe id="START-Calibrator-RouteProbe" edge="START" freq="20.00" file="routeProbe-output-file.txt" begin="0.00"/>
-<calibrator id="START-Calibrator" edge="START" pos="25.00" freq="20" output="caliTEST-Calibrator-Output-file.txt">
+<routeProbe id="START-Calibrator-RouteProbe" edge="START" freq="20.00" file="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="START-Calibrator" edge="START" pos="25.00" freq="20" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\caliTEST-Calibrator-Output-file.txt">
 	<flow begin="1" end="3600" route="START-Calibrator-Distrib" vehsPerHour="86" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="START-Calibrator-Distrib" vehsPerHour="58" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="START-Calibrator-Distrib" vehsPerHour="41" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>

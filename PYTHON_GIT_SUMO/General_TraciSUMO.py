@@ -1,4 +1,5 @@
 import os, sys
+from random import *
 import numpy as np
 import traci
 import traci.constants as tc
@@ -6,6 +7,7 @@ import re
 import sumolib
 import time
 import SUMO_PYTHON.Pavement_Condition as PC
+import pandas as pd
 #import SUMO_PYTHON._Belmont_Street
 # File modified from C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\Traci_Sim_Continue_V1.2.py
 
