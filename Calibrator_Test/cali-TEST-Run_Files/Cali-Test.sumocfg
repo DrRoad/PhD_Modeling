@@ -31,7 +31,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-	<output-prefix value="Cali_TEST-V0.0.2-NO-ROUTES-"/>
+	<output-prefix value="Cali_TEST-V0.0.3-NO-ROUTES-"/>
 	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
 	<save-state.times value="240,3600"/>
 	<save-state.files value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\240-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\\3600-caliTEST-State-file.xml"/>  
@@ -54,7 +54,7 @@
 	<duration-log.statistics value="true"/>
 </report>
 <traci_server>
-	<!-- <remote-port value="5454"/> -->
+	<remote-port value="5454"/>
 	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
 </traci_server>
 <gui_only>

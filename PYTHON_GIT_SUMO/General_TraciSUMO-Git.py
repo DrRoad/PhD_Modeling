@@ -318,8 +318,6 @@ class general:
                     # goOn = input("\n\t\t\t>>> Press X to exit...")
                     # if goOn == "X":
                         # break
-### Make this a function ####
-                ### Make this a function ####
                 general.TruckCountII()
                 periodCounter = periodCounter + 1/60
         elif str(typeRun) == "2": #run for XXX Steps VAR -> steps_TT
@@ -332,7 +330,6 @@ class general:
                 general.addBen_Trackers()
             for step in range(int(steps_TT)):
                 traci.simulationStep()
-                ### Make this a function ####
                 general.TruckCountII()
         elif str(typeRun) == "3": # run until set truck accomulation level Var -> TotTruckLevel
             while int(general.Edge_TOT_Trucks) < 600: #runs until you find the 1st (max) total trucks that equal a number, what if it was the last (min)
