@@ -226,7 +226,7 @@
 
 
 <routeProbe id="0_0-0_1-Calibrator-RouteProbe" edge="0_0-0_1" freq="60.00" file="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\RouteProbe_Files\routeProbe-output-file.txt" begin="0.00"/>
-<calibrator id="0_0-0_1-Calibrator" edge="0_0-0_1" pos="20.00" freq="5" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt"> <!-- freq="20" file="routeProbe-output-file.txt" output -->
+<calibrator id="0_0-0_1-Calibrator" edge="0_0-0_1" pos="20.00" freq="1" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt"> <!-- freq="20" file="routeProbe-output-file.txt" output -->
 	<flow begin="1" end="3600" route="0_0-0_1-Calibrator-Distrib" vehsPerHour="86" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="0_0-0_1-Calibrator-Distrib" vehsPerHour="58" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="0_0-0_1-Calibrator-Distrib" vehsPerHour="41" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
@@ -255,7 +255,7 @@
 
 
 <routeProbe id="START-Calibrator-RouteProbe" edge="START" freq="60.00" file="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\RouteProbe_Files\routeProbe-output-file.txt" begin="0.00"/>
-<calibrator id="START-Calibrator" edge="START" pos="25.00" freq="5" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt">
+<calibrator id="START-Calibrator" edge="START" pos="25.00" freq="1" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt">
 	<flow begin="1" end="3600" route="START-Calibrator-Distrib" vehsPerHour="86" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="START-Calibrator-Distrib" vehsPerHour="58" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="START-Calibrator-Distrib" vehsPerHour="41" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
@@ -283,7 +283,7 @@
 </calibrator>
 
 <routeProbe id="2_1-1_1-Calibrator-RouteProbe" edge="2_1-1_1" freq="60.00" file="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\RouteProbe_Files\routeProbe-output-file.txt" begin="0.00"/>
-<calibrator id="2_1-1_1-Calibrator" edge="2_1-1_1" pos="5.00" freq="5" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt">
+<calibrator id="2_1-1_1-Calibrator" edge="2_1-1_1" pos="5.00" freq="1" output="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Calibrator_Files\caliTEST-Calibrator-Output-file.txt">
 	<flow begin="1" end="3600" route="2_1-1_1-Calibrator-Distrib" vehsPerHour="86" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="2_1-1_1-Calibrator-Distrib" vehsPerHour="58" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="2_1-1_1-Calibrator-Distrib" vehsPerHour="41" speed="13.41" type="DVRPC_Mean_Dis" departPos="free" departSpeed="max"/>
