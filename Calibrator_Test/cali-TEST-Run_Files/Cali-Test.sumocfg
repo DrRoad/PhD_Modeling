@@ -31,7 +31,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-	<output-prefix value="Cali_TEST-V0.0.3-NO-ROUTES-"/>
+	<output-prefix value="Cali_TEST-V0.0.7-NO-ROUTES-smallfreqs-"/>
 	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
 	<save-state.times value="240,3600"/>
 	<save-state.files value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\240-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\\3600-caliTEST-State-file.xml"/>  
