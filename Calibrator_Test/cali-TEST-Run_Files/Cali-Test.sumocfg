@@ -31,14 +31,14 @@
 	<step-length value="1"/>
 </time>
 <output>
-	<output-prefix value="Cali_TEST-V0.0.7-NO-ROUTES-smallfreqs-"/>
+	<output-prefix value="Cali_TEST-V0.0.8-NR-smallfreqs-"/>
 	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
-	<save-state.times value="240,3600"/>
-	<save-state.files value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\240-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\\3600-caliTEST-State-file.xml"/>  
-	<summary value=".\Summary_output.xml"/>
+	<save-state.times value="240,3600,17400"/>
+	<save-state.files value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\240-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\3600-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\17400-caliTEST-State-file.xml"/>  
+	<summary value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Summary_Files\Summary_output.xml"/>
 	<!-- <queue-output value=".\QUEUE_output.xml"/> -->
-	<tripinfo-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\TRIP_output.xml"/>
-	<vehroute-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Veh_Route_output.xml"/>
+	<tripinfo-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Trip_Files\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\VehRoute_Files\Veh_Route_output.xml"/>
 	<vehroute-output.exit-times value="true"/>
 	<vehroute-output.sorted value="true"/>
 	<vehroute-output.intended-depart value="true"/>
@@ -54,7 +54,7 @@
 	<duration-log.statistics value="true"/>
 </report>
 <traci_server>
-	<remote-port value="5454"/>
+	<!-- <remote-port value="5454"/> -->
 	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
 </traci_server>
 <gui_only>
