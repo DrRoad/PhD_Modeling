@@ -31,7 +31,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-	<output-prefix value="Cali_TEST-V0.0.10-NR-F1-vph-DVRPC-"/>
+	<output-prefix value="Cali_TEST-V0.0.10-NR-F10-vph-DVRPC-1-Cali-"/>
 	<!-- Trouble shooting doc=C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_Output\Validation Attemps.xlsm -->
 	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
 	<save-state.times value="240,3600,17400"/>
@@ -59,7 +59,8 @@
 	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
 </traci_server>
 <gui_only>
-	<gui-settings-file value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
+<!-- 	<gui-settings-file value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/>  -->
+	<!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
 	<start value="true"/>
 </gui_only>
  
