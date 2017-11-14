@@ -31,7 +31,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-	<output-prefix value="Cali_TEST-V0.0.10-NR-F10-vph-Mixed_25-4-Cali-newVtyDis-"/>
+	<output-prefix value="Cali_TEST-V0.0.10-NR-F10-vph-Mixed-4d_25-4-Cali-newVtyDis-"/>
 	<!-- Trouble shooting doc=C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_Output\Validation Attemps.xlsm -->
 	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
 	<save-state.times value="240,3600,17400"/>
