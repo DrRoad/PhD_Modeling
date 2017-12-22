@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://sumo.dlr.de/xsd/dfrouterConfiguration.xsd" elementFormDefault="qualified">
+<!-- http://www.sumo.dlr.de/userdoc/DFROUTER.html
+When wished, if for example other parameters chage, the extended <DETECTOR_OUTPUT_FILE> can be fed back again into DFROUTER instead of the previous <DETECTOR_FILE>. In this case the detector types do not have to be computed again.
+To force DFROUTER to recompute the types, use -...-revalidate-detectors. http://www.sumo.dlr.de/userdoc/Demand/Routes_from_Observation_Points.html#Computing_Routes
+
+Because in some cases one reads detector flow definitions starting at a certain time but wants the simulation to begin at another,
+it is possible to add a time offset using -...-time-offset <INT> 21600 which is the number of seconds to subtracted from the read times.
+
+Change log
+Run-2 increased max-search-depth from 50 to 100 
+Run-3 turned off most reporting
+Run-4 time offset  from 0 to 21600; max-search-depth from 100 to 1000; min route distance from -1 to 500
+-->
+<configuration>
+<input>	
+	<net-file value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\Belmount_AOI-V5.net.xml"/><!--"C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped.net.xml"/>        >>>>>>>>  C:\Sumo\runs\West_Philly\Net-no-peds-or-delievery.net.xml-->
+	<detector-files value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\Belmont-Traffic_Count-Dector.xml"/>
+	<measure-files value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\Belmont-Flow_Measures-DB.xml"/>
+</input>
+<output>
+	<output-prefix value="DFROUTER-Belmont-run-4-"/>
+	<precision value="2"/>
+	<precision.geo value="6"/>
+	<routes-output value="Belmont-DFROUTER.rou.xml"/>
+	<routes-for-all value="true"/>
+<!-- 	<detector-output value="dector-output-File.xml"/>
+	<detectors-poi-output value="dector-poi-output-File.xml"/>
+	<emitters-output value="vType_and_Routes.rou.xml"/> -->
+	<vtype value="true"/>
+	<!-- <vtype-output value="vType.add.xml"/>
+	<emitters-poi-output value="emitters-poi-output-File.xml"/> -->
+	<variable-speed-sign-output value="variable-speed-sign-output-File.xml"/>
+	<end-reroute-output value="end-reroute-output-File.xml"/>
+	<validation-output value="validation-output-File.xml"/>
+	<validation-output.add-sources value="true"/>
+</output>
+<processing>
+	<guess-empty-flows value="true" minOccurs="0"/>
+	<highway-mode value="false"/>
+	<ignore-invalid-detectors value="false"/>
+	<revalidate-detectors value="false"/> <!-- When wished, if for example other parameters chage, the extended <DETECTOR_OUTPUT_FILE> can be fed back again into DFROUTER instead of the previous <DETECTOR_FILE>. In this case the detector types do not have to be computed again. To force DFROUTER to recompute the types, use revalidate-detectors -->
+	<revalidate-routes value="true"/>
+	<keep-unfinished-routes value="false"/>
+	<keep-longer-routes value="true"/>
+	<max-search-depth value="500"/><!-- 30 is default -->
+	<emissions-only value="false"/>
+	<!-- <disallowed-edges value="strOptionType"/> -->
+	<keep-turnarounds value="false"/>
+	<!-- <min-route-length value="1000"/> -->
+<!-- <randomize-flows value="true"/> this is not a real comand anymore-->
+	<time-factor value="1"/> <!-- Multiply flow times with TIME to get seconds; default: 60 -->
+	<time-offset value="0"/> <!-- had 21600 before  Subtracts TIME seconds from (scaled) flow times; default: 0 -->
+	<time-step value="3600"/> <!-- Expected distance between two successive data sets; default: 60 -->
+	<calibrator-output value="true"/>
+	<include-unused-routes value="true"/>
+	<revalidate-flows value="true"/>
+	<remove-empty-detectors value="true"/>
+	<strict-sources value="true"/>
+	<respect-concurrent-inflows value="true"/>
+	<scale value="1"/>
+</processing>
+<defaults> 
+	<departlane value="free"/>
+	<departpos value="free"/>
+	<departspeed value="max"/>
+	<arrivallane value="current"/>
+	<arrivalpos value="current"/>
+	<arrivalspeed value="current"/>
+	<speeddev value=".5"/> <!-- http://sumo.dlr.de/xsd/baseTypes.xsd -->
+<!-- http://sumo.dlr.de/xsd/routeTypes.xsd -->
+</defaults>
+<time>
+	<begin value="1080"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
+	<end value="86400"/> <!-- 72000 = 8pm ; 86400 seconds in a day --> 
+</time>
+<report>
+	<verbose value="true"/>
+	<print-options value="false"/>
+	<help value="false"/>
+	<version value="false"/>
+	<xml-validation value="auto"/>
+	<xml-validation.net value="never"/>
+	<no-warnings value="false"/>
+	<!-- <log value="log-output-File.xml"/> -->
+	<!-- <message-log value="message-log-output-File.xml"/> -->
+	<!-- <error-log value="error-log-output-File.xml"/> -->
+	<report-empty-detectors value="true"/>
+	<print-absolute-flows value="true"/>
+	<no-step-log value="false"/>
+</report>
+
+</configuration>
+</xsd:schema>

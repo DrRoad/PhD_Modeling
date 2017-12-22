@@ -1,0 +1,1 @@
+/Sumo/SUMO-0.31.0/sumo-0.31.0/tools/tlsCoordinator.py -n /GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Belmount_AOI-V5.net.xml -r /Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-VehRouteFILES/BM_test-num_15-15min_test_cars-Yroutes-Veh_Route_output.xml -o /GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/tslOffset-12-6-17.add.xml
