@@ -4,16 +4,16 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
 
     <input>
-	<net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
+	<net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V6-Limited_Roads.net.xml"/>
 	<additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml"/> 
-	<route-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Montgm-BelMan76-WB-14-12-20-17.trip.rou.xml"/>
+	<route-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION-trips-1-4-2018.add.xml"/>
 	</input>
 
 	
     <output>
-        <output-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Montgm-BelMan76-WB-14-12-20-17-fixed.rou.xml"/>
+        <output-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION3.add.xml"/>
         <exit-times value="false"/>
-		<vtype-output value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-12-1-17-DELETE_ME-Vtypes.xml"/>
+		<vtype-output value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-1-3-2018-DELETE_ME-Vtypes.xml"/>
     </output>
 
     <processing>

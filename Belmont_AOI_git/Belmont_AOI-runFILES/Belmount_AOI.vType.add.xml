@@ -57,4 +57,5 @@
 	<vType id="Double_Rear_Truck-NB" accel="2.6" decel="4" sigma="0.5" tau="2" length="9.8" minGap="7.35" maxSpeed="27" speedFactor="1" speedDev="0.1" color="orange" vClass="truck" width="2.5" impatience="0.5" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.02" guiShape="truck"/>
 	<vType id="Bus_Public-NB" accel="0.75" decel="4.5" sigma="0.6" tau="2" length="12.2" minGap="9.15" maxSpeed="22" speedFactor="1" speedDev="0.1" color="yellow" vClass="bus" width="2.59" impatience="0.25" laneChangeModel="LC2013" probability="0.01" carFollowModel="Krauss" guiShape="bus"/>
 </vTypeDistribution>
+
 </additional>

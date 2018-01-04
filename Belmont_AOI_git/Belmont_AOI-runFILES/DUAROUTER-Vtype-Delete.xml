@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- generated on 10/13/17 15:13:33 by SUMO duarouter Version 0.31.0
@@ -67,3 +68,74 @@
     <vType id="Single_Rear_Truck" length="9.00" minGap="3.00" maxSpeed="27.00" probability="0.01" speedFactor="normc(1.00,0.20,0.20,2.00)" vClass="truck" impatience="0.50" guiShape="truck" width="2.50" color="grey" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2.6" decel="3" sigma="0.5" tau="2"/>
     <vType id="TRACKER_CAR" length="5.00" minGap="3.00" maxSpeed="32.00" speedFactor="normc(1.50,0.10,0.20,2.00)" vClass="passenger" impatience="0.75" guiShape="passenger/hatchback" width="2.00" color="magenta" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2" decel="4.5" sigma="0.5" tau="1"/>
 </routes>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 10/13/17 15:13:33 by SUMO duarouter Version 0.31.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\Belmount_AOI-V5.net.xml"/>
+        <additional-files value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\Belmount_AOI.vType.add.xml"/>
+        <route-files value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_AOI-Routing\Belmont_AOI-RandomTrips_10-13.rou.xml,C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_AOI-Routing\U_Tracker-V3.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="Belmont_AOI_duaROUTES-6.rou.xml"/>
+        <vtype-output value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_AOI-Routing\DUAROUTER-Vtype-Delete.xml"/>
+        <exit-times value="true"/>
+    </output>
+
+    <processing>
+        <ignore-errors value="true"/>
+        <unsorted-input value="true"/>
+        <max-alternatives value="10"/>
+        <repair value="true"/>
+        <routing-threads value="3"/>
+        <weights.expand value="true"/>
+        <routing-algorithm value="dijkstra"/>
+        <gawron.beta value="0.9"/>
+        <gawron.a value="0.5"/>
+        <keep-all-routes value="false"/>
+        <logit value="false"/>
+        <logit.beta value="0.15"/>
+        <logit.gamma value="1"/>
+    </processing>
+
+    <defaults>
+        <departlane value="best"/>
+        <departpos value="free"/>
+        <departspeed value="max"/>
+        <arrivallane value="current"/>
+        <arrivalpos value="max"/>
+        <arrivalspeed value="current"/>
+    </defaults>
+
+    <time>
+        <begin value="0"/>
+        <end value="86400"/>
+    </time>
+
+    <report>
+        <verbose value="true"/>
+        <no-warnings value="false"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <random_number>
+        <random value="false"/>
+    </random_number>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="Car_communuter" length="5.00" minGap="3.00" maxSpeed="32.00" probability="0.00" speedFactor="normc(2.00,0.10,0.20,2.00)" vClass="passenger" impatience="0.75" guiShape="passenger/sedan" width="2.00" color="yellow" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2" decel="4.5" sigma="0.5" tau="1"/>
+    <vType id="Panel_Truck" length="9.20" minGap="3.00" maxSpeed="25.00" probability="0.15" speedFactor="normc(1.10,0.20,0.20,2.00)" vClass="truck" impatience="0.50" guiShape="delivery" width="2.40" color="cyan" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2" decel="2" sigma="0.5" tau="2"/>
+    <vType id="Double_Rear_Truck" length="9.80" minGap="3.00" maxSpeed="27.00" probability="0.02" speedFactor="normc(1.00,0.10,0.20,2.00)" vClass="truck" impatience="0.50" guiShape="truck" width="2.50" color="orange" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2.6" decel="4" sigma="0.5" tau="2"/>
+    <vType id="Single_Rear_Truck" length="9.00" minGap="3.00" maxSpeed="27.00" probability="0.01" speedFactor="normc(1.00,0.20,0.20,2.00)" vClass="truck" impatience="0.50" guiShape="truck" width="2.50" color="grey" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2.6" decel="3" sigma="0.5" tau="2"/>
+    <vType id="TRACKER_CAR" length="5.00" minGap="3.00" maxSpeed="32.00" speedFactor="normc(1.50,0.10,0.20,2.00)" vClass="passenger" impatience="0.75" guiShape="passenger/hatchback" width="2.00" color="magenta" laneChangeModel="LC2013" carFollowModel="Krauss" accel="2" decel="4.5" sigma="0.5" tau="1"/>
+</routes>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 12/21/2017 2:54:41 AM by Netedit Version 0.31.0
+<!-- generated on 12/27/2017 3:59:19 PM by Netedit Version 0.31.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
@@ -3743,7 +3743,7 @@
         <lane id=":110208543_5_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="22.22" length="10.18" shape="2753.53,3757.54 2756.01,3757.16 2758.24,3757.70 2760.22,3759.14 2761.95,3761.50"/>
     </edge>
     <edge id=":110208745_0" function="internal">
-        <lane id=":110208745_0_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="13.89" length="5.13" shape="2921.87,2891.41 2921.89,2892.83 2922.36,2893.86 2923.31,2894.50 2924.71,2894.75"/>
+        <lane id=":110208745_0_0" index="0" allow="private authority vip passenger bicycle pedestrian" speed="13.89" length="5.13" shape="2921.87,2891.41 2921.89,2892.83 2922.36,2893.86 2923.31,2894.50 2924.71,2894.75"/>
     </edge>
     <edge id=":110208745_1" function="internal">
         <lane id=":110208745_1_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="13.89" length="6.10" shape="2921.87,2891.41 2920.86,2897.42"/>
@@ -3752,7 +3752,7 @@
         <lane id=":110208745_2_0" index="0" allow="emergency authority delivery bicycle pedestrian custom1 custom2" speed="13.89" length="5.84" shape="2917.64,2896.73 2918.60,2890.97"/>
     </edge>
     <edge id=":110208745_3" function="internal">
-        <lane id=":110208745_3_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="13.89" length="7.75" shape="2917.64,2896.73 2918.25,2895.79 2919.64,2895.15 2921.79,2894.80 2924.71,2894.75"/>
+        <lane id=":110208745_3_0" index="0" allow="private authority vip passenger bicycle pedestrian" speed="13.89" length="7.75" shape="2917.64,2896.73 2918.25,2895.79 2919.64,2895.15 2921.79,2894.80 2924.71,2894.75"/>
     </edge>
     <edge id=":110208759_0" function="internal">
         <lane id=":110208759_0_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="20.84" length="25.24" shape="2925.76,2928.26 2920.12,2933.16 2915.46,2938.47 2912.13,2943.58 2910.48,2947.87"/>
@@ -11684,7 +11684,7 @@
         <lane id="49916232#0_0" index="0" allow="private emergency authority army vip passenger hov taxi bus coach delivery truck trailer motorcycle evehicle custom1 custom2" speed="22.22" length="58.19" shape="3278.39,3032.37 3285.93,3029.63 3291.64,3026.93 3296.55,3024.17 3300.87,3021.23 3304.82,3017.77 3308.19,3013.16 3311.08,3007.77 3313.20,3002.67 3313.05,2992.27"/>
     </edge>
     <edge id="49916246" from="110208745" to="110413168" name="Montgomery Drive" priority="4" type="highway.residential" spreadType="center">
-        <lane id="49916246_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="13.89" length="27.78" shape="2924.71,2894.75 2952.48,2895.60"/>
+        <lane id="49916246_0" index="0" allow="private authority vip passenger bicycle pedestrian" speed="13.89" length="27.78" shape="2924.71,2894.75 2952.48,2895.60"/>
     </edge>
     <edge id="49916265" from="634367929" to="634367932" name="North Concourse Street" priority="6" type="highway.tertiary" spreadType="center" shape="2328.16,2585.42 2319.51,2578.22 2310.24,2572.28 2297.64,2565.99">
         <lane id="49916265_0" index="0" disallow="tram rail_urban rail rail_electric ship" speed="22.22" length="22.95" shape="2323.19,2581.28 2319.51,2578.22 2310.24,2572.28 2303.83,2569.08"/>

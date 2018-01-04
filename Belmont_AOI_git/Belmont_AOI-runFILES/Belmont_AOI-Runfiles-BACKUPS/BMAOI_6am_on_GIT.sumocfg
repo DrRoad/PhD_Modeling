@@ -1,0 +1,196 @@
+<<<<<<< HEAD
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+<input>	
+	<net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
+	<additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3.pol.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V5-SUMO31-15min.xml"/> 
+		<!--  
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-15min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-30min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-60min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tlsOFFset.add.xml
+				C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\AddptlsOFFset.add.xml -->
+	<route-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-12-8-2017.rou.xml"/>
+	<!-- <route-files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\BM_test-num_16-V031-Veh_Route_output.xml"/> -->
+	<!-- C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes_V3.rou.xml"/> -->
+
+	</input>
+<processing>
+	<ignore-route-errors value="false"/> 
+	<step-method.ballistic value="true"/>
+	<!--<mingap-violation value="0"/>  http://sumo.dlr.de/trac.wsgi/ticket/1102?action=diff&version=10 -->
+	<collision.action value= "telport"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
+	<collision.stoptime value="20"/> <!-- Small value to try to get rid of jams -->
+	<collision.check-junctions value="false"/>
+	<waiting-time-memory value="10"/>
+	<time-to-impatience value="120"/>
+	<!--<max-num-vehicles value="4000"/>  Not sure about this one -->
+	<!--<time-to-teleport value="240"/>  I don't want anyone teleporting for no reason -->
+	<!-- <speed-in-kmh value="true"/> -->
+	<max-depart-delay value="-1"/> <!-- It used to be 40 -->
+</processing>
+<routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
+	<!-- <device.rerouting.adaptation-weight value="1"/> -->
+	<device.rerouting.probability value=".75"/>
+	<device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/>
+</routing>
+<time>
+	<begin value="0"/> <!-- DVRPC trips start at 1080 - 21600 sec = 6am -->
+	<!-- <end value="87400"/> 72000 = 8pm ; 86400 seconds in a day {this needs to be kept blank to allow cars to finish their routes--> 
+	<step-length value="1"/>
+</time>
+<output>
+	<output-prefix value="BM_test-num_19-"/>
+	<!-- NOTES on different runs::: 
+	BM_test-num_19 - new routes and removing calibrators, changed up some TSL and turning allowments
+	BM_test-num_18 - new calibration file - collision action = warn collision.stoptime = 20 secons - device.rerouting.probability value=".75"
+	num16-15min_test_cars-Yroutes; new TSL offset program; device rerouting probability = 1 from .75
+		num_17 not much different prob really is 1 this time, calibrator freq all = 1 now
+	-->
+	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\NetState_Dump.xml"/> -->
+	<save-state.times value="22500"/>
+	<save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file.xml"/>
+	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
+	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
+	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
+	<vehroute-output.exit-times value="true"/>
+	<vehroute-output.sorted value="true"/>
+	<vehroute-output.intended-depart value="true"/>
+	<vehroute-output.route-length value="true"/>
+	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
+	<link-output value=".\LinkStates.xml"/> -->
+	<vehroute-output.write-unfinished value="true"/>
+	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> -->
+</output>
+<report>
+	<no-warnings value="false"/>
+	<no-step-log value="false"/>
+	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
+	<duration-log.disable value="false"/>
+	<duration-log.statistics value="true"/>
+</report>
+<traci_server>
+<!-- 	<remote-port value="5454"/> -->
+	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
+</traci_server>
+<gui_onlyType>
+	<gui-settings-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
+	<start value="true"/>
+</gui_onlyType>
+ 
+
+<!--
+C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes>sumo-gui -c C:\Sumo\runs\West_Philly\W_Philly_Random_V3_Larger_8_8_TAZ.sumocfg
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped-7.29.net.xml"/>
+        <trip-files value="C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes\SUMO_TAZ_V3-checkcalibratorroutes.trip.xml"/>
+    </input>
+
+    <output>
+        <output-prefix value="SUMO_TAZ_V3.4.3.2.CCheck"/>
+        <output-file value="SUMO_TAZ_V3.4.3.2.CCheck-checkcalibratorroutes.rou.xml"/>
+
+-->
+
+=======
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+<input>	
+	<net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
+	<additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3.pol.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V5-SUMO31-15min.xml"/> 
+		<!--  
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-15min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-30min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-60min.xml
+		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tlsOFFset.add.xml
+				C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\AddptlsOFFset.add.xml -->
+	<route-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-12-8-2017.rou.xml"/>
+	<!-- <route-files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\BM_test-num_16-V031-Veh_Route_output.xml"/> -->
+	<!-- C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes_V3.rou.xml"/> -->
+
+	</input>
+<processing>
+	<ignore-route-errors value="false"/> 
+	<step-method.ballistic value="true"/>
+	<!--<mingap-violation value="0"/>  http://sumo.dlr.de/trac.wsgi/ticket/1102?action=diff&version=10 -->
+	<collision.action value= "telport"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
+	<collision.stoptime value="20"/> <!-- Small value to try to get rid of jams -->
+	<collision.check-junctions value="false"/>
+	<waiting-time-memory value="10"/>
+	<time-to-impatience value="120"/>
+	<!--<max-num-vehicles value="4000"/>  Not sure about this one -->
+	<!--<time-to-teleport value="240"/>  I don't want anyone teleporting for no reason -->
+	<!-- <speed-in-kmh value="true"/> -->
+	<max-depart-delay value="-1"/> <!-- It used to be 40 -->
+</processing>
+<routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
+	<!-- <device.rerouting.adaptation-weight value="1"/> -->
+	<device.rerouting.probability value=".75"/>
+	<device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/>
+</routing>
+<time>
+	<begin value="0"/> <!-- DVRPC trips start at 1080 - 21600 sec = 6am -->
+	<!-- <end value="87400"/> 72000 = 8pm ; 86400 seconds in a day {this needs to be kept blank to allow cars to finish their routes--> 
+	<step-length value="1"/>
+</time>
+<output>
+	<output-prefix value="BM_test-num_19-"/>
+	<!-- NOTES on different runs::: 
+	BM_test-num_19 - new routes and removing calibrators, changed up some TSL and turning allowments
+	BM_test-num_18 - new calibration file - collision action = warn collision.stoptime = 20 secons - device.rerouting.probability value=".75"
+	num16-15min_test_cars-Yroutes; new TSL offset program; device rerouting probability = 1 from .75
+		num_17 not much different prob really is 1 this time, calibrator freq all = 1 now
+	-->
+	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\NetState_Dump.xml"/> -->
+	<save-state.times value="22500"/>
+	<save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file.xml"/>
+	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
+	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
+	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
+	<vehroute-output.exit-times value="true"/>
+	<vehroute-output.sorted value="true"/>
+	<vehroute-output.intended-depart value="true"/>
+	<vehroute-output.route-length value="true"/>
+	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
+	<link-output value=".\LinkStates.xml"/> -->
+	<vehroute-output.write-unfinished value="true"/>
+	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> -->
+</output>
+<report>
+	<no-warnings value="false"/>
+	<no-step-log value="false"/>
+	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
+	<duration-log.disable value="false"/>
+	<duration-log.statistics value="true"/>
+</report>
+<traci_server>
+<!-- 	<remote-port value="5454"/> -->
+	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
+</traci_server>
+<gui_onlyType>
+	<gui-settings-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
+	<start value="true"/>
+</gui_onlyType>
+ 
+
+<!--
+C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes>sumo-gui -c C:\Sumo\runs\West_Philly\W_Philly_Random_V3_Larger_8_8_TAZ.sumocfg
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped-7.29.net.xml"/>
+        <trip-files value="C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes\SUMO_TAZ_V3-checkcalibratorroutes.trip.xml"/>
+    </input>
+
+    <output>
+        <output-prefix value="SUMO_TAZ_V3.4.3.2.CCheck"/>
+        <output-file value="SUMO_TAZ_V3.4.3.2.CCheck-checkcalibratorroutes.rou.xml"/>
+
+-->
+
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
+</configuration>

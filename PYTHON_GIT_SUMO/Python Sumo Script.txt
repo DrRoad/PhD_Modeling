@@ -1,0 +1,17 @@
+Python Sumo Script
+
+Ask for Parameters
+    Period Length
+    Steps to take or Time to run until
+Initalize Files
+    Initalize Network Period Files
+    Load and wipe edge loggers
+Take a step
+    call each edge
+        get vehID_List
+    call logger
+        compare vehID_List with logger
+        Add new vehIDs to loggers
+            compute stats for vehID
+    Every minute update Network Period Files
+        Update Sumo Edge Parameters

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
 <!-- http://sumo.dlr.de/wiki/Definition_of_Vehicles,_Vehicle_Types,_and_Routes#Vehicle_Types -->
 <!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
@@ -29,6 +30,39 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 
 
 <!-- <calibrator id="Belmont-GRD-to-Parkside-SB-96-12974" edge="-423956982" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+=======
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+<!-- http://sumo.dlr.de/wiki/Definition_of_Vehicles,_Vehicle_Types,_and_Routes#Vehicle_Types -->
+<!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
+<!-- </xsd> http://sumo.dlr.de/wiki/Simulation/Calibrator -->
+<!-- https://github.com/planetsumo/sumo/tree/7e7234a111c16fc32955f0df9cdf4b73454cd361/sumo/tests/sumo/extended/calibrator great help files -->
+<!-- python C:\Sumo	ools\route\routecheck.py C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped-7.29.net.xml C:\Sumo\runs\West_Philly\W_Philly_DVRPC_Vtype_8_8.add.xml -f C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes\SUMO_TAZ_V3-checkcalibratorroutes.rou.xml -->
+<!--:: Notes:::
+regrex expression $\Q	\E with $	 for after importing from file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-3%209.1.xlsb.xlsx
+Have to come up with strategy to deal with the traffic count data that counts in both directions - BTH - BOTH :B.TH B.OTH:
+(\Qoutput="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\1-Calibrator-Output-file.txt"\E)
+1-Calibrator-Output-file.txt - Belmount-Calibrator-Output-file.txt
+-->
+<!-- For MESO ??freq="20"?? -->
+<!-- <edgeData id="MESO-edgeData-V1.0" begin="21600" end="86400" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\C:\Sumo\runs\West_Philly\OutPuts-C-SUMO\Output-6am-8pm\MESO-edgeData-V1.9.xml" excludeEmpty="true" trackVehicles="true"/> -->
+<!-- <edgeData id="MICRO-edgeData-V1.0" begin="21600" end="86400" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\C:\Sumo\runs\West_Philly\OutPuts-C-SUMO\Output-6am-8pm\MICRO-edgeData-V1.5-route_dis-in-calis.xml" excludeEmpty="true" trackVehicles="true"/> -
+Edge replacement for lane for SUMO 0.31 to 0.30
+	FIND what: $" pos="5.00"
+	Replace with: $_0" pos="5.00"
+	FIND what: $([0-9]" )edge
+	Replace with: $(\1)lane
+	
+	12.29.2017 This has not been done yet, but still should be triedC:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI_toolBOX\Selected_Small_Belmount_AOI_volume_V3.xlsm \ sheet Calibrator_MAKER
+	
+-->
+
+<edgeData id="BM_test-num_01" freq="5" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-edgeFILES\BM_test-num_01-allCAR-EdgeData.xml" excludeEmpty="false"/>
+
+<route id="U_Tracker_Ben" edges="424978646 424978639.0 424978639.102"/> 
+
+
+<!-- <calibrator id="Belmont-GRD-to-Parkside-SB-96-12974" edge="-423956982" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 	<flow begin="1" end="3600" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="86" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="54" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="36" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
@@ -53,7 +87,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="248" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="213" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="154" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator> -->
+=======
+</calibrator> -->
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GRD-to-Parkside-NB-96-RouteProbe" edge="423956980" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GRD-to-Parkside-NB-96-12975" edge="423956980" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -81,7 +119,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-GRD-to-Parkside-NB-96-Distrib" vehsPerHour="443" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GRD-to-Parkside-NB-96-Distrib" vehsPerHour="375" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GRD-to-Parkside-NB-96-Distrib" vehsPerHour="194" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Ford-to-US1-NB-96-RouteProbe" edge="196358956#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Ford-to-US1-NB-96-12977" edge="196358956#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -137,7 +179,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Ford-to-US1-SB-96-Distrib" vehsPerHour="230" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Ford-to-US1-SB-96-Distrib" vehsPerHour="154" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Ford-to-US1-SB-96-Distrib" vehsPerHour="109" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="ConcrseDR-Belmont-MemHll-EB-02-RouteProbe" edge="-106455704#9" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="ConcrseDR-Belmont-MemHll-EB-02-33083" edge="-106455704#9" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -165,7 +211,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="ConcrseDR-Belmont-MemHll-EB-02-Distrib" vehsPerHour="23" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="ConcrseDR-Belmont-MemHll-EB-02-Distrib" vehsPerHour="18" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="ConcrseDR-Belmont-MemHll-EB-02-Distrib" vehsPerHour="13" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="ConcrseDR-Belmont-MemHll-WB-02-RouteProbe" edge="106455704#4" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="ConcrseDR-Belmont-MemHll-WB-02-33084" edge="106455704#4" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -193,7 +243,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="25" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="23" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="17" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="GrgeHill-Wynn_BTH-02-WB-RouteProbe" edge="49940069" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="GrgeHill-Wynn_BTH-02-WB-33087" edge="49940069" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -221,7 +275,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="GrgeHill-Wynn_BTH-02-WB-Distrib" vehsPerHour="58" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="GrgeHill-Wynn_BTH-02-WB-Distrib" vehsPerHour="40" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="GrgeHill-Wynn_BTH-02-WB-Distrib" vehsPerHour="35" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Wynn-GeogresLA-53rd-EB-05-RouteProbe" edge="-196358983#7" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Wynn-GeogresLA-53rd-EB-05-37100" edge="-196358983#7" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -249,7 +307,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Wynn-GeogresLA-53rd-EB-05-Distrib" vehsPerHour="161" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Wynn-GeogresLA-53rd-EB-05-Distrib" vehsPerHour="119" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-GeogresLA-53rd-EB-05-Distrib" vehsPerHour="67" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Wynn-GeogresLA-53rd-WB-05-RouteProbe" edge="196358983#7" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Wynn-GeogresLA-53rd-WB-05-37101" edge="196358983#7" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -277,7 +339,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Wynn-GeogresLA-53rd-WB-05-Distrib" vehsPerHour="321" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Wynn-GeogresLA-53rd-WB-05-Distrib" vehsPerHour="270" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-GeogresLA-53rd-WB-05-Distrib" vehsPerHour="170" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Wynn-PrkSD-NB-05-RouteProbe" edge="387423966" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Wynn-PrkSD-NB-05-37671" edge="387423966" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -305,7 +371,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Wynn-PrkSD-NB-05-Distrib" vehsPerHour="599" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Wynn-PrkSD-NB-05-Distrib" vehsPerHour="502" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Wynn-PrkSD-NB-05-Distrib" vehsPerHour="464" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Wynn-PrkSD-SB-05-RouteProbe" edge="-387423966" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Wynn-PrkSD-SB-05-37672" edge="-387423966" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -333,7 +403,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Wynn-PrkSD-SB-05-Distrib" vehsPerHour="677" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Wynn-PrkSD-SB-05-Distrib" vehsPerHour="591" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Wynn-PrkSD-SB-05-Distrib" vehsPerHour="377" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Conshi-US1-NB-08-RouteProbe" edge="196358956#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Conshi-US1-NB-08-47340" edge="196358956#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -361,7 +435,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Conshi-US1-NB-08-Distrib" vehsPerHour="158" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Conshi-US1-NB-08-Distrib" vehsPerHour="102" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Conshi-US1-NB-08-Distrib" vehsPerHour="71" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Conshi-US1-SB-08-RouteProbe" edge="-196358956#2" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Conshi-US1-SB-08-47341" edge="-196358956#2" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -389,7 +467,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Conshi-US1-SB-08-Distrib" vehsPerHour="188" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Conshi-US1-SB-08-Distrib" vehsPerHour="150" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Conshi-US1-SB-08-Distrib" vehsPerHour="68" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Wynn-54th-PrkSD-BTH-02-RouteProbe" edge="-196358983#4" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Wynn-54th-PrkSD-BTH-02-47475" edge="-196358983#4" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -417,7 +499,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Wynn-54th-PrkSD-BTH-02-Distrib" vehsPerHour="506" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Wynn-54th-PrkSD-BTH-02-Distrib" vehsPerHour="368" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-54th-PrkSD-BTH-02-Distrib" vehsPerHour="230" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont_PennGRV-WYALUSING-SB-09-RouteProbe" edge="-12150712#3" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont_PennGRV-WYALUSING-SB-09-53495" edge="-12150712#3" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -445,7 +531,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont_PennGRV-WYALUSING-SB-09-Distrib" vehsPerHour="162" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont_PennGRV-WYALUSING-SB-09-Distrib" vehsPerHour="145" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont_PennGRV-WYALUSING-SB-09-Distrib" vehsPerHour="120" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont_PennGRV-WYALUSING-NB-09-RouteProbe" edge="12150712#3" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont_PennGRV-WYALUSING-NB-09-53494" edge="12150712#3" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -473,7 +563,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont_PennGRV-WYALUSING-NB-09-Distrib" vehsPerHour="193" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont_PennGRV-WYALUSING-NB-09-Distrib" vehsPerHour="158" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont_PennGRV-WYALUSING-NB-09-Distrib" vehsPerHour="106" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-Monument-NB-09-RouteProbe" edge="196358954#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-Monument-NB-09-53497" edge="196358954#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -501,7 +595,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-Monument-NB-09-Distrib" vehsPerHour="401" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-Monument-NB-09-Distrib" vehsPerHour="300" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-Monument-NB-09-Distrib" vehsPerHour="231" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-Monument-SB-09-RouteProbe" edge="-196358954#3" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-Monument-SB-09-53496" edge="-196358954#3" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -529,7 +627,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-Monument-SB-09-Distrib" vehsPerHour="382" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-Monument-SB-09-Distrib" vehsPerHour="296" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-Monument-SB-09-Distrib" vehsPerHour="187" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-BmontMansn-PrkSD-NB-09-RouteProbe" edge="424978644" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-BmontMansn-PrkSD-NB-09-53723" edge="424978644" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -557,7 +659,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-BmontMansn-PrkSD-NB-09-Distrib" vehsPerHour="265" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-BmontMansn-PrkSD-NB-09-Distrib" vehsPerHour="223" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-BmontMansn-PrkSD-NB-09-Distrib" vehsPerHour="122" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-BmontMansn-PrkSD-SB-09-RouteProbe" edge="-49940170#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-BmontMansn-PrkSD-SB-09-53723" edge="-49940170#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -585,7 +691,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-BmontMansn-PrkSD-SB-09-Distrib" vehsPerHour="265" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-BmontMansn-PrkSD-SB-09-Distrib" vehsPerHour="223" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-BmontMansn-PrkSD-SB-09-Distrib" vehsPerHour="122" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Wynn-GrgHill-NB-10-RouteProbe" edge="387423966" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Wynn-GrgHill-NB-10-67303" edge="387423966" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -613,7 +723,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Wynn-GrgHill-NB-10-Distrib" vehsPerHour="396" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Wynn-GrgHill-NB-10-Distrib" vehsPerHour="433" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Wynn-GrgHill-NB-10-Distrib" vehsPerHour="318" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Wynn-GrgHill-SB-10-RouteProbe" edge="-387423966" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Wynn-GrgHill-SB-10-67304" edge="-387423966" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -641,7 +755,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Wynn-GrgHill-SB-10-Distrib" vehsPerHour="340" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Wynn-GrgHill-SB-10-Distrib" vehsPerHour="267" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Wynn-GrgHill-SB-10-Distrib" vehsPerHour="215" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Lansdwn-States-NB-11-RouteProbe" edge="423967359#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Lansdwn-States-NB-11-78088" edge="423967359#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -669,7 +787,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Lansdwn-States-NB-11-Distrib" vehsPerHour="479" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Lansdwn-States-NB-11-Distrib" vehsPerHour="372" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Lansdwn-States-NB-11-Distrib" vehsPerHour="251" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Lansdwn-States-SB-11-RouteProbe" edge="-423967359#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Lansdwn-States-SB-11-78089" edge="-423967359#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -697,7 +819,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Lansdwn-States-SB-11-Distrib" vehsPerHour="337" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Lansdwn-States-SB-11-Distrib" vehsPerHour="258" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Lansdwn-States-SB-11-Distrib" vehsPerHour="225" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Monmnt-Conshi-NB-12-RouteProbe" edge="196358954#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Monmnt-Conshi-NB-12-87722" edge="196358954#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -725,7 +851,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Monmnt-Conshi-NB-12-Distrib" vehsPerHour="229" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Monmnt-Conshi-NB-12-Distrib" vehsPerHour="186" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Monmnt-Conshi-NB-12-Distrib" vehsPerHour="103" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Monmnt-Conshi-SB-12-RouteProbe" edge="-196358954#3" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Monmnt-Conshi-SB-12-87723" edge="-196358954#3" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -753,7 +883,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="233" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="178" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="118" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-BelMan-76-ramps-EB-14-RouteProbe" edge="12180067#4" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-BelMan-76-ramps-EB-14-110747" edge="12180067#4_0" pos="200" freq="20" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -781,7 +915,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="643" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="483" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="350" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-BelMan-76-ramps-WB-14-RouteProbe" edge="-12180067#5" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-BelMan-76-ramps-WB-14-110748" edge="-12180067#5" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -809,7 +947,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="870" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="828" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="643" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-76-ramp-MLK-EB-14-RouteProbe" edge="43117623" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-76-ramp-MLK-EB-14-110749" edge="43117623_0" pos="75.00" freq="20" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -837,7 +979,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="136" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="106" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="82" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-76-ramp-MLK-WB-14-RouteProbe" edge="-43117624#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-76-ramp-MLK-WB-14-110750" edge="-43117624#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -865,7 +1011,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="137" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="96" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="56" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Wynn-PrkSD-Belmont-BTH-15-RouteProbe" edge="12180460#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Wynn-PrkSD-Belmont-BTH-15-118680" edge="12180460#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -893,7 +1043,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="480" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="409" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="280" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-GrgHill-NB-16-RouteProbe" edge="423967359#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-GrgHill-NB-16-127934" edge="423967359#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -921,7 +1075,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="531" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="378" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="246" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-GrgHill-SB-16-RouteProbe" edge="-423967359#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-GrgHill-SB-16-127935" edge="-423967359#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -949,7 +1107,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="463" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="317" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="224" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GrgHill-Monmnt-NB-16-RouteProbe" edge="387423966" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GrgHill-Monmnt-NB-16-127936" edge="387423966" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -977,7 +1139,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="351" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="281" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="132" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GrgHill-Monmnt-SB-16-RouteProbe" edge="-424978642.170" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GrgHill-Monmnt-SB-16-127937" edge="-424978642.170" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -1005,7 +1171,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="343" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="241" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="155" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Stiles-Viola-SB-17-RouteProbe" edge="-423956982" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Stiles-Viola-SB-17-135472" edge="-423956982" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -1060,7 +1230,11 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="75601" end="79200" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="321" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="261" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="139" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="GrgeHill-Wynn_BTH-02-EB-RouteProbe" edge="49940069" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <!-- <calibrator id="GrgeHill-Wynn_BTH-02-EB-33087" edge="49940069" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -1089,6 +1263,7 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="79201" end="82800" route="GrgeHill-Wynn_BTH-02-EB-Distrib" vehsPerHour="40" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="GrgeHill-Wynn_BTH-02-EB-Distrib" vehsPerHour="35" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 </calibrator> -->
+<<<<<<< HEAD
 
 <routeProbe id="Girard-38th-34th-EB-2017-RouteProbe" edge="134558401" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
 <!-- <calibrator id="Girard-38th-34th-EB-2017-134558401" edge="134558401" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
@@ -1284,4 +1459,201 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="205" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="140" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
 </calibrator>
+=======
+
+<routeProbe id="Girard-38th-34th-EB-2017-RouteProbe" edge="134558401" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
+<!-- <calibrator id="Girard-38th-34th-EB-2017-134558401" edge="134558401" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="200" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="125" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="85" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="60" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="78" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="93" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="225" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="768" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="708" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="564" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="764" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="841" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="402" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="695" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="732" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="816" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="911" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="796" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="753" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="625" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="582" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="486" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="401" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="256" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator> -->
+
+<routeProbe id="Girard-38th-34th-WB-2017-RouteProbe" edge="134558408#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-RouteProbFILE\BMAOI-RouteProbe-Output-file.txt" begin="0.00"/>
+<calibrator id="Girard-38th-34th-WB-2017-135477" edge="134558408#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="359" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="223" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="155" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="121" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="149" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="312" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="678" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="992" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="1000" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="1017" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="620" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="934" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="553" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="922" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="925" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="890" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="874" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="877" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="855" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="869" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="901" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="754" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="668" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="528" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<calibrator id="Parkside_limiter-SB-49940321#1" edge="49940321#1_0" pos="175.00" freq="20" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="Parkside_limiter-SB-Distrib" vehsPerHour="22" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Parkside_limiter-SB-Distrib" vehsPerHour="7" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Parkside_limiter-SB-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Parkside_limiter-SB-Distrib" vehsPerHour="60" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Parkside_limiter-SB-Distrib" vehsPerHour="205" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Parkside_limiter-SB-Distrib" vehsPerHour="212" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Parkside_limiter-SB-Distrib" vehsPerHour="88" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Parkside_limiter-SB-Distrib" vehsPerHour="106" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Parkside_limiter-SB-Distrib" vehsPerHour="79" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Parkside_limiter-SB-Distrib" vehsPerHour="96" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Parkside_limiter-SB-Distrib" vehsPerHour="117" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Parkside_limiter-SB-Distrib" vehsPerHour="108" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Parkside_limiter-SB-Distrib" vehsPerHour="140" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Parkside_limiter-SB-Distrib" vehsPerHour="163" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Parkside_limiter-SB-Distrib" vehsPerHour="177" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Parkside_limiter-SB-Distrib" vehsPerHour="117" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Parkside_limiter-SB-Distrib" vehsPerHour="80" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Parkside_limiter-SB-Distrib" vehsPerHour="68" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Parkside_limiter-SB-Distrib" vehsPerHour="58" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Parkside_limiter-SB-Distrib" vehsPerHour="40" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Parkside_limiter-SB-Distrib" vehsPerHour="35" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+
+
+<calibrator id="Parkside_limiter-1-SB-49940321#1" edge="12184200#0_0" pos="60" freq="20" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="22" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="7" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="60" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="205" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="212" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="88" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="106" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="79" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="96" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="117" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="108" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="140" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="163" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="177" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="117" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="80" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="68" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="58" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="40" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="35" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="ParkSide-52nd-Belmont-WB-2017-RouteProbe" edge="62105282#0" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="ParkSide-52nd-Belmont-WB-2017-135473" edge="62105282#0" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="43" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="29" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="34" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="82" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="211" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="508" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="561" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="396" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="244" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="318" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="363" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="382" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="410" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="519" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="560" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="548" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="380" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="290" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="230" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="173" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="121" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="77" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="ParkSide-52nd-Belmont-EB-2017-RouteProbe" edge="-388756837#2" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="ParkSide-52nd-Belmont-EB-2017-135473" edge="-388756837#2" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="43" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="29" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="21" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="34" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="82" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="211" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="508" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="561" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="396" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="244" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="318" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="363" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="382" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="410" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="519" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="560" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="548" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="380" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="290" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="230" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="173" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="121" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="77" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="Wynn-PrkSD-Belmont-BTH/2-WB-15-RouteProbe" edge="-12180460#1" freq="60.00" file="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="Wynn-PrkSD-Belmont-BTH/2-WB-15-118680" edge="-12180460#1" pos="5.00" freq="1" output="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-caliFILES\BMAOI-Cali-Output-file.txt">
+	<flow begin="1" end="3600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="76" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="50" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="39" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="26" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="32" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="74" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="204" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="352" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="383" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="351" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="292" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="276" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="284" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="318" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="343" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="398" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="408" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="431" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="402" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="320" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="267" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="240" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="205" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="140" type="Bmont_TEST_CAR" departPos="free" departSpeed="max"/>
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 </additional>

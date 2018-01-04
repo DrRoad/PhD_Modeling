@@ -1,0 +1,8 @@
+<routes>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed2" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5" to="196358983#8"/>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed3" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5 32121248#14"/>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed4" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5" to="104526256-AddedOnRampEdge"/>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed5" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5" to="12327906#1"/>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed6" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5" to="49321305"/>
+	<trip id="Montgm-BelMan-76-ramps-WB-14-Finish-Routed7" type="Bus_Public" depart="3.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current" from="-12180067#5" to="-43357850#4"/>
+</routes>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <detectors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/detectors_file.xsd">
 <!-- http://www.sumo.dlr.de/userdoc/DFROUTER.html http://sumo.dlr.de/xsd/additional_file.xsd -->
 <!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
@@ -57,4 +58,65 @@ C:\Sumo\data\xsd\detectors_file.xsd
 <detectorDefinition id="Girard-38th-34th-WB-2017" lane="134558408#1_0" pos="0" type="sink"/>
 
 </detectors>
+=======
+<detectors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/detectors_file.xsd">
+<!-- http://www.sumo.dlr.de/userdoc/DFROUTER.html http://sumo.dlr.de/xsd/additional_file.xsd -->
+<!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
+<!-- </xsd> http://sumo.dlr.de/wiki/Simulation/Calibrator -->
+<!-- https://github.com/planetsumo/sumo/tree/7e7234a111c16fc32955f0df9cdf4b73454cd361/sumo/tests/sumo/extended/calibrator great help files -->
+<!-- http://www.sumo.dlr.de/userdoc/Demand/Routes_from_Observation_Points.html -->
+<!--:: Notes:::
+C:\Sumo\data\xsd\detectors_file.xsd
+			<xsd:attribute name="type" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="source"/>
+						<xsd:enumeration value="sink"/>
+						<xsd:enumeration value="between"/>
+						<xsd:enumeration value="discarded"/>
+						<detectorDefinition id="-Sink" lane="_0" pos="0" type="sink"/>
+						<detectorDefinition id="-Source" lane="_0" pos="0" type="source"/>
+						
+						<detectorDefinition id="63rd-Sink" lane="gneE83.0_0" pos="0" type="sink"/>
+-->
+<detectorDefinition id="Belmont-GRD-to-Parkside-SB-96" lane="-423956982_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-GRD-to-Parkside-NB-96" lane="423956980_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-PrkSD-GrgHill-NB-16" lane="423967359#0_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-PrkSD-GrgHill-SB-16" lane="-423967359#0_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Ford-to-US1-NB-96" lane="196358956#0_0" pos="95" type="sink"/>
+<detectorDefinition id="Belmont-Ford-to-US1-SB-96" lane="-196358956#2_0" pos="0" type="source"/>
+<detectorDefinition id="ConcrseDR-Belmont-MemHll-EB-02" lane="-106455704#9_0" pos="0" type="between"/>
+<detectorDefinition id="ConcrseDR-Belmont-MemHll-WB-02" lane="106455704#4_0" pos="0" type="source"/>
+<detectorDefinition id="GrgeHill-Wynn_BTH-02" lane="49940069_0" pos="0" type="between"/>
+<detectorDefinition id="Wynn-GeogresLA-53rd-EB-05" lane="-196358983#7_0" pos="0" type="source"/>
+<detectorDefinition id="Wynn-GeogresLA-53rd-WB-05" lane="196358983#7_0" pos="90" type="sink"/>
+<detectorDefinition id="Belmont-Wynn-PrkSD-NB-05" lane="387423966_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Wynn-PrkSD-SB-05" lane="-387423966_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Conshi-US1-NB-08" lane="196358956#0_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Conshi-US1-SB-08" lane="-196358956#2_0" pos="0" type="between"/>
+<detectorDefinition id="Wynn-54th-PrkSD-BTH-02" lane="-196358983#4_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont_PennGRV-WYALUSING-SB-09" lane="-12150712#3_0" pos="0" type="sink"/>
+<detectorDefinition id="Belmont_PennGRV-WYALUSING-NB-09" lane="12150712#3_0" pos="0" type="source"/>
+<detectorDefinition id="Belmont-PrkSD-Monument-NB-09" lane="196358954#0_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-BmontMansn-PrkSD-NB-09" lane="424978644_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-BmontMansn-PrkSD-SB-09" lane="424978644_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Wynn-GrgHill-NB-10" lane="387423966_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Wynn-GrgHill-SB-10" lane="-387423966_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Lansdwn-States-NB-11" lane="423967359#1_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Lansdwn-States-SB-11" lane="-423967359#1_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Monmnt-Conshi-NB-12" lane="196358954#1_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Monmnt-Conshi-SB-12" lane="-196358954#3_0" pos="0" type="between"/>
+<detectorDefinition id="Montgm-BelMan-76-ramps-EB-14" lane="12180067#4_0" pos="200" type="between"/>
+<detectorDefinition id="Montgm-BelMan-76-ramps-WB-14" lane="-12180067#5_0" pos="0" type="source"/>
+<detectorDefinition id="Montgm-76-ramp-MLK-EB-14" lane="43117623_0" pos="170" type="sink"/>
+<detectorDefinition id="Montgm-76-ramp-MLK-WB-14" lane="-43117624#1_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-GrgHill-Monmnt-NB-16" lane="387423966_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-GrgHill-Monmnt-SB-16" lane="-424978642.170_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Stiles-Viola-SB-17" lane="-423956982_0" pos="0" type="between"/>
+<detectorDefinition id="Belmont-Stiles-Viola-NB-17" lane="423956980_0" pos="0" type="between"/>
+<detectorDefinition id="Girard-38th-34th-EB-2017" lane="134558401_1" pos="0" type="source"/>
+<detectorDefinition id="Girard-38th-34th-WB-2017" lane="134558408#1_0" pos="0" type="sink"/>
+
+</detectors>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 <!-- </xsd:schema> -->

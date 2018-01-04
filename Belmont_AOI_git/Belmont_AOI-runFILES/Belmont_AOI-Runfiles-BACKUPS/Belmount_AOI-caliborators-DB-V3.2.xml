@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
 <!-- http://sumo.dlr.de/wiki/Definition_of_Vehicles,_Vehicle_Types,_and_Routes#Vehicle_Types -->
 <!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
@@ -20,6 +21,30 @@ Have to come up with strategy to deal with the traffic count data that counts in
 
 
 <!-- <calibrator id="Belmont-GRD-to-Parkside-SB-96-12974" edge="-423956982" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+=======
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+<!-- http://sumo.dlr.de/wiki/Definition_of_Vehicles,_Vehicle_Types,_and_Routes#Vehicle_Types -->
+<!-- file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-2.xlsx -->
+<!-- </xsd> http://sumo.dlr.de/wiki/Simulation/Calibrator -->
+<!-- https://github.com/planetsumo/sumo/tree/7e7234a111c16fc32955f0df9cdf4b73454cd361/sumo/tests/sumo/extended/calibrator great help files -->
+<!-- python C:\Sumo	ools\route\routecheck.py C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped-7.29.net.xml C:\Sumo\runs\West_Philly\W_Philly_DVRPC_Vtype_8_8.add.xml -f C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes\SUMO_TAZ_V3-checkcalibratorroutes.rou.xml -->
+<!--:: Notes:::
+regrex expression $\Q	\E with $	 for after importing from file:///C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\DVRPC	raffic%20Counts\Counts%20OSM%202%20-%20V-2\DVRPC%20Traffic%20Counts%20For%20Net%20OSM%202%20-%20V-3%209.1.xlsb.xlsx
+Have to come up with strategy to deal with the traffic count data that counts in both directions - BTH - BOTH :B.TH B.OTH:
+(\Qoutput="1-Calibrator-Output-file.txt"\E)
+1-Calibrator-Output-file.txt - Belmount-Calibrator-Output-file.txt
+-->
+<!-- For MESO ??freq="20"?? -->
+<!-- <edgeData id="MESO-edgeData-V1.0" begin="21600" end="86400" file="C:\Sumo\runs\West_Philly\OutPuts-C-SUMO\Output-6am-8pm\MESO-edgeData-V1.9.xml" excludeEmpty="true" trackVehicles="true"/> -->
+<!-- <edgeData id="MICRO-edgeData-V1.0" begin="21600" end="86400" file="C:\Sumo\runs\West_Philly\OutPuts-C-SUMO\Output-6am-8pm\MICRO-edgeData-V1.5-route_dis-in-calis.xml" excludeEmpty="true" trackVehicles="true"/> -->
+
+<edgeData id="BM_test-num_0" freq="5" file="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\BM_test-num_0-EdgeData.xml" excludeEmpty="false"/>
+
+<route id="U_Tracker_Ben" edges="424978646 424978639.0 424978639.102"/> 
+
+
+<!-- <calibrator id="Belmont-GRD-to-Parkside-SB-96-12974" edge="-423956982" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 	<flow begin="1" end="3600" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="86" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="3601" end="7200" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="54" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="7201" end="10800" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="36" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
@@ -44,7 +69,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="248" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="213" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GRD-to-Parkside-SB-96-Distrib" vehsPerHour="154" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator> -->
+=======
+</calibrator> -->
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GRD-to-Parkside-NB-96-RouteProbe" edge="423956980" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GRD-to-Parkside-NB-96-12975" edge="423956980" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -721,7 +750,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="233" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="178" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Monmnt-Conshi-SB-12-Distrib" vehsPerHour="118" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-BelMan-76-ramps-EB-14-RouteProbe" edge="12180067#4" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-BelMan-76-ramps-EB-14-110747 " edge="12180067#4" pos="200" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -749,7 +782,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="643" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="483" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-BelMan-76-ramps-EB-14-Distrib" vehsPerHour="350" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-BelMan-76-ramps-WB-14-RouteProbe" edge="-12180067#5" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-BelMan-76-ramps-WB-14-110748 " edge="-12180067#5" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -777,7 +814,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="870" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="828" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-BelMan-76-ramps-WB-14-Distrib" vehsPerHour="643" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-76-ramp-MLK-EB-14-RouteProbe" edge="43117623" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-76-ramp-MLK-EB-14-110749 " edge="43117623" pos="75.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -805,7 +846,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="136" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="106" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-76-ramp-MLK-EB-14-Distrib" vehsPerHour="82" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Montgm-76-ramp-MLK-WB-14-RouteProbe" edge="-43117624#1" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Montgm-76-ramp-MLK-WB-14-110750 " edge="-43117624#1" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -833,7 +878,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="137" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="96" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Montgm-76-ramp-MLK-WB-14-Distrib" vehsPerHour="56" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Wynn-PrkSD-Belmont-BTH-15-RouteProbe" edge="12180460#0" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Wynn-PrkSD-Belmont-BTH-15-118680 " edge="12180460#0" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -861,7 +910,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="480" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="409" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH-15-Distrib" vehsPerHour="280" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-GrgHill-NB-16-RouteProbe" edge="423967359#0" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-GrgHill-NB-16-127934 " edge="423967359#0" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -889,7 +942,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="531" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="378" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-GrgHill-NB-16-Distrib" vehsPerHour="246" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-PrkSD-GrgHill-SB-16-RouteProbe" edge="-423967359#0" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-PrkSD-GrgHill-SB-16-127935 " edge="-423967359#0" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -917,7 +974,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="463" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="317" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-PrkSD-GrgHill-SB-16-Distrib" vehsPerHour="224" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GrgHill-Monmnt-NB-16-RouteProbe" edge="387423966" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GrgHill-Monmnt-NB-16-127936 " edge="387423966" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -945,7 +1006,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="351" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="281" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GrgHill-Monmnt-NB-16-Distrib" vehsPerHour="132" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-GrgHill-Monmnt-SB-16-RouteProbe" edge="-424978642.170" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-GrgHill-Monmnt-SB-16-127937 " edge="-424978642.170" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -973,7 +1038,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="343" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="241" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-GrgHill-Monmnt-SB-16-Distrib" vehsPerHour="155" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="Belmont-Stiles-Viola-SB-17-RouteProbe" edge="-423956982" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <calibrator id="Belmont-Stiles-Viola-SB-17-135472 " edge="-423956982" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -1028,7 +1097,11 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="75601" end="79200" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="321" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="79201" end="82800" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="261" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Belmont-Stiles-Viola-NB-17-Distrib" vehsPerHour="139" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+<<<<<<< HEAD
 </calibrator>
+=======
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 
 <routeProbe id="GrgeHill-Wynn_BTH-02-EB-RouteProbe" edge="49940069" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <!-- <calibrator id="GrgeHill-Wynn_BTH-02-EB-33087" edge="49940069" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -1057,6 +1130,7 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="79201" end="82800" route="GrgeHill-Wynn_BTH-02-EB-Distrib" vehsPerHour="40" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="GrgeHill-Wynn_BTH-02-EB-Distrib" vehsPerHour="35" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 </calibrator> -->
+<<<<<<< HEAD
 
 <routeProbe id="Girard-38th-34th-EB-2017-RouteProbe" edge="134558401" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
 <!-- <calibrator id="Girard-38th-34th-EB-2017-134558401" edge="134558401" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
@@ -1252,4 +1326,201 @@ Have to come up with strategy to deal with the traffic count data that counts in
 	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="205" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="140" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
 </calibrator>
+=======
+
+<routeProbe id="Girard-38th-34th-EB-2017-RouteProbe" edge="134558401" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
+<!-- <calibrator id="Girard-38th-34th-EB-2017-134558401" edge="134558401" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="200" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="125" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="85" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="60" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="78" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="93" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="225" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="768" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="708" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="564" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="764" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="841" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="402" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="695" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="732" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="816" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="911" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="796" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="753" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="625" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="582" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="486" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="401" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Girard-38th-34th-EB-2017-Distrib" vehsPerHour="256" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator> -->
+
+<routeProbe id="Girard-38th-34th-WB-2017-RouteProbe" edge="134558408#1" freq="20.00" file="Belmount-RouteProbe-Output-file.txt" begin="0.00"/>
+<calibrator id="Girard-38th-34th-WB-2017-135477" edge="134558408#1" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="359" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="223" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="155" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="121" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="149" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="312" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="678" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="992" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="1000" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="1017" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="620" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="934" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="553" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="922" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="925" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="890" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="874" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="877" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="855" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="869" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="901" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="754" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="668" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Girard-38th-34th-WB-2017-Distrib" vehsPerHour="528" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<calibrator id="Parkside_limiter-SB-49940321#1" edge="49940321#1" pos="175.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="Parkside_limiter-SB-Distrib" vehsPerHour="22" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Parkside_limiter-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Parkside_limiter-SB-Distrib" vehsPerHour="7" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Parkside_limiter-SB-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Parkside_limiter-SB-Distrib" vehsPerHour="60" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Parkside_limiter-SB-Distrib" vehsPerHour="205" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Parkside_limiter-SB-Distrib" vehsPerHour="212" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Parkside_limiter-SB-Distrib" vehsPerHour="88" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Parkside_limiter-SB-Distrib" vehsPerHour="106" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Parkside_limiter-SB-Distrib" vehsPerHour="79" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Parkside_limiter-SB-Distrib" vehsPerHour="96" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Parkside_limiter-SB-Distrib" vehsPerHour="117" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Parkside_limiter-SB-Distrib" vehsPerHour="108" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Parkside_limiter-SB-Distrib" vehsPerHour="140" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Parkside_limiter-SB-Distrib" vehsPerHour="163" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Parkside_limiter-SB-Distrib" vehsPerHour="177" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Parkside_limiter-SB-Distrib" vehsPerHour="117" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Parkside_limiter-SB-Distrib" vehsPerHour="80" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Parkside_limiter-SB-Distrib" vehsPerHour="68" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Parkside_limiter-SB-Distrib" vehsPerHour="58" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Parkside_limiter-SB-Distrib" vehsPerHour="40" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Parkside_limiter-SB-Distrib" vehsPerHour="35" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+
+
+<calibrator id="Parkside_limiter-1-SB-49940321#1" edge="12184200#0" pos="60" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="22" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="12" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="7" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="60" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="205" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="212" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="88" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="106" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="79" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="96" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="117" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="108" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="140" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="163" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="177" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="117" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="80" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="68" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="58" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="40" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Parkside_limiter-1-SB-Distrib" vehsPerHour="35" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="ParkSide-52nd-Belmont-WB-2017-RouteProbe" edge="62105282#0" freq="20.00" file="routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="ParkSide-52nd-Belmont-WB-2017-135473" edge="62105282#0" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="43" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="29" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="34" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="82" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="211" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="508" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="561" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="396" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="244" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="318" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="363" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="382" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="410" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="519" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="560" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="548" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="380" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="290" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="230" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="173" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="121" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="ParkSide-52nd-Belmont-WB-2017-Distrib" vehsPerHour="77" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="ParkSide-52nd-Belmont-EB-2017-RouteProbe" edge="-388756837#2" freq="20.00" file="routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="ParkSide-52nd-Belmont-EB-2017-135473" edge="-388756837#2" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="43" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="29" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="21" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="34" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="82" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="211" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="508" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="561" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="396" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="244" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="318" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="363" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="382" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="410" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="519" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="560" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="548" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="380" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="290" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="230" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="173" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="121" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="ParkSide-52nd-Belmont-EB-2017-Distrib" vehsPerHour="77" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+
+<routeProbe id="Wynn-PrkSD-Belmont-BTH/2-WB-15-RouteProbe" edge="-12180460#1" freq="20.00" file="routeProbe-output-file.txt" begin="0.00"/>
+<calibrator id="Wynn-PrkSD-Belmont-BTH/2-WB-15-118680 " edge="-12180460#1" pos="5.00" freq="20" output="Belmount-Calibrator-Output-file.txt">
+	<flow begin="1" end="3600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="76" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="3601" end="7200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="50" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="7201" end="10800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="39" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="10801" end="14400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="26" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="14401" end="18000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="32" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="18001" end="21600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="74" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="21601" end="25200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="204" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="25201" end="28800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="352" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="28801" end="32400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="383" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="32401" end="36000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="351" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="36001" end="39600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="292" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="39601" end="43200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="276" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="43201" end="46800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="284" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="46801" end="50400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="318" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="50401" end="54000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="343" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="54001" end="57600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="398" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="57601" end="61200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="408" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="61201" end="64800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="431" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="64801" end="68400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="402" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="68401" end="72000" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="320" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="72001" end="75600" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="267" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="75601" end="79200" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="240" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="79201" end="82800" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="205" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+	<flow begin="82801" end="86400" route="Wynn-PrkSD-Belmont-BTH/2-WB-15-Distrib" vehsPerHour="140" speed="13.41" type="US1-ALL-SB_Dis" departPos="free" departSpeed="max"/>
+</calibrator>
+>>>>>>> 5384f079850537bd07bf47a379f46fbae5d078e0
 </additional>
