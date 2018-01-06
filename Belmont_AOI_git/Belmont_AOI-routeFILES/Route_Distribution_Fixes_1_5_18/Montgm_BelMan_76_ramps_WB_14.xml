@@ -1,0 +1,8 @@
+<routes>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_176" depart="20" from="-12180067#5" to="12319898#1"/>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_177" depart="20" from="-12180067#5" to="104526256-AddedOnRampEdge"/>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_178" depart="20" from="-12180067#5" to="-448845166"/>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_179" depart="20" from="-12180067#5" to="-43119842"/>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_180" depart="20" from="-12180067#5" to="-42706763#2"/>
+    <trip id="Montgm_BelMan_76_ramps_WB_14_110748_181" depart="20" from="-12180067#5" to="196358983#8"/>
+</routes>

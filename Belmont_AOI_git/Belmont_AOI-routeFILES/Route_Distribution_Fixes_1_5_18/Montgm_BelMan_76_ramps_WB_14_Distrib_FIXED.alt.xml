@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 01/05/18 18:45:57 by SUMO duarouter Version 0.31.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V6-Limited_Roads.net.xml"/>
+        <additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml"/>
+        <route-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Route_Distribution_Fixes_1_5_18\Montgm_BelMan_76_ramps_WB_14.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Route_Distribution_Fixes_1_5_18\Montgm_BelMan_76_ramps_WB_14_Distrib_FIXED.xml"/>
+        <vtype-output value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-1-3-2018-DELETE_ME-Vtypes.xml"/>
+        <exit-times value="false"/>
+    </output>
+
+    <processing>
+        <ignore-errors value="false"/>
+        <unsorted-input value="true"/>
+        <max-alternatives value="10"/>
+        <repair value="true"/>
+        <routing-threads value="3"/>
+        <weights.expand value="true"/>
+        <routing-algorithm value="dijkstra"/>
+        <gawron.beta value="0.9"/>
+        <gawron.a value="0.5"/>
+        <keep-all-routes value="true"/>
+        <logit value="false"/>
+        <logit.beta value="0.15"/>
+        <logit.gamma value="1"/>
+    </processing>
+
+    <defaults>
+        <departlane value="best"/>
+        <departpos value="free"/>
+        <departspeed value="max"/>
+        <arrivallane value="current"/>
+        <arrivalpos value="max"/>
+        <arrivalspeed value="current"/>
+    </defaults>
+
+    <time>
+        <begin value="0"/>
+        <end value="86400"/>
+    </time>
+
+    <report>
+        <verbose value="true"/>
+        <no-warnings value="false"/>
+        <no-step-log value="false"/>
+    </report>
+
+    <random_number>
+        <random value="false"/>
+    </random_number>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_176" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="114.38" probability="1.00000000" edges="-12180067#5 -12180067#3 -12180067#2 -12180067#1 424978639.0 424978639.102 387423966 424978644 423965484 196358954#0 196358954#1 448887868 448887901 12149612#0 12149612#1 12149612#2 12149612#4 12149612#5 448845222 448845221 448845220#0 448845223#0 423966001 424978164 424978163 423965996 423965997 12319898#0 12319898#1"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_177" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="164.06" probability="1.00000000" edges="-12180067#5 -12180067#3 -12180067#2 -12180067#1 424978639.0 424978639.102 387423966 424978644 423965484 196358954#0 12149487#0 180860085#0 180860085#1 180860085#2 180860085#3 448887904 448887906 448887908 448887907 448887889 448887879 448887886 180860083#0 448887887 12206200 448887872 119667113 63067896 104526256-AddedOnRampEdge"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_178" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="119.96" probability="1.00000000" edges="-12180067#5 -12180067#3 -12180067#2 -12180067#1 424978639.0 424978639.102 12180460#0 196358988#0 49940061 196358983#0 196358983#1 196358983#2 196358983#3 12200500#5 12200500#6 121496098#0 121496098#1 -448845174#1 -448845166"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_179" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="122.22" probability="1.00000000" edges="-12180067#5 -12180067#3 12156616#3 -12156611#0 12180067#2 12180067#3 12180067#4 12180067#6 12180067#7 12180067#9 486653628 43117623 -43357850#9 -145818800 -43119842"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_180" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="92.50" probability="1.00000000" edges="-12180067#5 -12180067#3 -12180067#2 -12180067#1 -424978647#1 -423967352 -423967359#1 -423967359#0 -423967356 -424978643 -423967357 -423967353 -423967354 -423967355 -423967358#2 -423967358#1 -423967058#1 -423967058#0 -424824620 -424824619 -423956982 -424824621 -423956981 -424803245 -424803247#1 134557563#9 134557563#10 -42706763#5 -42706763#3 -42706763#2"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="Montgm_BelMan_76_ramps_WB_14_110748_181" depart="20.00" departLane="best" departPos="free" departSpeed="max" arrivalLane="current" arrivalPos="max" arrivalSpeed="current">
+        <routeDistribution last="0">
+            <route cost="113.42" probability="1.00000000" edges="-12180067#5 -12180067#3 -12180067#2 -12180067#1 424978639.0 424978639.102 12180460#0 196358988#0 49940061 196358983#0 196358983#1 196358983#2 196358983#3 196358983#4 196358983#5 196358983#6 196358983#7 196358983#8"/>
+        </routeDistribution>
+    </vehicle>
+</routes>
