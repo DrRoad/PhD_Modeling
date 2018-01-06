@@ -28,7 +28,7 @@ steps_TT = int(estimated_Run_Time)
 # Initalize Files
 edgeLISTa = SP.Edge.create_Edge_Instances()
 wb = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,PATH=None)[0]
-periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,display=1)[1]
+periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,display=0)[1]
 
 # Take a step(s)
 SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
@@ -65,7 +65,8 @@ edge_cashe_LOAD_PATH = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C
 
 while bool(Edge_i_VehIDs_lastStep_j) is False:
      traci.simulationStep()
-     Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(edgeLISTa[73].edgeID)
+     Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+     Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(edgeLISTa[4].edgeID)
      
      
 

@@ -48,7 +48,7 @@ class Edge():
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
     
-    def logger(self):#, vehID, ESAL_contrib, Emergancy_Stop, Accident):
+    def log(self):#, vehID, ESAL_contrib, Emergancy_Stop, Accident):
         Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(self.edgeID)
         # if len(Edge_i_VehIDs_lastStep_j) > 0:
             # print("\n",self.Bel_Dic_ID," - Edge_i_VehIDs_lastStep_j = ",Edge_i_VehIDs_lastStep_j)
@@ -80,7 +80,10 @@ class Edge():
                     else:
                         print("I Don't Know What you Are")
                         
-    def create_Edge_Instances():
+    @classmethod # means class instead of self (Edge.create_Edge_Instances() becomes create_Edge_Instances(Edge))
+    def create_Edge_Instances(cls):
+        # @staticmethod # means no self
+        # def create_Edge_Instances():
         tabber = "<>"
         print("\n\t\t\t\t<><>Please wait creating Edge Instances<><>\n")
         edgeLISTa = list()
@@ -89,7 +92,7 @@ class Edge():
             edgeNAME = "edge_"+str(counter) #str(SP.Belmont_AVEDic[counter])
             edgeLISTa.append(edgeNAME)
             # print(edgeLISTa[counter])
-            edgeLISTa[counter]= Edge()
+            edgeLISTa[counter]= cls()
             edgeLISTa[counter].set(Belmont_Ave[counter],counter)
             print("Edge = ", counter,tabber,end='\r',flush=True)#, edgeLISTa[counter].__dict__)
             counter = counter + 1
@@ -100,6 +103,12 @@ class Edge():
                 tabber = str(tabber+"<>")#\t")
         print("\n\t\t\t\t<<<Edge Instances loaded on edgeLISTa>>>\n")
         return edgeLISTa
+        
+    def __str__(self): #[str(edge) for edge in edgeLISTa]
+        return str(self.__dict__)
+    
+    def __repr__(self):
+        return repr(self.__dict__)
         
     # def edgeLIST(self):
         # for edge_i in SP.Belmont_Ave[:]:
@@ -145,7 +154,7 @@ class Network_Period:
         for period in range(int(int(estimated_Run_Time)/PERIOD_VARRIABLE)):
             periodNAME = "Period_"+str(((PERIOD_VARRIABLE)*(period))+1)+"_to_"+str((((PERIOD_VARRIABLE)*(period)+1)+PERIOD_VARRIABLE))
             periodNamesLISTa.append(periodNAME)
-        print("/n<><><periodNamesLISTa = ",periodNamesLISTa)
+        # print("/n<><><periodNamesLISTa = ",periodNamesLISTa)
         from openpyxl.utils.dataframe import dataframe_to_rows
         for i in range(0,len(periodNamesLISTa[:])):
             # print("\nwb.get_sheet_names()[0] = ",wb.get_sheet_names()[0])
@@ -175,6 +184,9 @@ class Network_Period:
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))#,">>>\wb[wb.get_sheet_names()[periodCounter+1]] = ",wb[wb.get_sheet_names()[periodCounter+1]])#, " ...But...\nNow periodCounter = ", round(periodCounter))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #grabs the currennt period sheet
+        print(type(logger_TEMPDF))
+        logger_TEMPDF = pd.DataFrame(logger_TEMPDF)
+        print(type(logger_TEMPDF))
         counter = 0
         for edge_i in Belmont_Ave[:]: 
             logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Vehicles'] = (edgeLISTa[counter].truckCount + edgeLISTa[counter].carCount)
@@ -186,22 +198,28 @@ class Network_Period:
             maxSpeedo = edgeLISTa[counter].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
             logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Dynamic_Max_Speed'] = maxSpeed_i
+            if counter == 4:
+                print("edgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'],"<><>\n")
             counter += 1
         ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
         # print("\n logger_TEMPDF = \n",logger_TEMPDF, "\n<><>\n")
         from openpyxl.utils.dataframe import dataframe_to_rows  ##http://openpyxl.readthedocs.io/en/default/tutorial.html
         # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
-        for r in dataframe_to_rows(logger_TEMPDF, index=False, header=True): 
+        ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
+        for r in dataframe_to_rows(logger_TEMPDF, index=False, header=True):
+            print(r)
             wb[wb.get_sheet_names()[periodCounter-1]].append(r) # "-1" because we want to fill in the sheet from the perivious period.
-        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter]] = ",wb[wb.get_sheet_names()[periodCounter-1]],"\n")
         # logger_TEMPDF.to_excel(writer, sheet_name =periodNamesLISTa[periodCounter])# 
         # print(">>>\nwb.get_sheet_names() = ",wb.get_sheet_names())
         wb.save(filename = PATH_to_Save_to)
-        wb.close
+        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter]] = ",wb[wb.get_sheet_names()[periodCounter-1]],"\n")
+        # wb.close()
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
+        if periodCounter != 1:
+            print("edgeLISTa[4] = ",edgeLISTa[4])
         ## Why do I need to reset the logger? Will it slow things down towards the end? 
         ## Edge._restLOGGER(edgeLISTa)
-        return wb
+        return wb 
             
         
 class Initializer:
@@ -301,7 +319,7 @@ class Runner:
         addTesterTrucks = 0
         #Initializer.runSUMO(SUMO_Traci_PORT)[0]
         Period_Break_Point=('50','1000','2500')
-        periodCounter = 0#1/PERIOD_VARRIABLE
+        periodCounter = (traci.simulation.getCurrentTime()/1000)#/PERIOD_VARRIABLE # was 0
         Sim_Step_Count = 0
         # if typeRun == None:
             # typeRun = 2
@@ -343,18 +361,17 @@ class Runner:
             while traci.simulation.getCurrentTime()/1000 < NextTimeToStop:
                 ##WHAT I NEED HERE IS A WAY TO GENERATE NEW NETWORK_DFs PER PERIOD
                 traci.simulationStep()
-                Sim_Step_Count = Sim_Step_Count + 1
-                #############################################PC.condition.Truck_Count_III(useCase, Sim_Step_Count, PERIOD_VARRIABLE = int(PERIOD_VARRIABLE))
-                steps_TT = NextTimeToStop - Start_Time
+                Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+                periodCounter += 1#(1/PERIOD_VARRIABLE)
                 # if (steps_TT/10).is_integer:
                     # print(" steps_TT = ",steps_TT, "Sim_Step_Count = ",Sim_Step_Count)
         #aperiodDIC = pp.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX) #Runner became self
-        print("<>\n<><>\n<><><>\nperiodCounter = ",periodCounter, "periodNamesLISTa = ",periodNamesLISTa)
+        print("<>\n<><>\n<><><>\nperiodCounter = ",periodCounter)#, "periodNamesLISTa = ",periodNamesLISTa)
         return # edgeLISTa
                     
     def thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa):
         for i in range(len(Belmont_Ave)):
-            edgeLISTa[i].logger()
+            edgeLISTa[i].log()
         ##Every minute ie 60 seconds update Network file
         ##Every Period length save Network as a new sheet in a workbook
         # if round(periodCounter,len(str(PERIOD_VARRIABLE))+1) %1 == 0:
@@ -365,6 +382,7 @@ class Runner:
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
             Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa)
+            print("\n\n\n<><>edgeLISTa[4] = ", edgeLISTa[4])
         # return edgeLISTa
                     
 
