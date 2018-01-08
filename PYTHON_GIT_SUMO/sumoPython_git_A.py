@@ -30,7 +30,7 @@ Belmont_AVEDic ={0: '-12150712#3',1: '-12150712#4',2: '-12150712#6',3: '-1232790
 equiv_ESAL = {'Car' : 0.0007, 'Truck' : 0.10, 'Semi' : 1.35, '40ftBus' : 1.85}
 
 class Edge():
-    import sumolib
+    # import sumolib
     
     # edge_list = []
     def __init__(self):#, edgeID):#, SUMOID):
@@ -183,17 +183,17 @@ class Network_Period:
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
         counter = 0
         #for edge_i in Belmont_Ave[:]:
-        for n in range(len(edgeLISTa)):
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'] = edgeLISTa[n].truckCount
+        for n in range(len(edgeLISTa)): ## I need Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']. 1-8-18 saved over tempalte with for loop range(len(edgeLISTa)): newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID 
+            logger_TEMPDF.loc[n,'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
+            logger_TEMPDF.loc[n,'Total_Trucks'] = edgeLISTa[n].truckCount
             ## logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Total_Trucks'] = edgeLISTa[n].truckCount
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'ESAL'] = edgeLISTa[n].ESAL_TOT
+            logger_TEMPDF.loc[n,'ESAL'] = edgeLISTa[n].ESAL_TOT
             Condition_RTi = 100.00 - (edgeLISTa[n].ESAL_TOT) * 0.01339
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'Condition_Index'] = Condition_RTi
+            logger_TEMPDF.loc[n,'Condition_Index'] = Condition_RTi
             # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Original_Max_Speed']
             maxSpeedo = edgeLISTa[n].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'Dynamic_Max_Speed'] = maxSpeed_i
+            logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
             # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Vehicles'] = (edgeLISTa[counter].truckCount + edgeLISTa[counter].carCount)
             # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'] = edgeLISTa[counter].truckCount
             # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'ESAL'] = edgeLISTa[counter].ESAL_TOT
@@ -206,13 +206,13 @@ class Network_Period:
             
             ##Validating writing below here
             if n == 4:
-                print("\n[<<[<[<>]>]>>]edgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'],"[<<[<[<>]>]>>]\n")
+                print("\n[<<[<[<>]>]>>]\nedgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
             counter += 1
         ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
         # http://openpyxl.readthedocs.io/en/default/tutorial.html   
         # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
         ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
-        Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX)
+        Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
 
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
         # if periodCounter != 1:
@@ -221,36 +221,40 @@ class Network_Period:
         ## Edge._restLOGGER(edgeLISTa)
         return  
             
-    def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX):
+    def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa):
         # from openpyxl import load_workbook
         ## openpyxl.worksheet.Worksheet.cell() method from  https://openpyxl.readthedocs.io/en/default/tutorial.html#data-storage
         PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
-        print("\n[[[<><><>]]]Starting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"\n\n[[[<><><>]]]")
-        counter_i = 0
-        counter_j = 0
+        print("\n[[[<><><>]]]\nStarting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"\n\n[[[<><><>]]]")
+        wsROW = 0
         for i in range(logger_TEMPDF.shape[0]):
-            counter_i +=1
-            counter_j = 0
+            wsROW +=1 
+            wsCOL =0
             for j in range(logger_TEMPDF.shape[1]):
-                counter_j +=1
-                if i == 0:
-                    ws.cell(row=counter_i, column=counter_j, value=logger_TEMPDF.columns[j])
-                    print("\t\t\t\t<Writing Headers>")
-                    ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
+                wsCOL +=1
+                if i == 1:
+                    ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
+                    if i == 1 and j == 1:
+                        print("\t\t\t\t<Writing Headers>")
+                    ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
                 else:
-                    ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
-                if i == 6:
-                    print("Writing cell(",counter_i+1,",",counter_j,"value=logger_TEMPDF.iloc[i,j]","((i= ",i,",j=",j,"))")
-            if i == 6:
+                    ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
+            if i == 7:
                 wsdf = pd.DataFrame(ws.values)
-                print("counter_i,counter_j = ",counter_i,",",counter_j,"\n     wsdf.iloc[4] = ", wsdf.iloc[4],"\n and this should equal logger_TEMPDF.iloc[4] ",logger_TEMPDF.iloc[4])
+                print("Writing edge: ", logger_TEMPDF.iloc[6,0],"\n")
+                # print("\n{{{{{{<><>(i+1,j) = (",i+1,",",j,") [[[i+1 b/c of headers]]]\n     wsdf.iloc[4] = ", wsdf.iloc[4],"\n and this should equal logger_TEMPDF.iloc[4] ",logger_TEMPDF.iloc[4],"<><>}}}}}}\n")
+                # print("\n[[<><>]] logger_TEMPDF.iloc[4,0] = ", logger_TEMPDF.iloc[4,0]," wsdf.iloc[4,0] = ", wsdf.iloc[4,0], "||||||||   wsdf.iloc[6,0] = ", wsdf.iloc[6,0],"[[<><>]]\n")
+                print("Please be true ... ", logger_TEMPDF.loc[6,'Total_Trucks'] == edgeLISTa[6].truckCount,"\nPlease be true ... ", wsdf.iloc[7,6] == edgeLISTa[6].truckCount)
+                logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = pd.DataFrame(ws.values)
         wb.save(PATH_to_Save_to)
         print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t this should match ws: ",ws,"\n\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
         return wb
+        
+
         
 class Initializer:
     
@@ -362,13 +366,13 @@ class Runner:
         elif str(typeRun) == "2": #run for XXX Steps VAR -> steps_TT
             #print("\nCheck Check... typeRun is: ",typeRun,"=2(?)")
             #addTesterTrucks = input("\nDO you want to add some test truckers (1/0)?")
-            estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
-            if estimated_Run_Time == '':
-                estimated_Run_Time = 90000
-                print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
-                steps_TT = int(estimated_Run_Time)
-            if steps_TT == None:
-                steps_TT = input("How many steps would you like to take? ")
+            # estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
+            # if estimated_Run_Time == '':
+                # estimated_Run_Time = 90000
+                # print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
+                # steps_TT = int(estimated_Run_Time)
+            # if steps_TT == None:
+            steps_TT = input("How many steps would you like to take? ")
             #No_next_steps = int(steps_TT)
             if addTesterTrucks == "1":
                 traci.simulationStep()
@@ -416,8 +420,8 @@ class Runner:
                 # Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa,workBooker)
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
-            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa)
-            print("\n\n\n<><>edgeLISTa[4] = ", edgeLISTa[4])
+            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)#,periodNamesLISTa)
+            #print("\n\n\n<><>edgeLISTa[4] = ", edgeLISTa[4])
         # return edgeLISTa
                     
 

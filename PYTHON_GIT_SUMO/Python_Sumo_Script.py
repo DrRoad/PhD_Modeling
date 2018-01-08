@@ -35,8 +35,7 @@ SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT
 
 
 ### I am up to here ###
-traci.simulationStep()
-SP.Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+
 
 
 
@@ -64,14 +63,14 @@ SP.Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_
         
         
         
-edge_i_cashe_csv = pd.read_csv(PATH_edge_i_cashe_TEMPLATE)
-edge_cashe_LOAD_PATH = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES" + "/" + PC.condition.Belmont_AVEDic[edge_i] +".csv"
+# edge_i_cashe_csv = pd.read_csv(PATH_edge_i_cashe_TEMPLATE)
+# edge_cashe_LOAD_PATH = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES" + "/" + PC.condition.Belmont_AVEDic[edge_i] +".csv"
 
-
-while bool(Edge_i_VehIDs_lastStep_j) is False:
-     traci.simulationStep()
-     Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
-     Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(edgeLISTa[4].edgeID)
+###Run until we have values
+# while bool(Edge_i_VehIDs_lastStep_j) is False:
+     # traci.simulationStep()
+     # Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+     # Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(edgeLISTa[4].edgeID)
      
      
 
@@ -80,7 +79,23 @@ while bool(Edge_i_VehIDs_lastStep_j) is False:
 # change up dictionary
 # hard code
 # add hourly cars to evaluate network performance
-    
+
+
+### Changing up Template 1-8-18 ##
+
+# PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+# newTemplate = pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+# for i in range(len(edgeLISTa)):
+    # newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID
+# pd.DateFrame(newTemplate)
+# newTemplate.to_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+# for n in range(75,len(edgeLISTa)):
+    # if Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']:
+        # print(" Matches ",edgeLISTa[n].edgeID," Hell's Yeah!")
+
+
+
+
 # edges = {SP.Belmont_AVEDic[edge]: SP.Edge() for edge in SP.Belmont_Ave}
     # %recall = SP.Edge(str(edge_i))
     # setattr(self, edgeNAME, SP.Edge(str(edge_i)))
