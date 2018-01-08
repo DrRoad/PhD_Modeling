@@ -203,15 +203,16 @@ class Network_Period:
             counter += 1
         ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
         # print("\n logger_TEMPDF = \n",logger_TEMPDF, "\n<><>\n")
-        from openpyxl.utils.dataframe import dataframe_to_rows  ##http://openpyxl.readthedocs.io/en/default/tutorial.html
+        # from openpyxl.utils.dataframe import dataframe_to_rows  ##http://openpyxl.readthedocs.io/en/default/tutorial.html
         # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
         ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
-        for r in dataframe_to_rows(logger_TEMPDF, index=False, header=True):
-            print(r)
-            wb[wb.get_sheet_names()[periodCounter-1]].append(r) # "-1" because we want to fill in the sheet from the perivious period.
+        # for r in dataframe_to_rows(logger_TEMPDF, index=False, header=True):
+            # print(r)
+            # wb[wb.get_sheet_names()[periodCounter-1]].append(r) # "-1" because we want to fill in the sheet from the perivious period.
         # logger_TEMPDF.to_excel(writer, sheet_name =periodNamesLISTa[periodCounter])# 
         # print(">>>\nwb.get_sheet_names() = ",wb.get_sheet_names())
-        wb.save(filename = PATH_to_Save_to)
+        #wb.save(filename = PATH_to_Save_to)
+        myWrite_to_excel(logger_TEMPDF)
         print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter]] = ",wb[wb.get_sheet_names()[periodCounter-1]],"\n")
         # wb.close()
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
@@ -221,6 +222,21 @@ class Network_Period:
         ## Edge._restLOGGER(edgeLISTa)
         return wb 
             
+    def myWrite_to_excel(logger_TEMPDF):
+        counter_i = 0
+        counter_j = 0
+        for i in range(logger_TEMPDF.shape[0]):
+            counter_i +=1
+            counter_j = 0
+            for j in range(logger_TEMPDF.shape[1]):
+                counter_j +=1
+                if i == 0:
+                    ws.cell(row=counter_i, column=counter_j, value=logger_TEMPDF.columns[j])
+                    ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
+                else:
+                    ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
+        wb.save(PATH_to_Save_to)
+        return wb
         
 class Initializer:
     
