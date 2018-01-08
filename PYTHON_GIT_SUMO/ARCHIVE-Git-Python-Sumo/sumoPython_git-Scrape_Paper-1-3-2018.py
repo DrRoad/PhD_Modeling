@@ -57,3 +57,27 @@ maxSpeed_i = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(B
 edge_i = Belmont_Ave[9]
 
 traci.edge.setMaxSpeed(Belmont_Ave[9],maxSpeed_i)
+
+
+############# My excel writer
+wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
+periodCounter = 6
+periodCounter = int(round(periodCounter))
+# Active worksheet
+ws = wb[wb.get_sheet_names()[periodCounter-1]]
+logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+
+
+counter_i = 0
+counter_j = 0
+for i in range(logger_TEMPDF.shape[0]):
+    counter_i +=1
+    counter_j = 0
+    for j in range(logger_TEMPDF.shape[1]):
+        counter_j +=1
+        if i == 0:
+            ws.cell(row=counter_i, column=counter_j, value=logger_TEMPDF.columns[j])
+            ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
+        else:
+            ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
+wb.save(PATH_to_Save_to)

@@ -18,7 +18,7 @@ configPATH = "C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI-
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 # PATH_Network_DF_Period_0t00_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_TEMPLATE.csv'
-PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 # PATH_edge_i_cashe_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Edge_i_cashe_TEMPLATE.csv' 
 PATH_BMAOI_edgeCasheFILES = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES'
 PATH_Network_DF_Period_0t00_DF = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_DF.csv'
@@ -141,7 +141,7 @@ class Network_Period:
         if display != 0:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
         if PATH == None:
-            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
             PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
         # worksheet1 = testXLSX.active
@@ -172,63 +172,59 @@ class Network_Period:
         wb.close()
         return wb, periodNamesLISTa 
         
-    def fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa):
+    def fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa):
         #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
         if periodCounter == 0:
             return
+        # from openpyxl import load_workbook
+        PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 
-        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
-        print("\n\n<><><periodCounter = ",int(round(periodCounter)))
+        print("\n\n<><><periodCounter = ",int(round(periodCounter)))#,">>>\wb[wb.get_sheet_names()[periodCounter+1]] = ",wb[wb.get_sheet_names()[periodCounter+1]])#, " ...But...\nNow periodCounter = ", round(periodCounter))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
-        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
+        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #grabs the currennt period sheet
+        print(type(logger_TEMPDF))
+        logger_TEMPDF = pd.DataFrame(logger_TEMPDF)
+        print(type(logger_TEMPDF))
         counter = 0
-        #for edge_i in Belmont_Ave[:]:
-        for n in range(len(edgeLISTa)):
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'] = edgeLISTa[n].truckCount
-            ## logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Total_Trucks'] = edgeLISTa[n].truckCount
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'ESAL'] = edgeLISTa[n].ESAL_TOT
-            Condition_RTi = 100.00 - (edgeLISTa[n].ESAL_TOT) * 0.01339
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'Condition_Index'] = Condition_RTi
-            # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Original_Max_Speed']
-            maxSpeedo = edgeLISTa[n].originalMAXSPEED
+        for edge_i in Belmont_Ave[:]: 
+            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Vehicles'] = (edgeLISTa[counter].truckCount + edgeLISTa[counter].carCount)
+            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'] = edgeLISTa[counter].truckCount
+            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'ESAL'] = edgeLISTa[counter].ESAL_TOT
+            Condition_RTi = 100.00 - (edgeLISTa[counter].ESAL_TOT) * 0.01339
+            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Condition_Index'] = Condition_RTi
+            # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Original_Max_Speed']
+            maxSpeedo = edgeLISTa[counter].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
-            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID[n]),'Dynamic_Max_Speed'] = maxSpeed_i
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Vehicles'] = (edgeLISTa[counter].truckCount + edgeLISTa[counter].carCount)
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'] = edgeLISTa[counter].truckCount
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'ESAL'] = edgeLISTa[counter].ESAL_TOT
-            # Condition_RTi = 100.00 - (edgeLISTa[counter].ESAL_TOT) * 0.01339
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Condition_Index'] = Condition_RTi
-            # # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Original_Max_Speed']
-            # maxSpeedo = edgeLISTa[counter].originalMAXSPEED
-            # maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Dynamic_Max_Speed'] = maxSpeed_i
-            
-            ##Validating writing below here
-            if n == 4:
-                print("\n[<<[<[<>]>]>>]edgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'],"[<<[<[<>]>]>>]\n")
+            logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Dynamic_Max_Speed'] = maxSpeed_i
+            if counter == 4:
+                print("edgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'],"<><>\n")
             counter += 1
         ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
-        # http://openpyxl.readthedocs.io/en/default/tutorial.html   
+        # print("\n logger_TEMPDF = \n",logger_TEMPDF, "\n<><>\n")
+        # from openpyxl.utils.dataframe import dataframe_to_rows  ##http://openpyxl.readthedocs.io/en/default/tutorial.html
         # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
         ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
+        # for r in dataframe_to_rows(logger_TEMPDF, index=False, header=True):
+            # print(r)
+            # wb[wb.get_sheet_names()[periodCounter-1]].append(r) # "-1" because we want to fill in the sheet from the perivious period.
+        # logger_TEMPDF.to_excel(writer, sheet_name =periodNamesLISTa[periodCounter])# 
         Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX)
-
+        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter]] = ",wb[wb.get_sheet_names()[periodCounter-1]],"\n")
+        # wb.close()
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
-        # if periodCounter != 1:
-            # print("edgeLISTa[4] = ",edgeLISTa[4])
+        if periodCounter != 1:
+            print("edgeLISTa[4] = ",edgeLISTa[4])
         ## Why do I need to reset the logger? Will it slow things down towards the end? 
         ## Edge._restLOGGER(edgeLISTa)
-        return  
+        return wb 
             
     def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX):
-        # from openpyxl import load_workbook
         ## openpyxl.worksheet.Worksheet.cell() method from  https://openpyxl.readthedocs.io/en/default/tutorial.html#data-storage
         PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
-        print("\n[[[<><><>]]]Starting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"\n\n[[[<><><>]]]")
+        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         counter_i = 0
         counter_j = 0
         for i in range(logger_TEMPDF.shape[0]):
@@ -238,18 +234,10 @@ class Network_Period:
                 counter_j +=1
                 if i == 0:
                     ws.cell(row=counter_i, column=counter_j, value=logger_TEMPDF.columns[j])
-                    print("\t\t\t\t<Writing Headers>")
                     ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
                 else:
                     ws.cell(row=counter_i+1, column=counter_j, value=logger_TEMPDF.iloc[i,j])
-                if i == 6:
-                    print("Writing cell(",counter_i+1,",",counter_j,"value=logger_TEMPDF.iloc[i,j]","((i= ",i,",j=",j,"))")
-            if i == 6:
-                wsdf = pd.DataFrame(ws.values)
-                print("counter_i,counter_j = ",counter_i,",",counter_j,"\n     wsdf.iloc[4] = ", wsdf.iloc[4],"\n and this should equal logger_TEMPDF.iloc[4] ",logger_TEMPDF.iloc[4])
-        wsdf = pd.DataFrame(ws.values)
         wb.save(PATH_to_Save_to)
-        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t this should match ws: ",ws,"\n\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
         return wb
         
 class Initializer:
@@ -389,7 +377,7 @@ class Runner:
             print("\nCurrent Time is: ",str(traci.simulation.getCurrentTime()/1000))
             # import ipdb
             # ipdb.set_trace()
-            NextTimeToStop = input("\nWhat time (in seconds) would you like this run of the simulation to end at? ... ")
+            NextTimeToStop = input("\nWhen would you like to run until? ... ")
             NextTimeToStop = int(NextTimeToStop)
             #######PERIOD_VARRIABLE = input("\nWhat would you like the Period of Collection to be default is seconds 28801 or 8:00am? ... ")
             print("\t\t\t<><>Running until time: ",NextTimeToStop,"<><>")
@@ -416,7 +404,7 @@ class Runner:
                 # Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa,workBooker)
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
-            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa)
+            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa)
             print("\n\n\n<><>edgeLISTa[4] = ", edgeLISTa[4])
         # return edgeLISTa
                     

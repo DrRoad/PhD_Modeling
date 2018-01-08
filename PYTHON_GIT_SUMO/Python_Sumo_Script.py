@@ -20,10 +20,10 @@ SP.Initializer.startSUMO(SUMO_Traci_PORT,useCase=str(1))
     # Ask for Steps to take or Time to run until
 typeRun = SP.Runner.runtypeAsker()
 Start_Time = int(traci.simulation.getCurrentTime()/1000) #SP.Initializer.runSUMO(SUMO_Traci_PORT,useCase="Continue")[0]
-estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
-if estimated_Run_Time == '':
-    estimated_Run_Time = 90000
-    print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
+# estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
+# if estimated_Run_Time == '':
+estimated_Run_Time = 90000
+    # print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
 steps_TT = int(estimated_Run_Time)
 # Initalize Files
 edgeLISTa = SP.Edge.create_Edge_Instances()
@@ -35,6 +35,11 @@ SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT
 
 
 ### I am up to here ###
+traci.simulationStep()
+SP.Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+
+
+
 
 # ##workin on saving excel correctly
 # import openpyxl as OPENxlsx
