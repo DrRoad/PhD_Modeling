@@ -2,7 +2,7 @@
 
 <input>	
 	<net-file value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
-	<additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION2.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V5-SUMO31-15min.xml"/>  <!-- V6!!!!!!!! -->
+	<additional-files value="C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION2.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml"/>  <!-- V6!!!!!!!! -->
 		<!--  		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-15min.xml
 		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-30min.xml
 		C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V4-SUMO31-60min.xml
@@ -38,9 +38,11 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BM_test-TRACI-num_40-"/>
+    <output-prefix value="BM_test-TRACI-num_41-"/>
 	<!-- <output-prefix value="BM_test-TRACI-num_26-"/> -->
 	<!-- NOTES on different runs::: 
+    42 -  V6 31
+    41 - went back to V30 for calibrators - didn't get past 1400secs
     30 - no remote-port options <- find out how to connect to the sim when luanched from gui.
     29 - new networks, working out distribution bugs, trying to find out why simulation suddenly crashes
 	24 - device.rerouting consquences unknown, trying to make network_DF_period an excel file

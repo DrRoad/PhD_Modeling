@@ -144,18 +144,13 @@ class Network_Period:
             PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
             PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
-        # worksheet1 = testXLSX.active
-        # worksheet1.title = "work sheet number 1"
-        # worksheet_2 = testXLSX.create_sheet(title = "WS#2")
-
-        estimated_Run_Time = 90000 #steps_TT
+        full_Run_Time = 90000 #steps_TT
         Network_DF_Period_0t00xlsx=pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         periodNamesLISTa = list()
-        for period in range(int(int(estimated_Run_Time)/PERIOD_VARRIABLE)):
+        for period in range(int(int(full_Run_Time)/PERIOD_VARRIABLE)):
             periodNAME = "Period_"+str(((PERIOD_VARRIABLE)*(period))+1)+"_to_"+str((((PERIOD_VARRIABLE)*(period)+1)+PERIOD_VARRIABLE))
             periodNamesLISTa.append(periodNAME)
         # print("/n<><><periodNamesLISTa = ",periodNamesLISTa)
-        from openpyxl.utils.dataframe import dataframe_to_rows
         for i in range(0,len(periodNamesLISTa[:])):
             # print("\nwb.get_sheet_names()[0] = ",wb.get_sheet_names()[0])
             ws = wb.create_sheet(title = periodNamesLISTa[i])
@@ -165,18 +160,15 @@ class Network_Period:
             print("\nRemoving wb.get_sheet_names()[0] = ",wb.get_sheet_names()[0])
             wb.remove_sheet(delme)
             wb.save(filename = PATH_to_Save_to)
-            # for r in dataframe_to_rows(Network_DF_Period_0t00xlsx, index=False, header=True):
-                # wb[wb.get_sheet_names()[i]].append(r)
-        
         wb.save(filename = PATH_to_Save_to)
         wb.close()
         return wb, periodNamesLISTa 
         
     def fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa):
         #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
+        #### BIG CONTRIBUTION PART
         if periodCounter == 0:
             return
-
         # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
@@ -195,27 +187,24 @@ class Network_Period:
             maxSpeedo = edgeLISTa[n].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
             logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
-            
             ##Validating writing below here
             if n == 4:
-                print("\n[<<[<[<>]>]>>]\nedgeLISTa[counter].truckCount = ",edgeLISTa[counter].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
-            counter += 1
-        ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
-        # http://openpyxl.readthedocs.io/en/default/tutorial.html   
-        # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
-        ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
-        Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
+                print("\n[<<[<[<>]>]>>]\nedgeLISTa[4].truckCount = ",edgeLISTa[4].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
 
+        ### NOW SAVE THIS DATAFRAME [[logger_TEMPDF]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
+        Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
+        ### Change max speed of edge based on roadway damage
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
-        # if periodCounter != 1:
-            # print("edgeLISTa[4] = ",edgeLISTa[4])
-        ## Why do I need to reset the logger? Will it slow things down towards the end? 
+        ## Do I need to reset the logger? Will it slow things down towards the end? 
         ## Edge._restLOGGER(edgeLISTa)
         return  
             
     def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa):
+        # https://openpyxl.readthedocs.io/en/default/tutorial.html#data-storage   
+        # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
+        ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
         # from openpyxl import load_workbook
-        ## openpyxl.worksheet.Worksheet.cell() method from  https://openpyxl.readthedocs.io/en/default/tutorial.html#data-storage
+        ## openpyxl.worksheet.Worksheet.cell() method from  
         PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
@@ -236,45 +225,14 @@ class Network_Period:
                     ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
             if i == 7:
                 wsdf = pd.DataFrame(ws.values)
-                print("Please be true ... ", logger_TEMPDF.loc[6,'Total_Trucks'] == edgeLISTa[6].truckCount,"\nPlease be true ... ", wsdf.iloc[7,6] == edgeLISTa[6].truckCount)
+                print("\nPlease be true ... ", wsdf.iloc[7,6] == edgeLISTa[6].truckCount)
                 logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = pd.DataFrame(ws.values)
         wb.save(PATH_to_Save_to)
-        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t this should match ws: ",ws,"\n\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
+        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t\t this should match ws: ",ws,"\n\[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
         return wb
         
-    def fillandSave(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,edgeLISTa):#,periodNamesLISTa):
-        #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
-        periodCounter = (traci.getCurrentTime/1000)/PERIOD_VARRIABLE
-        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
-        periodCounter = int(round(periodCounter))
-        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
-        # logger_TEMPDF =pd.read_excel(SP.PATH_Network_DF_Period_0t00_TEMPLATExlsx)
-        counter = 0
-        #for edge_i in Belmont_Ave[:]:
-        for n in range(len(edgeLISTa)): ## I need Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']. 1-8-18 saved over tempalte with for loop range(len(edgeLISTa)): newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID 
-            logger_TEMPDF.loc[n,'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
-            logger_TEMPDF.loc[n,'Total_Trucks'] = edgeLISTa[n].truckCount
-            ## logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Total_Trucks'] = edgeLISTa[n].truckCount
-            logger_TEMPDF.loc[n,'ESAL'] = edgeLISTa[n].ESAL_TOT
-            Condition_RTi = 100.00 - (edgeLISTa[n].ESAL_TOT) * 0.01339
-            logger_TEMPDF.loc[n,'Condition_Index'] = Condition_RTi
-            # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Original_Max_Speed']
-            maxSpeedo = edgeLISTa[n].originalMAXSPEED
-            maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
-            logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
-        ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
-        # http://openpyxl.readthedocs.io/en/default/tutorial.html   
-        # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
-        ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
-        # Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
-        # Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
-        # if periodCounter != 1:
-            # print("edgeLISTa[4] = ",edgeLISTa[4])
-        ## Why do I need to reset the logger? Will it slow things down towards the end? 
-        ## Edge._restLOGGER(edgeLISTa)
-        return 
-        
+       
 class Initializer:
     
     def __init__(self,new):
@@ -294,8 +252,6 @@ class Initializer:
                             break
                         else:
                             PERIOD_VARRIABLE = int(input("\nWhat would you like the Period of Collection to be default is seconds 3600 or 1 hour? ... "))
-                        # while PERIOD_VARRIABLE.is_integer == False:
-                            # PERIOD_VARRIABLE = input("!!!!!!!!!!!!Type ERROR\t\tPlease Enter an Integer\n\t\t\t\tWhat would you like the Period of Collection to be default is seconds 3600 or 1 hour? ... ")
                     except ValueError:# as err: #https://docs.python.org/3/library/exceptions.html#BaseException 
                         print("\n!!!!!!!!!!!!Type ERROR\n\t\tPlease Enter an Integer\n\tWhat would you like the Period of Collection to be default is seconds 3600 or 1 hour? ... ")
                         continue
@@ -305,7 +261,7 @@ class Initializer:
                         break
         else:
             print("PERIOD_VARRIABLE = ", PERIOD_VARRIABLE)
-            return PERIOD_VARRIABLE
+        return int(PERIOD_VARRIABLE)
 
 
     def startSUMO(SUMO_Traci_PORT,useCase=None):
@@ -397,9 +353,9 @@ class Runner:
             numb_Periods = input("How many periods would you like to run for? ")
             #No_next_steps = int(steps_TT)
             steps_TT = int(PERIOD_VARRIABLE * int(numb_Periods))
-            print("traci.simulation.getCurrentTime()/1000 = ",traci.simulation.getCurrentTime()/1000," PERIOD_VARRIABLE = ", PERIOD_VARRIABLE, "\nsteps_TT = ",steps_TT)
-            next_sim_stop_time = int((traci.simulation.getCurrentTime()/1000,1)+steps_TT)
-            print("Simulation set to run until ",str(next_sim_stop_time),"\nThis will be ",steps_TT," amount of periods") 
+            # print("traci.simulation.getCurrentTime()/1000 = ",traci.simulation.getCurrentTime()/1000," PERIOD_VARRIABLE = ", PERIOD_VARRIABLE, "\nsteps_TT = ",steps_TT)
+            next_sim_stop_time = int((traci.simulation.getCurrentTime()/1000)+steps_TT)
+            print("Simulation set to run until ",str(next_sim_stop_time),"\n") 
             for step in range(int(steps_TT+1)):
                 traci.simulationStep()
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
@@ -410,34 +366,20 @@ class Runner:
             # ipdb.set_trace()
             NextTimeToStop = input("\nWhat time (in seconds) would you like this run of the simulation to end at? ... ")
             NextTimeToStop = int(NextTimeToStop)
-            #######PERIOD_VARRIABLE = input("\nWhat would you like the Period of Collection to be default is seconds 28801 or 8:00am? ... ")
             print("\t\t\t<><>Running until time: ",NextTimeToStop,"<><>")
             while traci.simulation.getCurrentTime()/1000 < NextTimeToStop:
-                ##WHAT I NEED HERE IS A WAY TO GENERATE NEW NETWORK_DFs PER PERIOD
                 traci.simulationStep()
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
-                periodCounter += 1#(1/PERIOD_VARRIABLE)
-                # if (steps_TT/10).is_integer:
-                    # print(" steps_TT = ",steps_TT, "Sim_Step_Count = ",Sim_Step_Count)
-        #aperiodDIC = pp.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX) #Runner became self
+                periodCounter += 1       #(1/PERIOD_VARRIABLE)
         print("<>\n<><>\n<><><>\nperiodCounter = ",periodCounter)#, "periodNamesLISTa = ",periodNamesLISTa)
         return # edgeLISTa
                     
     def thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa):
         for i in range(len(Belmont_Ave)):
             edgeLISTa[i].log()
-        ##Every minute ie 60 seconds update Network file
-        ##Every Period length save Network as a new sheet in a workbook
-        # if round(periodCounter,len(str(PERIOD_VARRIABLE))+1) %1 == 0:
-            # print("\n\n\n<><> THIS IS A TEST <><><><><>\n len(str(PERIOD_VARRIABLE)+1)= ",len(str(PERIOD_VARRIABLE)),"\n<><><><><><periodCounter><><><><><>",periodCounter,"\nAAAAnd round(periodCounter,len(str(PERIOD_VARRIABLE))+1) %1 = ",(round(periodCounter,len(str(PERIOD_VARRIABLE))+1) %1))
-            # if round(periodCounter,len(str(PERIOD_VARRIABLE))+1) %1 == 0: ## if should still go here
-                # periodCounter = round(periodCounter,0)
-                # Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa,periodNamesLISTa,workBooker)
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
-            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)#,periodNamesLISTa)
-            #print("\n\n\n<><>edgeLISTa[4] = ", edgeLISTa[4])
-        # return edgeLISTa
+            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)
                     
 
     def other_parts_not_yet_implemented():
@@ -456,8 +398,6 @@ class Runner:
         general.outPUT(useCase,Start_Time,PERIOD_VARRIABLE, steps_TT)
         
 class RunFileInfo:
-    
-
 
     def __init__(self):#, SUMO_outPUT_PREFIX,SUMO_Traci_PORT):
         pass
@@ -493,29 +433,4 @@ print("Your new sumoPython_git_A has been loaded!")
         ## Python Sumo Script
 
 ## Grave yard
-    # def thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX):
-        # # self.periodDIC={"period_"+str(periodCounter):Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX)}
-        # # print(type(periodCounter), "periodCounter = ", periodCounter, "periodLISTa = ",periodLISTa)
-        # if periodCounter == 0:
-            # return
-        # elif round(periodCounter,4) == 1:
-            # print(type(round(periodCounter,4)), "periodCounter = ", periodCounter, "periodLISTa = ",periodLISTa)
-            # self.periodDIC["period_"+str(round(periodCounter,0))].excelSAVER()
-            # # self.periodDIC["period_"+str(round(periodCounter,0)+1)] = Runner(PERIOD_VARRIABLE,round(periodCounter,4))#Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX)
-            # self.periodDIC["period_"+str(round(periodCounter,0)+1)] = Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,round(periodCounter,4))
-        # elif round(periodCounter,4) %1 == 0:#.is_integer():#test to see if it is a whole number which would require a new periodFILE  (traci.simulation.getCurrentTime()/1000)/PERIOD_VARRIABLE
-            # print(type(round(periodCounter,4)), "periodCounter = ", periodCounter, "periodLISTa = ",periodLISTa)
-            # self.periodDIC["period_"+str(round(periodCounter,0))].excelSAVER()
-            # self.periodDIC={"period_"+str(round(periodCounter,0)):Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX)}
-            # # self.periodDIC["period_"+str(round(periodCounter,0)+1)] = Runner(PERIOD_VARRIABLE,round(periodCounter,4))
-            # self.periodDIC["period_"+str(round(periodCounter,0)+1)] = Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,round(periodCounter,4))
-            # # self.periodDIC={"period_"+str(round(periodCounter,0)):Network_Period(PERIOD_VARRIABLE,SUMO_outPUT_PREFIX)} #self.periodDIC
-            # # periodDIC_to_save={}
-            # # periodDIC_to_save = periodDIC #self.periodDIC
-            # # periodDIC["period_"+str(periodCounter)].excelSAVER()
-            # print("\n\n....\t...\t..\t.\t<<!>><<>>OLD Period<<>><<!>>\n periodFILE = ",self.periodDIC["period_"+str(round(periodCounter,4))].currentNetwork_DF_Period_PATH,"\n",self.periodDIC["period_"+str(round(periodCounter,4))].currentNetwork_DF_FILE.iloc[38],"\n","Sheetname = ",self.periodDIC["period_"+str(round(periodCounter,4))].currentPeriodSheetname,"\n")
-            # startPeriodTime = int(traci.simulation.getCurrentTime()/1000)
-            # endPeriodTime = startPeriodTime + PERIOD_VARRIABLE
-            # #Network_Period.excelSAVER
-            # # legacy condition.GetSimulationRunPrefix(display = 0)
-            # print("startPeriodTime = ",startPeriodTime, "endPeriodTime = ",endPeriodTime)
+

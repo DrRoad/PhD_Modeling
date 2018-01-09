@@ -35,7 +35,7 @@ SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT
 
 
 ### I am up to here ###
-# # # Dont use this SP.Network_Period.fillandSave(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,edgeLISTa)
+
 
 
 
