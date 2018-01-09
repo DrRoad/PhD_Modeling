@@ -22,8 +22,6 @@
 	<vType id="4_Axle_Trailer"  accel="1.5" decel="2" sigma="0.25" tau="2" length="15" minGap="3" maxSpeed="22" speedFactor="0.9" speedDev="0.1" color="yellow" vClass="trailer" width="2.59" impatience="0.5" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.000259246456965088" guiShape="truck/trailer"/>
 	<vType id="5_Axle_Trailer"  accel="1.25" decel="1" sigma="0.25" tau="2" length="15" minGap="3" maxSpeed="22" speedFactor="0.9" speedDev="0.1" color="yellow" vClass="trailer" width="2.59" impatience="0.5" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.00160901045856798" guiShape="truck/trailer"/>
 	<vType id="6_or_More_Axle_Trailer"  accel="1" decel="1" sigma="0.25" tau="2" length="20" minGap="3" maxSpeed="22" speedFactor="0.8" speedDev="0.1" color="yellow" vClass="trailer" width="2.59" impatience="0.5" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.00677802047758869" guiShape="truck/trailer"/>
-	<vType id="Bus_Public"  accel="0.75" decel="4.5" sigma="0.6" tau="2" length="12.2" minGap="3" maxSpeed="22" speedFactor="1" speedDev="0.1" color="blue" vClass="bus" width="2.59" impatience="0.25" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.0208842479449011" guiShape="bus"/>
-	<vType id="Bus_School"  accel="1" decel="4.5" sigma="0.5" tau="2" length="10.9" minGap="3" maxSpeed="20" speedFactor="1" speedDev="0.1" color="yellow" vClass="bus" width="2.59" impatience="0.25" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.00239808153477218" guiShape="bus"/>
 </vTypeDistribution>
 
 <!-- <vTypeDistribution id="US1-ALL-SB_Dis"> -->

@@ -38,7 +38,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BM_test-TRACI-num_35-"/>
+    <output-prefix value="BM_test-TRACI-num_40-"/>
 	<!-- <output-prefix value="BM_test-TRACI-num_26-"/> -->
 	<!-- NOTES on different runs::: 
     30 - no remote-port options <- find out how to connect to the sim when luanched from gui.

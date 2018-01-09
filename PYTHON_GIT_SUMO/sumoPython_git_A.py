@@ -181,6 +181,7 @@ class Network_Period:
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
+        # logger_TEMPDF =pd.read_excel(SP.PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         counter = 0
         #for edge_i in Belmont_Ave[:]:
         for n in range(len(edgeLISTa)): ## I need Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']. 1-8-18 saved over tempalte with for loop range(len(edgeLISTa)): newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID 
@@ -194,15 +195,6 @@ class Network_Period:
             maxSpeedo = edgeLISTa[n].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
             logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Vehicles'] = (edgeLISTa[counter].truckCount + edgeLISTa[counter].carCount)
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Total_Trucks'] = edgeLISTa[counter].truckCount
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'ESAL'] = edgeLISTa[counter].ESAL_TOT
-            # Condition_RTi = 100.00 - (edgeLISTa[counter].ESAL_TOT) * 0.01339
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Condition_Index'] = Condition_RTi
-            # # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Original_Max_Speed']
-            # maxSpeedo = edgeLISTa[counter].originalMAXSPEED
-            # maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
-            # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edge_i),'Dynamic_Max_Speed'] = maxSpeed_i
             
             ##Validating writing below here
             if n == 4:
@@ -244,9 +236,6 @@ class Network_Period:
                     ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
             if i == 7:
                 wsdf = pd.DataFrame(ws.values)
-                print("Writing edge: ", logger_TEMPDF.iloc[6,0],"\n")
-                # print("\n{{{{{{<><>(i+1,j) = (",i+1,",",j,") [[[i+1 b/c of headers]]]\n     wsdf.iloc[4] = ", wsdf.iloc[4],"\n and this should equal logger_TEMPDF.iloc[4] ",logger_TEMPDF.iloc[4],"<><>}}}}}}\n")
-                # print("\n[[<><>]] logger_TEMPDF.iloc[4,0] = ", logger_TEMPDF.iloc[4,0]," wsdf.iloc[4,0] = ", wsdf.iloc[4,0], "||||||||   wsdf.iloc[6,0] = ", wsdf.iloc[6,0],"[[<><>]]\n")
                 print("Please be true ... ", logger_TEMPDF.loc[6,'Total_Trucks'] == edgeLISTa[6].truckCount,"\nPlease be true ... ", wsdf.iloc[7,6] == edgeLISTa[6].truckCount)
                 logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = pd.DataFrame(ws.values)
@@ -254,7 +243,37 @@ class Network_Period:
         print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t this should match ws: ",ws,"\n\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
         return wb
         
-
+    def fillandSave(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,edgeLISTa):#,periodNamesLISTa):
+        #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
+        periodCounter = (traci.getCurrentTime/1000)/PERIOD_VARRIABLE
+        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+        periodCounter = int(round(periodCounter))
+        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
+        # logger_TEMPDF =pd.read_excel(SP.PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+        counter = 0
+        #for edge_i in Belmont_Ave[:]:
+        for n in range(len(edgeLISTa)): ## I need Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']. 1-8-18 saved over tempalte with for loop range(len(edgeLISTa)): newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID 
+            logger_TEMPDF.loc[n,'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
+            logger_TEMPDF.loc[n,'Total_Trucks'] = edgeLISTa[n].truckCount
+            ## logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Total_Trucks'] = edgeLISTa[n].truckCount
+            logger_TEMPDF.loc[n,'ESAL'] = edgeLISTa[n].ESAL_TOT
+            Condition_RTi = 100.00 - (edgeLISTa[n].ESAL_TOT) * 0.01339
+            logger_TEMPDF.loc[n,'Condition_Index'] = Condition_RTi
+            # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Original_Max_Speed']
+            maxSpeedo = edgeLISTa[n].originalMAXSPEED
+            maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
+            logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
+        ### NOW I WANT TO SAVE THIS DATAFRAME [[CURRENT_SHEET]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
+        # http://openpyxl.readthedocs.io/en/default/tutorial.html   
+        # http://openpyxl.readthedocs.io/en/default/pandas.html#working-with-pandas-dataframes
+        ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
+        # Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
+        # Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
+        # if periodCounter != 1:
+            # print("edgeLISTa[4] = ",edgeLISTa[4])
+        ## Why do I need to reset the logger? Will it slow things down towards the end? 
+        ## Edge._restLOGGER(edgeLISTa)
+        return 
         
 class Initializer:
     
@@ -336,7 +355,7 @@ class Runner:
 
     def runtypeAsker(typeRun=None):
         print("\nBeginning Journey Now\n\tPlease See Gui for Show\n")
-        typeRun = input("\n\nPush T to Run Simulation until the end\nPush 2 to run for XXX Steps\nPush 3 to run until set truck accomulation level\nPush 4 to run until input time\nCurrent Step_Time : "+str(traci.simulation.getCurrentTime()/1000)+"\n\n\tEnter Run Type Here: ")
+        typeRun = input("\n\nPush T to Run Simulation until the end\nPush 2 to run for XXX Steps\nPush 3 to run for X number of periods\nPush 4 to run until input time\nCurrent Step_Time : "+str(traci.simulation.getCurrentTime()/1000)+"\n\n\tEnter Run Type Here: ")
         if typeRun == '':
             typeRun = "2"
             print("You didn't specify! Going with default value... typeRun =", str(typeRun))
@@ -363,15 +382,7 @@ class Runner:
                 traci.simulationStep()
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1
-        elif str(typeRun) == "2": #run for XXX Steps VAR -> steps_TT
-            #print("\nCheck Check... typeRun is: ",typeRun,"=2(?)")
-            #addTesterTrucks = input("\nDO you want to add some test truckers (1/0)?")
-            # estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
-            # if estimated_Run_Time == '':
-                # estimated_Run_Time = 90000
-                # print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
-                # steps_TT = int(estimated_Run_Time)
-            # if steps_TT == None:
+        elif str(typeRun) == "2": 
             steps_TT = input("How many steps would you like to take? ")
             #No_next_steps = int(steps_TT)
             if addTesterTrucks == "1":
@@ -382,13 +393,17 @@ class Runner:
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1#(1/PERIOD_VARRIABLE)
                 ###PC.condition.Truck_Count_III(useCase, Sim_Step_Count, PERIOD_VARRIABLE = int(PERIOD_VARRIABLE))
-        elif str(typeRun) == "3": # run until set truck accomulation level Var -> TotTruckLevel
-            while int(general.Edge_TOT_Trucks) < 600: #runs until you find the 1st (max) total trucks that equal a number, what if it was the last (min)
-                #print("step No. = ", step," out of ",No_next_steps) #Showing the steps boggy downy machiny
+        elif str(typeRun) == "3": # run for X number of periods
+            numb_Periods = input("How many periods would you like to run for? ")
+            #No_next_steps = int(steps_TT)
+            steps_TT = int(PERIOD_VARRIABLE * int(numb_Periods))
+            print("traci.simulation.getCurrentTime()/1000 = ",traci.simulation.getCurrentTime()/1000," PERIOD_VARRIABLE = ", PERIOD_VARRIABLE, "\nsteps_TT = ",steps_TT)
+            next_sim_stop_time = int((traci.simulation.getCurrentTime()/1000,1)+steps_TT)
+            print("Simulation set to run until ",str(next_sim_stop_time),"\nThis will be ",steps_TT," amount of periods") 
+            for step in range(int(steps_TT+1)):
                 traci.simulationStep()
-                ### Make this a function ####
-                PC.condition.Truck_Count_III(useCase, Sim_Step_Count, PERIOD_VARRIABLE = int(PERIOD_VARRIABLE))
-                steps_TT = steps_TT +1
+                Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+                periodCounter += 1#(1/PERIOD_VARRIABLE)
         elif str(typeRun) == "4": #run until input time VAR -> NextTimeToStop			
             print("\nCurrent Time is: ",str(traci.simulation.getCurrentTime()/1000))
             # import ipdb
@@ -452,17 +467,23 @@ class RunFileInfo:
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
         with open('/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
+            termLIST = list()
+            termcounter = 0
             for line in f:
                 if '<output-prefix value="' in line:
                     print(line)
                     SUMO_outPUT_PREFIX_LINE = line
                     SUMO_outPUT_PREFIX = re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2)
+                    termLIST.append(re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2))
+                    SUMO_outPUT_PREFIX = termLIST[0]
                     # print("\nSUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX,"\n")
+                    termcounter +=1
                     break
             for line in f:
                 if '<remote-port value=' in line:
                     SUMO_outPUT_Port_LINE = line
                     SUMO_Traci_PORT = re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1)
+                    termLIST.append(re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1))
         if display == 1:
             print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\n\SUMO_Traci_PORT = ", SUMO_Traci_PORT)
 

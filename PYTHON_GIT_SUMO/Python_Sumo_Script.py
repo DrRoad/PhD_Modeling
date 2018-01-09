@@ -11,7 +11,7 @@ import sumolib
 import pandas as pd
 import sumoPython_git_A as SP
 import openpyxl as OPENxlsx
-%colors Linux
+# %colors Linux
 PERIOD_VARRIABLE = SP.Initializer.inputPeriod_asNumber(new=1)
 fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(display=0)
 SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0)[0]
@@ -35,7 +35,7 @@ SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT
 
 
 ### I am up to here ###
-
+# # # Dont use this SP.Network_Period.fillandSave(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,edgeLISTa)
 
 
 
@@ -88,12 +88,15 @@ SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT
 # for i in range(len(edgeLISTa)):
     # newTemplate.loc[i,'Belmont_AVEDic_ID'] = edgeLISTa[i].edgeID
 # pd.DateFrame(newTemplate)
-# newTemplate.to_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
-# for n in range(75,len(edgeLISTa)):
-    # if Belmont_AVEDic[n] == edgeLISTa[n].edgeID == logger_TEMPDF.loc[n,'Belmont_AVEDic_ID']:
-        # print(" Matches ",edgeLISTa[n].edgeID," Hell's Yeah!")
+# # newTemplate.to_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+# for i in range(75,len(edgeLISTa)):
+    # if Belmont_AVEDic[i] == edgeLISTa[i].edgeID == logger_TEMPDF.loc[i,'Belmont_AVEDic_ID']:
+        # print(" Matches ",edgeLISTa[i].edgeID," Hell's Yeah!")
+        
+# edgeLISTa[n].truckCount == logger_TEMPDF.loc[n,'Total_Trucks']
 
-
+# logger_TEMPDF.loc[n,'Total_Trucks'] == edgeLISTa[n].truckCount
+# wsdf.loc[n,7] == edgeLISTa[n].truckCount
 
 
 # edges = {SP.Belmont_AVEDic[edge]: SP.Edge() for edge in SP.Belmont_Ave}
