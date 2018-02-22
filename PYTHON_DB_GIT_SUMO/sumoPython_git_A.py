@@ -1,3 +1,8 @@
+## Latest Version 2/22/2018
+# Primary Code for PhD Hybrid ABM Transportation Asset Management Planning
+# Handles Starting SUMO 
+# and Collecting Metrics
+
 import os, sys
 import numpy as np
 import traci
@@ -23,16 +28,16 @@ sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 # sumoBinary = "C:/Sumo/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
-configPATH = "C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI-TRACI.sumocfg"
+configPATH = "C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI-TRACI-DB-22218.sumocfg"
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
 
 SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
-# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin 0 --step-length 1 --net-file C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml --additional-files ...--vehroute-output.exit-times true --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors false --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml --start"]
+# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin 0 --step-length 1 --net-file C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml --additional-files ...--vehroute-output.exit-times true --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors false --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml --start"]
 
 # PATH_Network_DF_Period_0t00_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_TEMPLATE.csv'
-PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 # PATH_edge_i_cashe_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Edge_i_cashe_TEMPLATE.csv' 
 PATH_BMAOI_edgeCasheFILES = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES'
 PATH_Network_DF_Period_0t00_DF = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_DF.csv'
@@ -76,7 +81,7 @@ class Edge():
     def set(self,edgeID, Bel_Dic_ID):
         self.edgeID = edgeID
         self.Bel_Dic_ID = Bel_Dic_ID #Belmont_AVEDic[edgeID]
-        self.net = sumolib.net.readNet('C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
+        self.net = sumolib.net.readNet('C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
@@ -224,7 +229,7 @@ class Network_Period:
         if display != 0:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
         if PATH == None:
-            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
             PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
         full_Run_Time = 90000 #steps_TT
@@ -252,7 +257,7 @@ class Network_Period:
         #### BIG CONTRIBUTION PART
         if periodCounter == 0:
             return
-        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
@@ -506,7 +511,7 @@ class RunFileInfo:
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        with open('/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
+        with open('/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:

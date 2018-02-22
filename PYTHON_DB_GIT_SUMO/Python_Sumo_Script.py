@@ -1,4 +1,4 @@
-# run /GitHub/PhD_Modeling/PYTHON_GIT_SUMO/Python_Sumo_Script.py
+# run /Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
 # Ask for Parameters
     # Period Length
 # import os, sys
