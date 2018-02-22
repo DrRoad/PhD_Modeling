@@ -5,3 +5,5 @@ Repository for hold all models for PhD work torwards a hybrid Dynamic User Assig
 TO DO (Many things not included):
   Capture code that runs reliably for a full time period.
   Develop Python Code or VBA Excel to generate 1 year of of Calibration Files (365). Basing off of DVRPC traffic count data and varing it in realtionship to the desired simulation's day_of_the_week(month(weather(season))). Total days needed = 1825 days, but only have to generate 365 at a time.
+
+https://sites.google.com/view/tampphd/home
