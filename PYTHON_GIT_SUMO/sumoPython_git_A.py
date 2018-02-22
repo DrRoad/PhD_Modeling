@@ -10,13 +10,27 @@ import cProfile, pstats , io
 import pandas as pd
 import openpyxl as OPENxlsx
 import re
+import psutil #https://stackoverflow.com/questions/276052/how-to-get-current-cpu-and-ram-usage-in-python
+memoryUse = 0
+pid = os.getpid()
+py = psutil.Process(pid)
+##### periodCounter = 0#/PERIOD_VARRIABLE # was 0
+sumoGUIBinary = "C:/Sumo/sumo-0.32.0/bin/sumo-gui-0.32.0"
+sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 
-SUMO_outPUT_PREFIX = ""
-sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
-sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
+
+# sumoGUIBinary = "C:/Sumo/bin/sumo-gui"
+# sumoBinary = "C:/Sumo/bin/sumo"
+# sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
+# sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
 configPATH = "C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI-TRACI.sumocfg"
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
+
+
+SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
+# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin 0 --step-length 1 --net-file C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml --additional-files ...--vehroute-output.exit-times true --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors false --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml --start"]
+
 # PATH_Network_DF_Period_0t00_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_TEMPLATE.csv'
 PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/GitHub/PhD_Modeling/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 # PATH_edge_i_cashe_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Edge_i_cashe_TEMPLATE.csv' 
@@ -39,19 +53,57 @@ class Edge():
         self.carCount = 0
         self.truckCount = 0
         self.ESAL_TOT = 0
+        self.adaptTraveltime = 0
+        self.Effort = 0
+        self.Dynamic_Max_Speed = 27.87
+        self.meanSpeed = 0
+        self.PCR = 0
+        self.IRI = 0
+        self.AVE_QLTH = 0
+        self.ADDT_rand = 0
+        self.ADDT_Calc = 0
+        self.AGE_0 = 0
+        self.SNC = 0
+        self.layer_1_dpth_in = 0
+        self.layer1_6in_35_50 = 0
+        self.layer2_6in_10_25 = 0
+        self.layer3_12in_5_17 = 0
+        self.ASS_CALI = 0
+        self.AGE_t = 0
+
         #self.Original_Max_Speed = 27.78 # (m/s) or 
         
-    def set(self, edgeID, Bel_Dic_ID):
+    def set(self,edgeID, Bel_Dic_ID):
         self.edgeID = edgeID
         self.Bel_Dic_ID = Bel_Dic_ID #Belmont_AVEDic[edgeID]
         self.net = sumolib.net.readNet('C:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
+        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+        
+        self.AGE_0 = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0']
+        self.ADDT_rand = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
+        self.ASS_CALI = logger_TEMPDF.loc[Bel_Dic_ID,'ASS_CALI']
+        self.SNC = logger_TEMPDF.loc[Bel_Dic_ID,'SNC']
+        self.layer_1_dpth_in = logger_TEMPDF.loc[Bel_Dic_ID,'layer_1_dpth_in']
+        self.layer1_6in_35_50 = logger_TEMPDF.loc[Bel_Dic_ID,'layer1_6in_35_50']
+        self.layer2_6in_10_25 = logger_TEMPDF.loc[Bel_Dic_ID,'layer2_6in_10_25']
+        self.layer3_12in_5_17 = logger_TEMPDF.loc[Bel_Dic_ID,'layer3_12in_5_17']
+        self.AADT_Calc = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
     
+
+        
+    def make_condition_idex():
+#   http://onlinepubs.trb.org/Onlinepubs/trr/1989/1215/1215-001.pdf
+#       PCR(t) = 90 - a * [exp(Age^b)-1] * log(ESAL/SNC^c) a = 0.6349; b = 0.4203; and c = 2.7062
+        pass
     def log(self):#, vehID, ESAL_contrib, Emergancy_Stop, Accident):
+
         Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(self.edgeID)
         # if len(Edge_i_VehIDs_lastStep_j) > 0:
             # print("\n",self.Bel_Dic_ID," - Edge_i_VehIDs_lastStep_j = ",Edge_i_VehIDs_lastStep_j)
+        self.AGE_t += 1
+        #http://www.sumo.dlr.de/daily/pydoc/traci._edge.html#EdgeDomain-getLastStepMeanSpeed
         for vehID_k in Edge_i_VehIDs_lastStep_j: 
             if vehID_k in self.vehidLIST.keys():
                 #print("\nvehID_k is already in here\tvehID_k = ",str(vehID_k))
@@ -79,7 +131,24 @@ class Edge():
                         self.ESAL_TOT = self.ESAL_TOT +  equiv_ESAL['40ftBus']
                     else:
                         print("I Don't Know What you Are")
+
                         
+    def getTravel_times_n_Effort(self):
+        self.adaptTraveltime = traci.edge.getAdaptedTraveltime(self.edgeID,int(traci.simulation.getCurrentTime()/1000))
+        self.Effort = traci.edge.getEffort(self.edgeID,int(traci.simulation.getCurrentTime()/1000)) #5.1 said you broke it
+        self.meanSpeed = traci.edge.getLastStepMeanSpeed(self.edgeID)
+        #http://www.sumo.dlr.de/daily/pydoc/traci._edge.html#EdgeDomain-getLastStepMeanSpeed
+        # if int(traci.edge.getAdaptedTraveltime(self.edgeID,20)) == int(-1.0):
+            # self.adaptTraveltime = traci.edge.adaptTraveltime(self.edgeID,1)
+        # else:
+            # self.adaptTraveltime = traci.edge.getAdaptedTraveltime(self.edgeID,20)
+        # # print(traci.edge.getAdaptedTraveltime(self.edgeID,int(traci.simulation.getCurrentTime()/1000)))
+        # if int(traci.edge.getEffort(self.edgeID,20)) == int(-1.0):
+            # self.Effort = traci.edge.setEffort(self.edgeID,1)
+        # else:
+            # self.Effort = traci.edge.getEffort(self.edgeID,int(traci.simulation.getCurrentTime()/1000))
+        # print(traci.edge.getEffort(self.edgeID,traci.simulation.getCurrentTime()/1000))
+        
     @classmethod # means class instead of self (Edge.create_Edge_Instances() becomes create_Edge_Instances(Edge))
     def create_Edge_Instances(cls):
         # @staticmethod # means no self
@@ -88,12 +157,13 @@ class Edge():
         print("\n\t\t\t\t<><>Please wait creating Edge Instances<><>\n")
         edgeLISTa = list()
         counter = 0
-        for edge_i in Belmont_Ave[:]:
+        for edge_i in Belmont_Ave[:]: #### HERE TO INCLUDE ALL INSTANCES
             edgeNAME = "edge_"+str(counter) #str(SP.Belmont_AVEDic[counter])
             edgeLISTa.append(edgeNAME)
             # print(edgeLISTa[counter])
             edgeLISTa[counter]= cls()
             edgeLISTa[counter].set(Belmont_Ave[counter],counter)
+            edgeLISTa[counter].getTravel_times_n_Effort()
             print("Edge = ", counter,tabber,end='\r',flush=True)#, edgeLISTa[counter].__dict__)
             counter = counter + 1
             # tabber = str(tabber+"<>")#\t")
@@ -102,41 +172,54 @@ class Edge():
             else:
                 tabber = str(tabber+"<>")#\t")
         print("\n\t\t\t\t<<<Edge Instances loaded on edgeLISTa>>>\n")
+        print("Testing edgeLISTa[4].__dict__ ...\n",edgeLISTa[4].__dict__,"\n")
         return edgeLISTa
         
-    def __str__(self): #[str(edge) for edge in edgeLISTa]
-        return str(self.__dict__)
+    # def __str__(self): #[str(edge) for edge in edgeLISTa]
+        # return str(self.__dict__)
     
-    def __repr__(self):
-        return repr(self.__dict__)
+    # def __repr__(self):
+        # return repr(self.__dict__)
         
-    # def edgeLIST(self):
-        # for edge_i in SP.Belmont_Ave[:]:
-            # edgeNAME = "edge_"+str(SP.Belmont_AVEDic[edge_i])
-        # print(edgeNAME," - ", str(edge_i))
-        # setattr(self, edgeNAME, SP.Edge(str(edge_i)))
-        
-        
-    def _restLOGGER(self,edgeLISTa):
+    def _resetLOGGER(self,edgeLISTa):
         print("\n\nReset_Edge_CasheFiles has started")
         counter = 0
         for edge_i in Belmont_Ave[:]:
-            edgeLISTa[counter].vehidLIST= ()
+        # edgeLISTa[Belmont_Ave.index(self.edgeID)].vehidLIST= {'vehID_k' : 'veh_k_Type'}
+            edgeLISTa[counter].vehidLIST= {'vehID_k' : 'veh_k_Type'}
             counter = counter + 1
-        return print("Reset_Edge_CasheFiles has completed\n\n")
+        return #print("Reset_Edge_CasheFiles has completed\n\n")
 
-    def setNewMaxSpeed(self,logger_TEMPDF):
+    def setNewMaxSpeed(edgeLISTa, logger_TEMPDF):
         print("\n\n<><><><Changing SUMO EGDE MAX SPEED><><><>\n")
+        counter = 0
         for rd in Belmont_Ave:
+            # print("Please be true ", int(logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(rd),'Dynamic_Max_Speed']) == edgeLISTa[rd].Dynamic_Max_Speed)
             maxSpeed_i = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(rd),'Dynamic_Max_Speed']
             maxSpeed_i = round(maxSpeed_i.iloc[0],2)
+            # maxSpeed_i = edgeLISTa[rd].Dynamic_Max_Speed
             traci.edge.setMaxSpeed(rd,maxSpeed_i)
+            edgeLISTa[counter].Dynamic_Max_Speed = maxSpeed_i
+            counter += 1
             if maxSpeed_i <= 27:
                 print("The new speed for edge ",rd," is now ",round(maxSpeed_i.iloc[0],2))
+        ### Need a new method to change driver imperfection based on road damage
+        ## traci.vehicle.setImperfection(vehID..., function relating road index to driver imperfection)
         
         
+    def getMaxSpeed(edgeLISTa):#, logger_TEMPDF):
+        # current_time = str(traci.simulation.getCurrentTime()/1000)
+        # print("\n[[[[MAX SPEEDS]]]]\t\tCurrent Time:",current_time,"\n")
+        # edge_i_speed_t = 0
+        # counter = 0
+        # for edge_i in Belmont_Ave[:]:
+            # edgeLISTa[counter].Dynamic_Max_Speed = edge_i_speed_t
+            # print(" ", edgeLISTa[counter].edgeID," : ", edge_i_speed_t,"; ", end='\r', flush=True)
+            # counter = counter + 1
+        return print("<>\n<>><<><><><><\n\n\n\<><><><\t\t<><><><><><\t\tI'm a failure... getMaxSpeed<>\n<>><<><><><><\n\n\n\<><><><\t\t<><><><><><")
        
 class Network_Period:
+
     def load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX, PERIOD_VARRIABLE,steps_TT, display = None, PATH=None):
         if display != 0:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
@@ -187,16 +270,35 @@ class Network_Period:
             maxSpeedo = edgeLISTa[n].originalMAXSPEED
             maxSpeed_i =(maxSpeedo - (maxSpeedo**((100-Condition_RTi)/96))+4.5675) #Units m/s
             logger_TEMPDF.loc[n,'Dynamic_Max_Speed'] = maxSpeed_i
-            ##Validating writing below here
-            if n == 4:
-                print("\n[<<[<[<>]>]>>]\nedgeLISTa[4].truckCount = ",edgeLISTa[4].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
+            edgeLISTa[n].Dynamic_Max_Speed = maxSpeed_i
+        ## Needed for metrics
+            edgeLISTa[n].meanSpeed = int(traci.edge.getLastStepMeanSpeed(edgeLISTa[n].edgeID))
+            edgeLISTa[n].PCR = 90-0.6349 * (np.exp((edgeLISTa[n].AGE_0+edgeLISTa[n].AGE_t/31556926)**0.4203)-1) * np.log(edgeLISTa[n].ESAL_TOT/((edgeLISTa[n].SNC)**2.7062))
+            edgeLISTa[n].IRI = 52 + 8.1 * ((int(edgeLISTa[n].AGE_0+edgeLISTa[n].AGE_t)/31556926))+0.0009*edgeLISTa[n].ADDT_Calc
+            edgeLISTa[n].AVE_QLTH = 0
+            edgeLISTa[n].OCPNY = traci.edge.getLastStepOccupancy(edgeLISTa[n].edgeID)
+            # ##Validating writing below here
+            # if n == 4:
+                # print("\n[<<[<[<>]>]>>]\nedgeLISTa[4].truckCount = ",edgeLISTa[4].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
+            ## Do I need to reset the logger? Will it slow things down towards the end? 
+            if len(edgeLISTa[n].vehidLIST) > 100:
+                if n == 48:
+                    memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
+                    print('memory use:', memoryUse)
+                    edgeLISTa[n]._resetLOGGER(edgeLISTa)
+                    memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
+                    print('memory use:', memoryUse)
+                edgeLISTa[n]._resetLOGGER(edgeLISTa)
 
         ### NOW SAVE THIS DATAFRAME [[logger_TEMPDF]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER
         Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
         ### Change max speed of edge based on roadway damage
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
-        ## Do I need to reset the logger? Will it slow things down towards the end? 
-        ## Edge._restLOGGER(edgeLISTa)
+        Edge.getMaxSpeed(edgeLISTa)
+        print("Testing edgeLISTa[48].__dict__ ...\n",edgeLISTa[48].__dict__,"\n======",SUMO_outPUT_PREFIX,"======")
+        print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
+
+
         return  
             
     def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa):
@@ -229,7 +331,7 @@ class Network_Period:
                 logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = pd.DataFrame(ws.values)
         wb.save(PATH_to_Save_to)
-        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t\t this should match ws: ",ws,"\n\[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
+        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t\t this should match ws: ",ws,"\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])
         return wb
         
        
@@ -265,9 +367,9 @@ class Initializer:
 
 
     def startSUMO(SUMO_Traci_PORT,useCase=None):
-        sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
-        sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
-        portTouse = int(SUMO_Traci_PORT)
+        sumoCmd #= [sumoBinary, "-c", configPATH, "--start"]
+        sumoGUICmd #= [sumoGUIBinary, "-c", configPATH, "--start"]
+        portTouse = str(SUMO_Traci_PORT)
         # global Start_Time
         # while rideAgain == 1:
             #print("useCase =",useCase)
@@ -276,7 +378,7 @@ class Initializer:
            useCase = input("\n\tPress 1 for a new Run:  \n") #\nPress Anything to continue...
         if useCase == "1":
             GUI_01 = input("Press Zero to use GUI? (0)\n")
-            inputPort = input("Confirm with: BMAOI-TRACI.sumocfg .. port in File: .."+ str(SUMO_Traci_PORT)+"\nPlease select a port\t...") # 
+            inputPort = input("Confirm with: BMAOI-TRACI.sumocfg .. port in File: .."+ str(SUMO_Traci_PORT)+"\nPlease select a port...\t") # 
             if inputPort == '':
                 portTouse = int(SUMO_Traci_PORT)
             else:
@@ -296,7 +398,7 @@ class Initializer:
         elif useCase == "x":
             PC.condition.DisplayFiles()
             traci.close()
-        print("useCase = ",useCase)
+        print("\nuseCase = ",useCase)
         return Start_Time, portTouse, useCase
 
         
@@ -321,15 +423,15 @@ class Runner:
     
         ###Run the Code####
     def releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT=None):
+        print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
         #Defining the Constants
         if steps_TT == None:
             steps_TT = 0
         stepCounter = 0
         addTesterTrucks = 0
         #Initializer.runSUMO(SUMO_Traci_PORT)[0]
-        Period_Break_Point=('50','1000','2500')
+        # Period_Break_Point=('50','1000','2500')
         periodCounter = (traci.simulation.getCurrentTime()/1000)#/PERIOD_VARRIABLE # was 0
-        Sim_Step_Count = 0
         # if typeRun == None:
             # typeRun = 2
         if str(typeRun) == "T": #Run Simulation unti the end
@@ -348,12 +450,9 @@ class Runner:
                 traci.simulationStep()
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1#(1/PERIOD_VARRIABLE)
-                ###PC.condition.Truck_Count_III(useCase, Sim_Step_Count, PERIOD_VARRIABLE = int(PERIOD_VARRIABLE))
         elif str(typeRun) == "3": # run for X number of periods
             numb_Periods = input("How many periods would you like to run for? ")
-            #No_next_steps = int(steps_TT)
             steps_TT = int(PERIOD_VARRIABLE * int(numb_Periods))
-            # print("traci.simulation.getCurrentTime()/1000 = ",traci.simulation.getCurrentTime()/1000," PERIOD_VARRIABLE = ", PERIOD_VARRIABLE, "\nsteps_TT = ",steps_TT)
             next_sim_stop_time = int((traci.simulation.getCurrentTime()/1000)+steps_TT)
             print("Simulation set to run until ",str(next_sim_stop_time),"\n") 
             for step in range(int(steps_TT+1)):
@@ -379,6 +478,7 @@ class Runner:
             edgeLISTa[i].log()
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
+            print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
             Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)
                     
 
@@ -410,6 +510,8 @@ class RunFileInfo:
             termLIST = list()
             termcounter = 0
             for line in f:
+                # print("SUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX)
+                # if SUMO_outPUT_PREFIX =="":
                 if '<output-prefix value="' in line:
                     print(line)
                     SUMO_outPUT_PREFIX_LINE = line
