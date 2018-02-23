@@ -58,7 +58,7 @@
 	<duration-log.statistics value="false"/>
 </report>
 <traci_server>
-	<remote-port value="5454"/> 
+	<remote-port value="5544"/> 
 	<!-- <python-scrpit value="C:\GitHub\PhD_Modeling\PYTHON_GIT_SUMO\Python_Sumo_Script.py"/>   -->
     <!-- http://sumo.dlr.de/wiki/SUMO  -->
 </traci_server>

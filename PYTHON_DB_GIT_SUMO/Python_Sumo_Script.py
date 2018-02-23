@@ -1,6 +1,7 @@
 ## Last worked on 2/23/2018
-# run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
+# run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py 
 
+## I think best just to run with Jupyter Notebook... for debugging.
 
 # Ask for Parameters
     # Period Length...
@@ -15,6 +16,7 @@ import sumolib
 import pandas as pd
 import sumoPython_git_A as SP
 import openpyxl as OPENxlsx
+pd.set_option('display.max_rows', 5)
 
 # %colors Linux
 PERIOD_VARRIABLE = SP.Initializer.inputPeriod_asNumber(new=1)

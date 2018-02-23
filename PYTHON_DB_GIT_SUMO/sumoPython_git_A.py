@@ -86,16 +86,16 @@ class Edge():
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         
-        self.AGE_0 = logger_TEMPDF.loc['AGE_0',Bel_Dic_ID]
+        self.AGE_0 = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0',]
         self.ADDT_rand = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
         self.ASS_CALI = logger_TEMPDF.loc[Bel_Dic_ID,'ASS_CALI']
         self.SNC = logger_TEMPDF.loc[Bel_Dic_ID,'SNC']
-        self.layer_1_dpth_in = logger_TEMPDF.loc[Bel_Dic_ID,'layer_1_dpth_in']
+        self.layer_1_dpth_in = logger_TEMPDF.loc[Bel_Dic_ID,'layer_1_dpth_6_18_in']
         self.layer1_6in_35_50 = logger_TEMPDF.loc[Bel_Dic_ID,'layer1_6in_35_50']
         self.layer2_6in_10_25 = logger_TEMPDF.loc[Bel_Dic_ID,'layer2_6in_10_25']
         self.layer3_12in_5_17 = logger_TEMPDF.loc[Bel_Dic_ID,'layer3_12in_5_17']
         self.AADT_Calc = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
-        self.AGE_t = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0']
+        self.AGE_t = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_t']
     
 
         
@@ -514,7 +514,7 @@ class RunFileInfo:
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
+        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI-DB.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:
