@@ -1,7 +1,14 @@
 ## Last worked on 2/23/2018
-# run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py 
 
+
+## GIT COMMIT AND PUSH
+# GIT COMMIT AND PUSH # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
+## GIT COMMIT AND PUSH
 ## I think best just to run with Jupyter Notebook... for debugging.
+
+
+## GIT COMMIT AND PUSH
+
 
 # Ask for Parameters
     # Period Length...
