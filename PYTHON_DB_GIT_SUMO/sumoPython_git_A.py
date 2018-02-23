@@ -1,4 +1,4 @@
-## Latest Version 2/22/2018
+## Last worked on 2/22/2018
 # Primary Code for PhD Hybrid ABM Transportation Asset Management Planning
 # Handles Starting SUMO 
 # and Collecting Metrics
@@ -28,16 +28,16 @@ sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 # sumoBinary = "C:/Sumo/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
-configPATH = "C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI-TRACI-DB-22218.sumocfg"
+configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI-DB.sumocfg"
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
 
 SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
-# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin 0 --step-length 1 --net-file C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml --additional-files ...--vehroute-output.exit-times true --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors false --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml --start"]
+# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin 0 --step-length 1 --net-file C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml --additional-files ...--vehroute-output.exit-times true --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors false --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml --start"]
 
 # PATH_Network_DF_Period_0t00_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_TEMPLATE.csv'
-PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 # PATH_edge_i_cashe_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Edge_i_cashe_TEMPLATE.csv' 
 PATH_BMAOI_edgeCasheFILES = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES'
 PATH_Network_DF_Period_0t00_DF = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_DF.csv'
@@ -81,12 +81,12 @@ class Edge():
     def set(self,edgeID, Bel_Dic_ID):
         self.edgeID = edgeID
         self.Bel_Dic_ID = Bel_Dic_ID #Belmont_AVEDic[edgeID]
-        self.net = sumolib.net.readNet('C:\Users\Biko\Dropbox\PhD\Research\Models\PhD_Modeling__DB__GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
+        self.net = sumolib.net.readNet('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         
-        self.AGE_0 = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0']
+        self.AGE_0 = logger_TEMPDF.loc['AGE_0',Bel_Dic_ID]
         self.ADDT_rand = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
         self.ASS_CALI = logger_TEMPDF.loc[Bel_Dic_ID,'ASS_CALI']
         self.SNC = logger_TEMPDF.loc[Bel_Dic_ID,'SNC']
@@ -95,6 +95,7 @@ class Edge():
         self.layer2_6in_10_25 = logger_TEMPDF.loc[Bel_Dic_ID,'layer2_6in_10_25']
         self.layer3_12in_5_17 = logger_TEMPDF.loc[Bel_Dic_ID,'layer3_12in_5_17']
         self.AADT_Calc = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
+        self.AGE_t = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0']
     
 
         
@@ -102,8 +103,10 @@ class Edge():
 #   http://onlinepubs.trb.org/Onlinepubs/trr/1989/1215/1215-001.pdf
 #       PCR(t) = 90 - a * [exp(Age^b)-1] * log(ESAL/SNC^c) a = 0.6349; b = 0.4203; and c = 2.7062
         pass
+        
+        
     def log(self):#, vehID, ESAL_contrib, Emergancy_Stop, Accident):
-
+        self.AGE_t += 1 
         Edge_i_VehIDs_lastStep_j = traci.edge.getLastStepVehicleIDs(self.edgeID)
         # if len(Edge_i_VehIDs_lastStep_j) > 0:
             # print("\n",self.Bel_Dic_ID," - Edge_i_VehIDs_lastStep_j = ",Edge_i_VehIDs_lastStep_j)
@@ -229,7 +232,7 @@ class Network_Period:
         if display != 0:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
         if PATH == None:
-            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+            PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
             PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
         full_Run_Time = 90000 #steps_TT
@@ -257,7 +260,7 @@ class Network_Period:
         #### BIG CONTRIBUTION PART
         if periodCounter == 0:
             return
-        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+        # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
@@ -268,7 +271,7 @@ class Network_Period:
             logger_TEMPDF.loc[n,'Total_Vehicles'] = (edgeLISTa[n].truckCount + edgeLISTa[n].carCount)
             logger_TEMPDF.loc[n,'Total_Trucks'] = edgeLISTa[n].truckCount
             ## logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Total_Trucks'] = edgeLISTa[n].truckCount
-            logger_TEMPDF.loc[n,'ESAL'] = edgeLISTa[n].ESAL_TOT
+            logger_TEMPDF.loc[n,'ESAL_TOT'] = edgeLISTa[n].ESAL_TOT
             Condition_RTi = 100.00 - (edgeLISTa[n].ESAL_TOT) * 0.01339
             logger_TEMPDF.loc[n,'Condition_Index'] = Condition_RTi
             # maxSpeedo = logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(Belmont_AVEDic[n]),'Original_Max_Speed']
@@ -279,7 +282,7 @@ class Network_Period:
         ## Needed for metrics
             edgeLISTa[n].meanSpeed = int(traci.edge.getLastStepMeanSpeed(edgeLISTa[n].edgeID))
             edgeLISTa[n].PCR = 90-0.6349 * (np.exp((edgeLISTa[n].AGE_0+edgeLISTa[n].AGE_t/31556926)**0.4203)-1) * np.log(edgeLISTa[n].ESAL_TOT/((edgeLISTa[n].SNC)**2.7062))
-            edgeLISTa[n].IRI = 52 + 8.1 * ((int(edgeLISTa[n].AGE_0+edgeLISTa[n].AGE_t)/31556926))+0.0009*edgeLISTa[n].ADDT_Calc
+            edgeLISTa[n].IRI = 52 + 8.1 * ((int(edgeLISTa[n].AGE_t)/31556926))+0.0009*edgeLISTa[n].ADDT_Calc
             edgeLISTa[n].AVE_QLTH = 0
             edgeLISTa[n].OCPNY = traci.edge.getLastStepOccupancy(edgeLISTa[n].edgeID)
             # ##Validating writing below here
@@ -511,7 +514,7 @@ class RunFileInfo:
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        with open('/Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
+        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:

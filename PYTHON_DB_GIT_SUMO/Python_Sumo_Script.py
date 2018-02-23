@@ -1,6 +1,7 @@
-# run /Users/Biko/Dropbox/PhD/Research/Models/PhD_Modeling__DB__GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
+## Last worked on 2/22/2018
+# run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
 # Ask for Parameters
-    # Period Length
+    # Period Length...
 # import os, sys
 import numpy as np
 import traci
