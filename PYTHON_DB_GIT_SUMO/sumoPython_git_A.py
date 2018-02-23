@@ -20,7 +20,7 @@ memoryUse = 0
 pid = os.getpid()
 py = psutil.Process(pid)
 ##### periodCounter = 0#/PERIOD_VARRIABLE # was 0
-sumoGUIBinary = "C:/Sumo/sumo-0.32.0/bin/sumo-gui-0.32.0"
+sumoGUIBinary = "C:/Sumo/sumo-0.32.0/bin/sumo-gui" #-0.32.0
 sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 
 
@@ -421,12 +421,20 @@ class Runner:
 
     def runtypeAsker(typeRun=None):
         print("\nBeginning Journey Now\n\tPlease See Gui for Show\n")
-        typeRun = input("\n\nPush T to Run Simulation until the end\nPush 2 to run for XXX Steps\nPush 3 to run for X number of periods\nPush 4 to run until input time\nCurrent Step_Time : "+str(traci.simulation.getCurrentTime()/1000)+"\n\n\tEnter Run Type Here: ")
+        typeRun = input("\n\nPush T to Run Simulation until the END\nPush 2 to run for XXX STEPS\nPush 3 to run for X number of PERIODS\nPush 4 to run until input TIME\nCurrent Step_Time : "+str(traci.simulation.getCurrentTime()/1000)+"\n\n\tEnter Run Type Here: ")
         if typeRun == '':
             typeRun = "2"
             print("You didn't specify! Going with default value... typeRun =", str(typeRun))
         else:
-            print("You pressed", str(typeRun),"= typeRun")
+            if typeRun =='T' or typeRun == 't':
+                print("You pressed", str(typeRun),"= Run forEVER!!!")
+                typeRun = 'T'
+            elif typeRun == '2':
+                print("You pressed", str(typeRun),"= Running for XXX Steps...")
+            elif typeRun == '3':
+                print("You pressed", str(typeRun),"= Running for X number of Periods...")
+            elif typeRun == '4':
+                print("You pressed", str(typeRun),"= Running until inputed Time...")
         return typeRun
     
         ###Run the Code####
@@ -442,7 +450,7 @@ class Runner:
         periodCounter = (traci.simulation.getCurrentTime()/1000)#/PERIOD_VARRIABLE # was 0
         # if typeRun == None:
             # typeRun = 2
-        if str(typeRun) == "T": #Run Simulation unti the end
+        if str(typeRun) == "T": #Run Simulation until the end
             while traci.simulation.getMinExpectedNumber() > 0:
                 #print("step No. = ", step," out of ",No_next_steps) #Showing the steps boggy downy machiny
                 traci.simulationStep()
