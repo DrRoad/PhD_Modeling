@@ -1,5 +1,7 @@
-## Last worked on 2/22/2018
+## Last worked on 2/23/2018
 # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
+
+
 # Ask for Parameters
     # Period Length...
 # import os, sys
