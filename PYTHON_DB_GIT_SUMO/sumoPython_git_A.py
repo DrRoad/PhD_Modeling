@@ -28,7 +28,7 @@ sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 # sumoBinary = "C:/Sumo/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
-configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI-DB.sumocfg"
+configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
@@ -522,7 +522,7 @@ class RunFileInfo:
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI-TRACI-DB.sumocfg') as f:
+        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:

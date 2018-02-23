@@ -6,6 +6,8 @@
 
 <vType id="Bmont_TEST_CAR" accel="2" decel="4.5" sigma="0.5" tau="1" length="5" minGap="3" maxSpeed="45" speedFactor="1.5" speedDev="0.1" color="magenta" vClass="passenger" width="2" impatience="0.75" laneChangeModel="LC2013" carFollowModel="Krauss" guiShape="passenger/hatchback"/>
 
+<vType id="Really_BAD_DRIVER" accel="2" decel="4.5" sigma="1" tau="1" length="5" minGap="3" maxSpeed="45" speedFactor="1.5" speedDev="0.1" color="magenta" vClass="passenger" width="2" impatience="0.75" laneChangeModel="LC2013" carFollowModel="Krauss" guiShape="passenger/hatchback"/>
+
 <vTypeDistribution id="DVRPC_Mean_Dis">
 	<vType id="Car_meek"  accel="1" decel="5" sigma="0.5" tau="2" length="4" minGap="3" maxSpeed="25" speedFactor="0.75" speedDev="0.2" color="blue" vClass="passenger" width="2" impatience="0" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.195789824483448" guiShape="passenger/wagon"/>
 	<vType id="Car_norm"  accel="2.6" decel="4.5" sigma="0.5" tau="1" length="5.5" minGap="3" maxSpeed="32" speedFactor="1" speedDev="0.1" color="green" vClass="passenger" width="2" impatience="0.5" laneChangeModel="LC2013" carFollowModel="Krauss" probability="0.391579648966896" guiShape="passenger/sedan"/>
