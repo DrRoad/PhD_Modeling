@@ -3,7 +3,7 @@
 <input>	
 	<net-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
 	<additional-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml"/>
-	<route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-5-2018.rou.xml"/>
+	<route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-3-2018.rou.xml"/>
     <!-- <route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-3-2018.rou.xml"/> -->
     <!-- <load-state vaule="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\BMAOI-RUN_6.2.jn-NetWork-State-file-21601.xml"/> -->
     <!-- <load-state.offset value="21601"/> -->
@@ -34,7 +34,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0.0.4jn-"/>
+    <output-prefix value="BMAOI-RUN_0.0.4_2jn-"/>
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
 	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
 	<!-- <save-state.times value="21601"/> -->
