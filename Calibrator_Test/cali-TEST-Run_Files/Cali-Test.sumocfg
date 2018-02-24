@@ -1,0 +1,83 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+<input>	
+	<net-file value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\Calibrator_Test-Track_V0.net.xml"/>
+	<additional-files value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\cali-TEST.vType.add.xml,C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\Calibrator_Test-calibrator.add.xml"/> 
+	<!-- <route-files value="C:\Users\Biko\Documents\GitHub\PhD_Modeling\Calibrator_Test\cali-TEST-Run_Files\cali-TEST-Routing\cali-TEST-V_0.2.rou.xml"/> -->
+
+	</input>
+<processing>
+	<ignore-route-errors value="true"/> 
+	<step-method.ballistic value="true"/>
+	<!--<mingap-violation value="0"/>  http://sumo.dlr.de/trac.wsgi/ticket/1102?action=diff&version=10 -->
+	<collision.action value= "teleport"/> <!--"remove" "teleport"/> -->
+	<collision.stoptime value="20"/> <!-- Small value to try to get rid of jams -->
+	<collision.check-junctions value="false"/>
+	<waiting-time-memory value="10"/>
+	<time-to-impatience value="120"/>
+	<!-- <load-state.files value="###"/>  -->
+	<!--<max-num-vehicles value="4000"/>  Not sure about this one -->
+	<!-- <time-to-teleport value="240"/> <!- trying to remove jams -->
+	<!-- <speed-in-kmh value="true"/> -->
+	<max-depart-delay value="40"/>
+</processing>
+<routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
+	<device.rerouting.adaptation-weight value=".5"/>
+	<device.rerouting.probability value=".75"/>
+</routing>
+<time>
+	<begin value="0"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
+	<end value="50400"/> <!-- 50400 = 14 hr 72000 = 8pm ; 86400 seconds in a day  -->
+	<step-length value="1"/>
+</time>
+<output>
+	<output-prefix value="Cali_TEST-V0.0.10-NR-F5-vph-DVRPC-5-Cali-newVtyDis-"/>
+	<!-- Trouble shooting doc=C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont_Output\Validation Attemps.xlsm -->
+	<!-- <netstate-dump value="NetState_Dump.xml"/> -->
+	<save-state.times value="240,3600,17400"/>
+	<save-state.files value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\240-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\3600-caliTEST-State-file.xml,C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\State_Files\17400-caliTEST-State-file.xml"/>  
+	<summary value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Summary_Files\Summary_output.xml"/>
+	<!-- <queue-output value=".\QUEUE_output.xml"/> -->
+	<tripinfo-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\Trip_Files\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\caliTEST-C\caliTEST-OUTPUT-C\VehRoute_Files\Veh_Route_output.xml"/>
+	<vehroute-output.exit-times value="true"/>
+	<vehroute-output.sorted value="true"/>
+	<vehroute-output.intended-depart value="true"/>
+	<vehroute-output.route-length value="true"/>
+	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
+	<link-output value=".\LinkStates.xml"/> -->
+	<vehroute-output.write-unfinished value="true"/>
+</output>
+<report>
+	<no-warnings value="false"/>
+	<no-step-log value="false"/>
+	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
+	<duration-log.statistics value="true"/>
+</report>
+<traci_server>
+	<!-- <remote-port value="5454"/> -->
+	<!-- <python-scrpit value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\SUMO_Python-Belmont\TraCI-V0.py"/> http://sumo.dlr.de/wiki/SUMO -->
+</traci_server>
+<gui_only>
+<!-- 	<gui-settings-file value="C:\Users\Biko\Dropbox\PhD\Research\Models\SUMO\SUMO_DropBox\Belmont_Ave-Run\Belmont-AOI-Run_Files\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/>  -->
+	<!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
+	<start value="true"/>
+</gui_only>
+ 
+
+<!--
+C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes>sumo-gui -c C:\Sumo\runs\West_Philly\W_Philly_Random_V3_Larger_8_8_TAZ.sumocfg
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Sumo\runs\West_Philly\W_Philly_OSM_Clipped-7.29.net.xml"/>
+        <trip-files value="C:\Sumo\runs\West_Philly\OSM_Clipped_Vtype_Routes\SUMO_TAZ_V3-checkcalibratorroutes.trip.xml"/>
+    </input>
+
+    <output>
+        <output-prefix value="SUMO_TAZ_V3.4.3.2.CCheck"/>
+        <output-file value="SUMO_TAZ_V3.4.3.2.CCheck-checkcalibratorroutes.rou.xml"/>
+
+-->
+
+</configuration>
