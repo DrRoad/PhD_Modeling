@@ -29,12 +29,12 @@ sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
 configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
-# sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
+sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
 
 SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
-sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin", 0, "--step-length", 1, "--net-file", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml", "--additional-files", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml", "--vehroute-output.exit-times", "true", "--ignore-route-errors", "true" "--start"]
+# sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin", 0, "--step-length", 1, "--net-file", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml", "--additional-files", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml", "--vehroute-output.exit-times", "true", "--ignore-route-errors", "true" "--start"]
 
 # --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors true --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output, "C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml", "--start"]
 
@@ -217,7 +217,7 @@ class Edge():
         ## traci.vehicle.setImperfection(vehID..., function relating road index to driver imperfection)
         
         
-    def getMaxSpeed(edgeLISTalogger_TEMPDF):
+    def getMaxSpeed(edgeLISTa,logger_TEMPDF):
         current_time = str(traci.simulation.getCurrentTime()/1000)
         print("\n[[[[MAX SPEEDS]]]]\t\tCurrent Time:",current_time,"\n")
         edge_i_speed_t = 0
@@ -377,6 +377,7 @@ class Initializer:
 
 
     def startSUMO(SUMO_Traci_PORT,useCase=None):
+        # sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin", 0, "--step-length", 1, "--net-file", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml", "--additional-files", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml", "--vehroute-output.exit-times", "true", "--ignore-route-errors", "true", "--start"]
         sumoCmd #= [sumoBinary, "-c", configPATH, "--start"]
         sumoGUICmd #= [sumoGUIBinary, "-c", configPATH, "--start"]
         portTouse = str(SUMO_Traci_PORT)
