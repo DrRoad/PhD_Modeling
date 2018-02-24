@@ -215,16 +215,16 @@ class Edge():
         ## traci.vehicle.setImperfection(vehID..., function relating road index to driver imperfection)
         
         
-    def getMaxSpeed(edgeLISTa):#, logger_TEMPDF):
-        # current_time = str(traci.simulation.getCurrentTime()/1000)
-        # print("\n[[[[MAX SPEEDS]]]]\t\tCurrent Time:",current_time,"\n")
-        # edge_i_speed_t = 0
-        # counter = 0
-        # for edge_i in Belmont_Ave[:]:
-            # edgeLISTa[counter].Dynamic_Max_Speed = edge_i_speed_t
-            # print(" ", edgeLISTa[counter].edgeID," : ", edge_i_speed_t,"; ", end='\r', flush=True)
-            # counter = counter + 1
-        return print("<>\n<>><<><><><><\n\n\n\<><><><\t\t<><><><><><\t\tI'm a failure... getMaxSpeed<>\n<>><<><><><><\n\n\n\<><><><\t\t<><><><><><")
+    def getMaxSpeed(edgeLISTalogger_TEMPDF):
+        current_time = str(traci.simulation.getCurrentTime()/1000)
+        print("\n[[[[MAX SPEEDS]]]]\t\tCurrent Time:",current_time,"\n")
+        edge_i_speed_t = 0
+        counter = 0
+        for edge_i in Belmont_Ave[:]:
+            edgeLISTa[counter].Dynamic_Max_Speed = edge_i_speed_t
+            print(" ", edgeLISTa[counter].edgeID," : ", edge_i_speed_t,"; ", end='\r', flush=True)
+            counter = counter + 1
+            return print("<>\n<>><<><><><><\n",edge_i,"'s max speed =",edge_i_speed_t,"\n\<><><><\t\t<><><><><><")
        
 class Network_Period:
 
