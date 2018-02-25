@@ -24,7 +24,7 @@
 </processing>
 <routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
 	<!-- <device.rerouting.adaptation-weight value=".5"/> -->
-	<device.rerouting.probability value="0.5"/>
+	<device.rerouting.probability value="1"/>
     <device.rerouting.period value="60"/>
 	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
