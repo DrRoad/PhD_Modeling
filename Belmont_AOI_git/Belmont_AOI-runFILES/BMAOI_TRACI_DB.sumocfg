@@ -15,7 +15,7 @@
 	<collision.stoptime value="120"/> <!-- Small value to try to get rid of jams -->
 	<collision.check-junctions value="false"/>
 	<waiting-time-memory value="10"/>
-	<time-to-impatience value="120"/>
+	<time-to-impatience value="60"/>
 	<!--<max-num-vehicles value="4000"/>  Not sure about this one -->
 	<!--<time-to-teleport value="240"/>  I don't want anyone teleporting for no reason -->
 	<!-- <speed-in-kmh value="true"/> -->
@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0023jn-"/>
+    <output-prefix value="BMAOI-RUN_0_0024jn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -54,7 +54,7 @@
     <vehroute-output.write-unfinished value="false"/>
 	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
 	<link-output value=".\LinkStates.xml"/> -->
-	<emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/>
+	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> --> <!-- big files -->
 </output>
 <report>
     <verbose value="true"/>
