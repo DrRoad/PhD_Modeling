@@ -20,8 +20,8 @@ memoryUse = 0
 pid = os.getpid()
 py = psutil.Process(pid)
 ##### periodCounter = 0#/PERIOD_VARRIABLE # was 0
-sumoGUIBinary = "C:/Sumo/sumo-0.32.0/bin/sumo-gui" #-0.32.0
-sumoBinary = "C:/Sumo/sumo-0.32.0/bin/sumo"
+sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
+sumoBinary = "C:/Sumo/bin/sumo"
 
 
 # sumoGUIBinary = "C:/Sumo/bin/sumo-gui"

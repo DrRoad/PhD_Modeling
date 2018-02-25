@@ -12,8 +12,8 @@
 	<ignore-route-errors value="true"/>  #Buses being distributed on side roads
 	<step-method.ballistic value="false"/>
 	<!--<mingap-violation value="0"/>  http://sumo.dlr.de/trac.wsgi/ticket/1102?action=diff&version=10 -->
-	<collision.action value= "teleport"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
-	<collision.stoptime value="20"/> <!-- Small value to try to get rid of jams -->
+	<collision.action value= "remove"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
+	<collision.stoptime value="120"/> <!-- Small value to try to get rid of jams -->
 	<collision.check-junctions value="false"/>
 	<waiting-time-memory value="10"/>
 	<time-to-impatience value="120"/>
@@ -34,33 +34,33 @@
 	<step-length value="1"/>
 </time>
 <output>
+    <output-prefix value="BMAOI-RUN_0_0018TRACI-"/>
     <!-- <output-prefix value="We_-b_testing-"/> -->
-    <output-prefix value="BMAOI-RUN_0_0017TRACI-"/>
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 -->
     <!-- 0.0.07jn - log.stats = true If I remember this note-->
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
 	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
 	<!-- <save-state.times value="21601"/> -->
 	<!-- <save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file-21601.xml"/> -->
-	<!-- <summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/> -->
-	<!-- <queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/> -->
-	<!-- <tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/> -->
-	<!-- <vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/> -->
-	<!-- <vehroute-output.exit-times value="false"/> -->
-	<!-- <vehroute-output.sorted value="false"/> -->
-	<!-- <vehroute-output.intended-depart value="false"/> -->
-	<!-- <vehroute-output.route-length value="false"/> -->
-    <!-- <vehroute-output.write-unfinished value="false"/> -->
+	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
+	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
+	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
+	<vehroute-output.exit-times value="false"/>
+	<vehroute-output.sorted value="false"/>
+	<vehroute-output.intended-depart value="false"/>
+	<vehroute-output.route-length value="false"/>
+    <vehroute-output.write-unfinished value="false"/>
 	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
 	<link-output value=".\LinkStates.xml"/> -->
-	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> -->
+	<emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/>
 </output>
 <report>
     <verbose value="true"/>
 	<no-warnings value="false"/>
 	<no-step-log value="false"/>
 	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
-	<duration-log.statistics value="false"/>
+	<duration-log.statistics value="true"/>
 </report>
 <traci_server>
 	<!-- <remote-port value="5454"/>  -->
