@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0022jn-"/>
+    <output-prefix value="BMAOI-RUN_0_0023jn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -70,7 +70,7 @@
 </traci_server>
 <random_number>
     <random value="true"/>
-    <seed value="23423"/>
+    <seed value="11111"/>
 </random_number>
 <gui_only>
 	<gui-settings-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
