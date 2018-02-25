@@ -34,9 +34,10 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0018TRACI-"/>
+    <output-prefix value="BMAOI-RUN_0_0018bTRACI-"/>
     <!-- <output-prefix value="We_-b_testing-"/> -->
-    <!-- NOTES 0017 I just re-installed SUMO 0.32.0 -->
+    <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
+    For the record I killed 0017 because it went past 38000. Need the outputs in 0018. -->
     <!-- 0.0.07jn - log.stats = true If I remember this note-->
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
 	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
