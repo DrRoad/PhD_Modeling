@@ -34,7 +34,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0020jn-"/>
+    <output-prefix value="BMAOI-RUN_0_0021jn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -69,6 +69,10 @@
 	<!-- <python-scrpit value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\PYTHON_GIT_SUMO\Python_Sumo_Script.py"/>   -->
     <!-- http://sumo.dlr.de/wiki/SUMO  -->
 </traci_server>
+<random_number>
+    <random value="true"/>
+    <seed value="23423"/>
+</random_number>
 <gui_only>
 	<gui-settings-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
 	<start value="true"/>
