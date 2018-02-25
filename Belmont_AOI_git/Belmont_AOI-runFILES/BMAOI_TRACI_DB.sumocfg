@@ -4,7 +4,6 @@
 	<net-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
 	<additional-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml"/>
 	<route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-3-2018.rou.xml"/>
-    <!-- <route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-3-2018.rou.xml"/> -->
     <!-- <load-state vaule="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\BMAOI-RUN_6.2.jn-NetWork-State-file-21601.xml"/> -->
     <!-- <load-state.offset value="21601"/> -->
 	</input>
@@ -24,7 +23,7 @@
 </processing>
 <routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
 	<!-- <device.rerouting.adaptation-weight value=".5"/> -->
-	<device.rerouting.probability value="0.85"/>
+	<device.rerouting.probability value="0.5"/>
     <device.rerouting.period value="60"/>
 	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
@@ -69,10 +68,10 @@
 	<!-- <python-scrpit value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\PYTHON_GIT_SUMO\Python_Sumo_Script.py"/>   -->
     <!-- http://sumo.dlr.de/wiki/SUMO  -->
 </traci_server>
-<random_number>
-    <random value="true"/>
-    <seed value="23423"/>
-</random_number>
+<!-- <random_number> -->
+    <!-- <random value="true"/> -->
+    <!-- <seed value="23423"/> -->
+<!-- </random_number> -->
 <gui_only>
 	<gui-settings-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
 	<start value="true"/>
