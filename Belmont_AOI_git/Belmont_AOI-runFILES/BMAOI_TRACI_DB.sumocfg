@@ -24,7 +24,7 @@
 </processing>
 <routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
 	<!-- <device.rerouting.adaptation-weight value=".5"/> -->
-	<device.rerouting.probability value="1"/>
+	<device.rerouting.probability value="0.85"/>
     <device.rerouting.period value="60"/>
 	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
@@ -34,15 +34,16 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0018bTRACI-"/>
+    <output-prefix value="BMAOI-RUN_0_0020jn-"/>
+    <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
     For the record I killed 0017 because it went past 38000. Need the outputs in 0018. -->
     <!-- 0.0.07jn - log.stats = true If I remember this note-->
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
 	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
-	<!-- <save-state.times value="21601"/> -->
-	<!-- <save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file-21601.xml"/> -->
+	<save-state.times value="86400"/>
+	<save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file-86400.xml"/>
 	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
 	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
 	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
