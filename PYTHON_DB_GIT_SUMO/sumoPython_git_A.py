@@ -304,7 +304,7 @@ class Network_Period:
         Network_Period.myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa)
         ### Change max speed of edge based on roadway damage
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
-        Edge.getMaxSpeed(edgeLISTa)
+        Edge.getMaxSpeed(edgeLISTa,logger_TEMPDF)
         print("Testing edgeLISTa[48].__dict__ ...\n",edgeLISTa[48].__dict__,"\n======",SUMO_outPUT_PREFIX,"======")
         print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
 
