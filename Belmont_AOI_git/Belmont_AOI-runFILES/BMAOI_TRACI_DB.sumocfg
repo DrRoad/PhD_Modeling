@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0024jn-"/>
+    <output-prefix value="BMAOI-RUN_0_0025jn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -48,7 +48,7 @@
 	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
 	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
 	<vehroute-output.exit-times value="false"/>
-	<vehroute-output.sorted value="false"/>
+	<vehroute-output.sorted value="true"/>
 	<vehroute-output.intended-depart value="false"/>
 	<vehroute-output.route-length value="false"/>
     <vehroute-output.write-unfinished value="false"/>
