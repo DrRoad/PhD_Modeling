@@ -48,9 +48,9 @@
 	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
 	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
 	<vehroute-output.exit-times value="false"/>
-	<vehroute-output.sorted value="true"/>
+	<vehroute-output.sorted value="false"/>
 	<vehroute-output.intended-depart value="false"/>
-	<vehroute-output.route-length value="false"/>
+	<vehroute-output.route-length value="true"/>
     <vehroute-output.write-unfinished value="false"/>
 	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
 	<link-output value=".\LinkStates.xml"/> -->
