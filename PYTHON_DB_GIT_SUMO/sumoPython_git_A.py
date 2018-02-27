@@ -346,7 +346,7 @@ class Network_Period:
                     ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
             if i == 7:
                 wsdf = pd.DataFrame(ws.values)
-                print("\nPlease be true ... ", wsdf.iloc[7,6] == edgeLISTa[6].truckCount)
+                print("\nPlease be true ... ", wsdf.iloc[8,6] == edgeLISTa[6].truckCount)
                 logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = pd.DataFrame(ws.values)
         wb.save(PATH_to_Save_to)
