@@ -2,9 +2,9 @@
 
 <input>	
 	<net-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml"/>
-	<additional-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml"/>
+	<additional-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DXL-V6-SUMO31-15min.xml"/>
 	<route-files value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\BMAOI_duaROUTES-randomRoutes-1-3-2018.rou.xml"/>
-    <!-- <load-state vaule="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\BMAOI-RUN_6.2.jn-NetWork-State-file-21601.xml"/> -->
+    <!-- <load-state vaule="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_C-stateFILES\BMAOI-RUN_6.2.jn-NetWork-State-file-21601.xml"/> -->
     <!-- <load-state.offset value="21601"/> -->
 	</input>
 <processing>
@@ -25,7 +25,7 @@
 	<!-- <device.rerouting.adaptation-weight value=".5"/> -->
 	<device.rerouting.probability value="0.5"/>
     <device.rerouting.period value="60"/>
-	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
+	<!-- <device.rerouting.output value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
 <time>
 	<begin value="0"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
@@ -33,20 +33,20 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0026cjn-"/>
+    <output-prefix value="BMAOI_DXL-RUN_0_0026jn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
     For the record I killed 0017 because it went past 38000. Need the outputs in 0018. -->
     <!-- 0.0.07jn - log.stats = true If I remember this note-->
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
-	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
+	<!-- <netstate-dump value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
 	<save-state.times value="86400"/>
-	<save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file-86400.xml"/>
-	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
-	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
-	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
-	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
+	<save-state.files value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-stateFILES\NetWork-State-file-86400.xml"/>
+	<summary value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-summaryFILES\Summary_output.xml"/>
+	<queue-output value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-queueFILES\QUEUE_output.xml"/>
+	<tripinfo-output value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-tripFILES\TRIP_output.xml"/>
+	<vehroute-output value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-VehRouteFILES\Veh_Route_output.xml"/>
 	<vehroute-output.exit-times value="false"/>
 	<vehroute-output.sorted value="false"/>
 	<vehroute-output.intended-depart value="false"/>
@@ -54,7 +54,7 @@
     <vehroute-output.write-unfinished value="false"/>
 	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
 	<link-output value=".\LinkStates.xml"/> -->
-	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> --> <!-- big files -->
+	<!-- <emission-output value="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_C-EmissionFILES\Emissions_output.xml"/> --> <!-- big files -->
 </output>
 <report>
     <verbose value="true"/>

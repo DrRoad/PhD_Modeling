@@ -28,7 +28,13 @@ sumoBinary = "C:/Sumo/bin/sumo"
 # sumoBinary = "C:/Sumo/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
-configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
+loading_FROM = input("\n\t\t<><><> press d to run from Drexel location <><><>")
+print("loading_FROM = ",loading_FROM)
+if loading_FROM == str("d"):
+    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
+else:
+    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
+print("configPATH = ",configPATH)
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
@@ -235,7 +241,8 @@ class Network_Period:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
         if PATH == None:
             PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
-            PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+            PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" + SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+            OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
         full_Run_Time = 90000 #steps_TT
         Network_DF_Period_0t00xlsx=pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
@@ -317,7 +324,8 @@ class Network_Period:
         ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
         # from openpyxl import load_workbook
         ## openpyxl.worksheet.Worksheet.cell() method from  
-        PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+        PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+        OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
@@ -426,8 +434,8 @@ class Runner:
         print("\nBeginning Journey Now\n\tPlease See Gui for Show\n")
         typeRun = input("\n\nPush T to Run Simulation until the END\nPush 2 to run for XXX STEPS\nPush 3 to run for X number of PERIODS\nPush 4 to run until input TIME\nCurrent Step_Time : "+str(traci.simulation.getCurrentTime()/1000)+"\n\n\tEnter Run Type Here: ")
         if typeRun == '':
-            typeRun = "2"
-            print("You didn't specify! Going with default value... typeRun =", str(typeRun))
+            typeRun = "T"
+            print("You didn't specify! Going with default value... typeRun =", str(typeRun)," ...Run forEVER!!!")
         else:
             if typeRun =='T' or typeRun == 't':
                 print("You pressed", str(typeRun),"= Run forEVER!!!")
@@ -478,7 +486,7 @@ class Runner:
                 traci.simulationStep()
                 Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1#(1/PERIOD_VARRIABLE)
-        elif str(typeRun) == "4": #run until input time VAR -> NextTimeToStop			
+        elif str(typeRun) == "4": #run until input time VAR -> NextTimeToStop            
             print("\nCurrent Time is: ",str(traci.simulation.getCurrentTime()/1000))
             # import ipdb
             # ipdb.set_trace()
@@ -521,11 +529,16 @@ class RunFileInfo:
     def __init__(self):#, SUMO_outPUT_PREFIX,SUMO_Traci_PORT):
         pass
         
-    def GetSimulationRunPrefix(display):
+    def GetSimulationRunPrefix(display,loading_FROM):
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        with open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg') as f:
+        if loading_FROM == str("d"):
+            readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg'
+        else:
+            readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg'
+        with open(readfromPATH) as f:
+        #open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:
