@@ -217,7 +217,7 @@ class Edge():
             traci.edge.setMaxSpeed(rd,maxSpeed_i)
             edgeLISTa[counter].Dynamic_Max_Speed = maxSpeed_i
             counter += 1
-            if maxSpeed_i <= 27:
+            if maxSpeed_i <= 30:
                 print("The new speed for edge ",rd," is now ",round(maxSpeed_i.iloc[0],2))
         ### Need a new method to change driver imperfection based on road damage
         ## traci.vehicle.setImperfection(vehID..., function relating road index to driver imperfection)
@@ -229,7 +229,8 @@ class Edge():
         edge_i_speed_t = 0
         counter = 0
         for edge_i in Belmont_Ave[:]:
-            edgeLISTa[counter].Dynamic_Max_Speed = edge_i_speed_t
+            edge_i_speed_t = 0 
+            edge_i_speed_t = edgeLISTa[counter].Dynamic_Max_Speed
             print(" ", edgeLISTa[counter].edgeID," : ", edge_i_speed_t,"; ", end='\r', flush=True)
             counter = counter + 1
             return print("<>\n<>><<><><><><\n",edge_i,"'s max speed =",edge_i_speed_t,"\n\<><><><\t\t<><><><><><")
