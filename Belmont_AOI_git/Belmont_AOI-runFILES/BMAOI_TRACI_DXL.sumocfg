@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI_DXL-RUN_0_002jn-"/>
+    <output-prefix value="BMAOI-DXL_RUN_0_002bjn-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
