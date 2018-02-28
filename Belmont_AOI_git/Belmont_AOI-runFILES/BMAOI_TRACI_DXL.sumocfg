@@ -33,8 +33,8 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-DXL_RUN_0_002bjn-"/>
-    <!-- THIS WORKED !!!-->
+    <output-prefix value="BMAOI-DXL_RUN_0_002d-"/>
+    <!-- after 002c_DXL I removed edge data request from  C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DXL-V6-SUMO31-15min.xml -->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
     For the record I killed 0017 because it went past 38000. Need the outputs in 0018. -->

@@ -22,7 +22,7 @@ Edge replacement for lane for SUMO 0.31 to 0.30
 	12.29.2017 This has not been done yet, but still should be triedC:\GitHub\PhD_Modeling\Belmont_AOI_git\Belmont_AOI_toolBOX\Selected_Small_Belmount_AOI_volume_V3.xlsm \ sheet Calibrator_MAKER
 	
 -->
-<edgeData id="BM_test-num_22" freq="5" file="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-edgeFILES\BM_test-num_22-EdgeData.xml" excludeEmpty="true"/>
+<!-- <edgeData id="BM_test-num_22" freq="5" file="C:\SUMO-Drexel\Runs\BMAOI_DXL\BMAOI_DXL-edgeFILES\BM_test-num_22-EdgeData.xml" excludeEmpty="true"/> -->
 <route id="U_Tracker_Ben" edges="424978646 424978639.0 424978639.102"/> 
 
 
