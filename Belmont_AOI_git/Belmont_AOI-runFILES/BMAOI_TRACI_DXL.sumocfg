@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-DXL_RUN_0_002d-"/>
+    <output-prefix value="BMAOI-DXL_RUN_0_002f-"/>
     <!-- after 002c_DXL I removed edge data request from  C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DXL-V6-SUMO31-15min.xml -->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -69,7 +69,7 @@
     <!-- http://sumo.dlr.de/wiki/SUMO  -->
 </traci_server>
 <random_number>
-    <random value="true"/>
+    <random value="false"/>
     <seed value="11111"/>
 </random_number>
 <gui_only>
