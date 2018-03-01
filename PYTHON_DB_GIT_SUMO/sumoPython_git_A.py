@@ -28,12 +28,12 @@ sumoBinary = "C:/Sumo/bin/sumo"
 # sumoBinary = "C:/Sumo/bin/sumo"
 # sumoGUIBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo-gui"
 # sumoBinary = "C:/Sumo/SUMO-0.31.0/sumo-0.31.0/bin/sumo"
-loading_FROM = input("\n\t\t<><><> press d to run from Drexel location <><><>")
-print("loading_FROM = ",loading_FROM)
-if loading_FROM == str("d"):
-    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
-else:
-    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
+# loading_FROM = input("\n\t\t<><><> press d to run from Drexel location <><><>")
+# print("loading_FROM = ",loading_FROM)
+# if loading_FROM == str("d"):
+    # configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
+# else:
+configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
 print("configPATH = ",configPATH)
 sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
 sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
@@ -93,7 +93,6 @@ class Edge():
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
         logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
-        
         self.AGE_0 = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0',]
         self.ADDT_rand = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
         self.ASS_CALI = logger_TEMPDF.loc[Bel_Dic_ID,'ASS_CALI']
@@ -385,7 +384,7 @@ class Initializer:
         return int(PERIOD_VARRIABLE)
 
 
-    def startSUMO(SUMO_Traci_PORT,useCase=None):
+    def startSUMO(SUMO_Traci_PORT,useCase,GUI_01):
         # sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin", 0, "--step-length", 1, "--net-file", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml", "--additional-files", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml", "--vehroute-output.exit-times", "true", "--ignore-route-errors", "true", "--start"]
         sumoCmd #= [sumoBinary, "-c", configPATH, "--start"]
         sumoGUICmd #= [sumoGUIBinary, "-c", configPATH, "--start"]
@@ -397,14 +396,14 @@ class Initializer:
            print("\t\t\t\t\t\t###STARTING####")
            useCase = input("\n\tPress 1 for a new Run:  \n") #\nPress Anything to continue...
         if useCase == "1":
-            GUI_01 = input("Press Zero to use GUI? (0)\n")
-            inputPort = input("Confirm with: BMAOI-TRACI.sumocfg .. port in File: .."+ str(SUMO_Traci_PORT)+"\nPlease select a port...\t") # 
-            if inputPort == '':
-                portTouse = int(SUMO_Traci_PORT)
-            else:
-                portTouse = inputPort
+            # GUI_01 = input("Press Zero to use GUI? (0)\n")
+            # inputPort = input("Confirm with: BMAOI-TRACI.sumocfg .. port in File: .."+ str(SUMO_Traci_PORT)+"\nPlease select a port...\t") # 
+            # if inputPort == '':
+                # portTouse = int(SUMO_Traci_PORT)
+            # else:
+            # portTouse = inputPort
             print("\n\t\tTrying port ..  ",portTouse,"\n\n")
-            if str(GUI_01) != "0":
+            if str(GUI_01) == "0":
                 traci.start(sumoCmd,int(portTouse))
             else:
                 traci.start(sumoGUICmd,int(portTouse))
@@ -419,7 +418,7 @@ class Initializer:
             PC.condition.DisplayFiles()
             traci.close()
         print("\nuseCase = ",useCase)
-        return Start_Time, portTouse, useCase
+        return (Start_Time, portTouse, useCase)
 
         
 class Runner:
@@ -530,38 +529,39 @@ class RunFileInfo:
     def __init__(self):#, SUMO_outPUT_PREFIX,SUMO_Traci_PORT):
         pass
         
-    def GetSimulationRunPrefix(display,loading_FROM):
+    def GetSimulationRunPrefix(display,prefix,port):
         import re
         global SUMO_outPUT_PREFIX
         global SUMO_Traci_PORT
-        if loading_FROM == str("d"):
-            readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg'
-        else:
-            readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg'
+        # if loading_FROM == str("d"):
+            # readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg'
+        # else:
+        readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg'
         with open(readfromPATH) as f:
-        #open('/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg') as f:
             termLIST = list()
             termcounter = 0
             for line in f:
+                if prefix == 1:
                 # print("SUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX)
                 # if SUMO_outPUT_PREFIX =="":
-                if '<output-prefix value="' in line:
-                    print(line)
-                    SUMO_outPUT_PREFIX_LINE = line
-                    SUMO_outPUT_PREFIX = re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2)
-                    termLIST.append(re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2))
-                    SUMO_outPUT_PREFIX = termLIST[0]
-                    # print("\nSUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX,"\n")
-                    termcounter +=1
-                    break
-            for line in f:
-                if '<remote-port value=' in line:
-                    SUMO_outPUT_Port_LINE = line
-                    SUMO_Traci_PORT = re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1)
-                    termLIST.append(re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1))
+                    if '<output-prefix value="' in line:
+                        print(line)
+                        SUMO_outPUT_PREFIX_LINE = line
+                        SUMO_outPUT_PREFIX = re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2)
+                        termLIST.append(re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2))
+                        SUMO_outPUT_PREFIX = termLIST[0]
+                        # print("\nSUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX,"\n")
+                        termcounter +=1
+                        return SUMO_outPUT_PREFIX
+                else:
+                    for line in f:
+                        if '<remote-port value=' in line:
+                            SUMO_outPUT_Port_LINE = line
+                            SUMO_Traci_PORT = re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1)
+                            termLIST.append(re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1))
+                            return SUMO_Traci_PORT
         if display == 1:
             print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\n\SUMO_Traci_PORT = ", SUMO_Traci_PORT)
-
         return SUMO_outPUT_PREFIX, SUMO_Traci_PORT#, print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\nSUMO_Traci_PORT = ", SUMO_Traci_PORT)
         
 print("Your new sumoPython_git_A has been loaded!")
