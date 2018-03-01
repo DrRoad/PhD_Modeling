@@ -23,7 +23,7 @@
 </processing>
 <routing><!-- http://sumo.dlr.de/wiki/Demand/Automatic_Routing -->
 	<!-- <device.rerouting.adaptation-weight value=".5"/> -->
-	<device.rerouting.probability value="0.5"/>
+	<device.rerouting.probability value="0"/>
     <device.rerouting.period value="60"/>
 	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0028b-"/>
+    <output-prefix value="BMAOI-RUN_0_0029-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
@@ -62,6 +62,8 @@
 	<no-step-log value="false"/>
 	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
 	<duration-log.statistics value="true"/>
+    <error-log value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\SUMO_log_FILES\error_log_FILE.txt"/>
+    <message-log value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\SUMO_log_FILES\message_log_FILE.txt"/>
 </report>
 <traci_server>
 	<!-- <remote-port value="5454"/>  -->

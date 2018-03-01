@@ -197,7 +197,7 @@ class Edge():
         # return repr(self.__dict__)
         
     def _resetLOGGER(self,edgeLISTa):
-        print("\n\nReset_Edge_CasheFiles has started")
+        print("\n\n****$$$$*****$$$$$****$$$$$$\nReset_Edge_CasheFiles has started")
         counter = 0
         for edge_i in Belmont_Ave[:]:
         # edgeLISTa[Belmont_Ave.index(self.edgeID)].vehidLIST= {'vehID_k' : 'veh_k_Type'}
@@ -299,12 +299,12 @@ class Network_Period:
                 # print("\n[<<[<[<>]>]>>]\nedgeLISTa[4].truckCount = ",edgeLISTa[4].truckCount,"<><>\nlogger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks']= ",logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[n].edgeID),'Total_Trucks'],"\n[<<[<[<>]>]>>]\n")
             ## Do I need to reset the logger? Will it slow things down towards the end? 
             if len(edgeLISTa[n].vehidLIST) > 100:
-                if n == 48:
-                    memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
-                    print('memory use:', memoryUse)
-                    edgeLISTa[n]._resetLOGGER(edgeLISTa)
-                    memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
-                    print('memory use:', memoryUse)
+                # if n == 48:
+                memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
+                print('memory use:', memoryUse)
+                edgeLISTa[n]._resetLOGGER(edgeLISTa)
+                memoryUse = py.memory_info()[0]/2.**30  # memory use in GB...I think
+                print('memory use:', memoryUse)
                 edgeLISTa[n]._resetLOGGER(edgeLISTa)
 
         ### NOW SAVE THIS DATAFRAME [[logger_TEMPDF]] TO THE SHEET THAT IT CAME FROM IN THE WORKBOOKER

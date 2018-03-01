@@ -6,6 +6,9 @@
 ## GIT COMMIT AND PUSH
 ## I think best just to run with Jupyter Notebook... for debugging.
 
+##Note to check: https://intelligea.wordpress.com/2015/08/05/check-if-python-version-is-64-or-32-bit/
+# import struct;print struct.calcsize("P") * 8
+
 
 ## GIT COMMIT AND PUSH
 
