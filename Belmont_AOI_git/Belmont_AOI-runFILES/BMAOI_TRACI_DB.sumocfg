@@ -28,12 +28,12 @@
 	<!-- <device.rerouting.output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml"/> -->
 </routing>
 <time>
-	<begin value="0"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
+	<begin value="18001"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
 	<!-- <end value="87400"/> 72000 = 8pm ; 86400 seconds in a day {this needs to be kept blank to allow cars to finish their routes--> 
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_0_0027cjn-"/>
+    <output-prefix value="BMAOI-RUN_0_0028-"/>
     <!-- THIS WORKED !!!-->
     <!-- <output-prefix value="We_-b_testing-"/> -->
     <!-- NOTES 0017 I just re-installed SUMO 0.32.0 
