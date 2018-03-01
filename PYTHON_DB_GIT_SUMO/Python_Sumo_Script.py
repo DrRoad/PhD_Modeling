@@ -25,11 +25,18 @@ import sumoPython_git_A as SP
 import openpyxl as OPENxlsx
 pd.set_option('display.max_rows', 5)
 
+loading_FROM = input("\n\t\t<><><> press d to run from Drexel location <><><>")
+print("loading_FROM = ",loading_FROM)
+if loading_FROM == str("d"):
+    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
+else:
+    configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
+
 # %colors Linux
 PERIOD_VARRIABLE = SP.Initializer.inputPeriod_asNumber(new=1)
-fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(display=0)
-SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0)[0]
-SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0)[1])
+fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(display=0,loading_FROM=loading_FROM)
+SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0,loading_FROM=loading_FROM)[0]
+SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0,loading_FROM=loading_FROM)[1])
 SP.Initializer.startSUMO(SUMO_Traci_PORT,useCase=str(1))
     # Ask for Steps to take or Time to run until
 typeRun = SP.Runner.runtypeAsker()
