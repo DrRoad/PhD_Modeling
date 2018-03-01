@@ -7,7 +7,7 @@
 ## I think best just to run with Jupyter Notebook... for debugging.
 
 ##Note to check: https://intelligea.wordpress.com/2015/08/05/check-if-python-version-is-64-or-32-bit/
-# import struct;print struct.calcsize("P") * 8
+# import struct;print struct.calcsize("P") * 8 - yes 64bit
 
 
 ## GIT COMMIT AND PUSH
