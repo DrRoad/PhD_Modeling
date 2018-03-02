@@ -195,6 +195,3 @@
 	<flow begin="83701" end="84600" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="17" type="US1-ALL-NB_Dis" departPos="free" departSpeed="max"/>
 	<flow begin="84601" end="85500" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="17" type="US1-ALL-NB_Dis" departPos="free" departSpeed="max"/>
 </calibrator>
-
-	<flow begin="1" end="900" route="ConcrseDR-Belmont-MemHll-EB-02-Distrib" vehsPerHour="Poo" type="US1-ALL-NB_Dis" departPos="free" departSpeed="max"/>
-	<flow begin="1" end="900" route="ConcrseDR-Belmont-MemHll-WB-02-Distrib" vehsPerHour="Poo" type="US1-ALL-NB_Dis" departPos="free" departSpeed="max"/>
