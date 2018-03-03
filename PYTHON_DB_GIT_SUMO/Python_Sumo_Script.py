@@ -2,7 +2,7 @@
 
 
 ## GIT COMMIT AND PUSH
-## GIT COMMIT AND PUSH # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
+## GIT COMMIT AND PUSH # python run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
 ## GIT COMMIT AND PUSH
 ## I think best just to run with Jupyter Notebook... for debugging.
 
@@ -58,7 +58,7 @@ periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT
 
 # Take a step(s)
 SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
-fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter = (int(traci.simulation.getCurrentTime()/1000)),edgeLISTa=edgeLISTa)
+SP.Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter = (int(traci.simulation.getCurrentTime()/1000)),edgeLISTa=edgeLISTa)
 traci.close()
 # continue01 = 0
 # continue01 = str(input("Press x to exit"))
