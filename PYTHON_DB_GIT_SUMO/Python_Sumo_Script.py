@@ -1,8 +1,8 @@
 ## Last worked on 2/23/2018
 
 
-## GIT COMMIT AND PUSH
-## GIT COMMIT AND PUSH # python run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
+## GIT COMMIT AND PUSH # python /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
+## GIT COMMIT AND PUSH # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
 ## GIT COMMIT AND PUSH
 ## I think best just to run with Jupyter Notebook... for debugging.
 
@@ -56,7 +56,7 @@ SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=1,po
 SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=0,port=1))
 SP.Initializer.startSUMO(SUMO_Traci_PORT,useCase=str(1),GUI_01=0)
     # Ask for Steps to take or Time to run until
-typeRun = '2'#SP.Runner.runtypeAsker()
+typeRun = 'T'#SP.Runner.runtypeAsker()
 Start_Time = int(traci.simulation.getCurrentTime()/1000) 
 print("======",SUMO_outPUT_PREFIX,"======")
 #SP.Initializer.runSUMO(SUMO_Traci_PORT,useCase="Continue")[0]
