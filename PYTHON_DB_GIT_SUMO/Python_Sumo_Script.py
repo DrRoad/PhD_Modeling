@@ -33,6 +33,20 @@ import openpyxl as OPENxlsx
 # if loading_FROM == str("d"):
     # configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
 # else:
+# Run_list_TXT = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Run_list_FILE.txt'
+# with open(Run_list_TXT,'a') as f:
+    # XMLdataRL = open(Run_list_TXT).readlines()
+    # run_LIST = list()
+    # for line in range(len(XMLdataRL)):
+        # if '00' in XMLdataRL[line]:
+            # run_LIST.append(int(XMLdataRL[line]))
+        # else:
+            # next
+    # print(max(run_LIST))
+    # new_run = '\n00'+str(max(run_LIST)+1)
+    # f.write(new_run)
+# print(new_run)
+configPATH_MASTER = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
 configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
 
 # %colors Linux
@@ -42,7 +56,7 @@ SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=1,po
 SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=0,port=1))
 SP.Initializer.startSUMO(SUMO_Traci_PORT,useCase=str(1),GUI_01=0)
     # Ask for Steps to take or Time to run until
-typeRun = 'T'#SP.Runner.runtypeAsker()
+typeRun = '2'#SP.Runner.runtypeAsker()
 Start_Time = int(traci.simulation.getCurrentTime()/1000) 
 print("======",SUMO_outPUT_PREFIX,"======")
 #SP.Initializer.runSUMO(SUMO_Traci_PORT,useCase="Continue")[0]
@@ -58,7 +72,7 @@ periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT
 
 # Take a step(s)
 SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
-SP.Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter = (int(traci.simulation.getCurrentTime()/1000)),edgeLISTa=edgeLISTa)
+SP.Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter = 24,edgeLISTa=edgeLISTa)
 traci.close()
 # continue01 = 0
 # continue01 = str(input("Press x to exit"))

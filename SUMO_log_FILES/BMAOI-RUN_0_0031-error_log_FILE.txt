@@ -1,0 +1,133 @@
+Warning: Vehicle '3_Belmont_AOI992' performs emergency stop at the end of lane '486653626#1_0' because of a red traffic light (decel=-4.60, offset=1.34), time=18137.00.
+Warning: Vehicle '1c_Belmont_AOI_4990'; collision with vehicle '1c_Belmont_AOI_4962', lane='-387423967#0_0', gap=-0.18, time=18166.00 stage=move.
+Warning: Removing vehicle '1c_Belmont_AOI_4962' after earlier collision, lane='-387423967#0_0, time=18287.00.
+Warning: Removing vehicle '1c_Belmont_AOI_4990' after earlier collision, lane='-387423967#0_0, time=18287.00.
+Warning: Clearing jam at calibrator 'Belmont-BmontMansn-PrkSD-NB-09-53723' at time 18470.00
+Warning: Clearing jam at calibrator 'Belmont-GrgHill-Monmnt-SB-16-127937' at time 18511.00
+Warning: Clearing jam at calibrator 'Girard-38th-34th-WB-2017-135477' at time 18646.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-SB-05-37672' at time 18670.00
+Warning: Vehicle '3_Belmont_AOI1020' performs emergency stop at the end of lane '-388756837#2_0' because of a red traffic light (decel=-11.49, offset=0.47), time=18674.00.
+Warning: Vehicle '3_Belmont_AOI1027' performs emergency stop at the end of lane '49916295#1_0' because of a red traffic light (decel=-6.44, offset=1.52), time=18703.00.
+Warning: Vehicle '1c_Belmont_AOI_5137'; collision with vehicle '1c_Belmont_AOI_5159', lane='62105282#6_0', gap=-0.60, time=18801.00 stage=move.
+Warning: Clearing jam at calibrator 'Wynn-PrkSD-Belmont-BTH-EB-15-118680' at time 18821.00
+Warning: Vehicle 'Wynn-54th-PrkSD-BTH-EB-02-47475.18001.0' performs emergency stop at the end of lane '-12180460#1_0' because of a red traffic light (decel=-8.04, offset=2.41), time=18845.00.
+Warning: Clearing jam at calibrator 'ParkSide-52nd-Belmont-EB-2017-135473' at time 18871.00
+Warning: Clearing jam at calibrator 'Wynn-PrkSD-Belmont-BTH_2-EB-15-118680' at time 18875.00
+Warning: Clearing jam at calibrator 'Belmont-PrkSD-Monument-NB-09-53497' at time 18902.00
+Warning: Clearing jam at calibrator 'Belmont-GrgHill-Monmnt-SB-16-127937' at time 18913.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-NB-05-37671' at time 18913.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-SB-05-37672' at time 18916.00
+Warning: Removing vehicle '1c_Belmont_AOI_5159' after earlier collision, lane='62105282#6_0, time=18922.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5137' after earlier collision, lane='62105282#6_0, time=18922.00.
+Warning: Clearing jam at calibrator 'Girard-38th-34th-WB-2017-135477' at time 18923.00
+Warning: Vehicle 'Wynn-GeogresLA-53rd-EB-05-37100.18001.16'; collision with vehicle 'Wynn-PrkSD-Belmont-BTH-EB-15-118680.18001.9', lane='49940321#1_0', gap=-3.79, time=18924.00 stage=move.
+Warning: Clearing jam at calibrator 'Belmont-PrkSD-Monument-SB-09-53496' at time 18974.00
+Warning: Clearing jam at calibrator 'Belmont-BmontMansn-PrkSD-NB-09-53723' at time 19013.00
+Warning: Removing vehicle 'Wynn-PrkSD-Belmont-BTH-EB-15-118680.18001.9' after earlier collision, lane='49940321#1_0, time=19045.00.
+Warning: Removing vehicle 'Wynn-GeogresLA-53rd-EB-05-37100.18001.16' after earlier collision, lane='49940321#1_0, time=19045.00.
+Warning: Clearing jam at calibrator 'Wynn-PrkSD-Belmont-BTH-EB-15-118680' at time 19591.00
+Warning: Vehicle '3_Belmont_AOI1078' performs emergency stop at the end of lane '-121486019#1_0' because of a red traffic light (decel=-8.15, offset=1.09), time=19653.00.
+Warning: Vehicle 'Wynn-PrkSD-Belmont-BTH-EB-15-118680.18901.4'; collision with vehicle '1c_Belmont_AOI_5402', lane='196358992#0_0', gap=-12.40, time=19686.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5402'; collision with vehicle '1c_Belmont_AOI_5393', lane='196358992#0_0', gap=-5.44, time=19686.00 stage=move.
+Warning: Clearing jam at calibrator 'ParkSide-52nd-Belmont-EB-2017-135473' at time 19711.00
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.1'; collision with vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.1', lane='-387423967#0_0', gap=-4.14, time=19771.00 stage=move.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.1'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.0', lane='-387423967#0_0', gap=-2.16, time=19771.00 stage=move.
+Warning: Removing vehicle '1c_Belmont_AOI_5393' after earlier collision, lane='196358992#0_0, time=19807.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5402' after earlier collision, lane='196358992#0_0, time=19807.00.
+Warning: Removing vehicle 'Wynn-PrkSD-Belmont-BTH-EB-15-118680.18901.4' after earlier collision, lane='196358992#0_0, time=19807.00.
+Warning: Clearing jam at calibrator 'Belmont-Wynn-GrgHill-SB-10-67304' at time 19813.00
+Warning: Clearing jam at calibrator 'Belmont-GrgHill-Monmnt-SB-16-127937' at time 19815.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-SB-05-37672' at time 19816.00
+Warning: Clearing jam at calibrator 'Girard-38th-34th-WB-2017-135477' at time 19824.00
+Warning: Vehicle '3_Belmont_AOI1086' performs emergency stop at the end of lane '423967058#1_0' because of a red traffic light (decel=-10.43, offset=6.68), time=19866.00.
+Warning: Clearing jam at calibrator 'Belmont-Wynn-GrgHill-NB-10-67303' at time 19882.00
+Warning: Clearing jam at calibrator 'Belmont-PrkSD-Monument-SB-09-53496' at time 19884.00
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.0' after earlier collision, lane='-387423967#0_0, time=19892.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.1' after earlier collision, lane='-387423967#0_0, time=19892.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.1' after earlier collision, lane='-387423967#0_0, time=19892.00.
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-NB-05-37671' at time 19902.00
+Warning: Vehicle '3_Belmont_AOI1087'; collision with vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.5', lane='-387423967#0_0', gap=-10.64, time=19903.00 stage=move.
+Warning: Vehicle 'Belmont-Wynn-PrkSD-SB-05-37672.18901.38' performs emergency stop at the end of lane '-423967358#1_0' because of a red traffic light (decel=-6.46, offset=3.95), time=19955.00.
+Warning: Clearing jam at calibrator 'Belmont-BmontMansn-PrkSD-NB-09-53723' at time 20001.00
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.5' after earlier collision, lane='-387423967#0_0, time=20024.00.
+Warning: Removing vehicle '3_Belmont_AOI1087' after earlier collision, lane='-387423967#0_0, time=20024.00.
+Warning: Vehicle '1c_Belmont_AOI_5446'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.7', lane='-387423967#0_0', gap=-7.84, time=20028.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5492'; collision with vehicle '3_Belmont_AOI1083', lane='196358992#0_1', gap=-5.30, time=20058.00 stage=move.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.7' after earlier collision, lane='-387423967#0_0, time=20149.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5446' after earlier collision, lane='-387423967#0_0, time=20149.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.8'; collision with vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.8', lane='-387423967#0_0', gap=-7.46, time=20151.00 stage=move.
+Warning: Removing vehicle '3_Belmont_AOI1083' after earlier collision, lane='196358992#0_1, time=20179.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5492' after earlier collision, lane='196358992#0_1, time=20179.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.8' after earlier collision, lane='-387423967#0_0, time=20272.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.8' after earlier collision, lane='-387423967#0_0, time=20272.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.9'; collision with vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.13', lane='-387423967#0_0', gap=-6.09, time=20275.00 stage=move.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.18901.13' after earlier collision, lane='-387423967#0_0, time=20396.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.9' after earlier collision, lane='-387423967#0_0, time=20396.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.10'; collision with vehicle '1c_Belmont_AOI_5401', lane='-387423967#0_0', gap=-7.38, time=20398.00 stage=move.
+Warning: Clearing jam at calibrator 'Wynn-PrkSD-Belmont-BTH-EB-15-118680' at time 20428.00
+Warning: Clearing jam at calibrator 'Wynn-54th-PrkSD-BTH-EB-02-47475' at time 20471.00
+Warning: Removing vehicle '1c_Belmont_AOI_5401' after earlier collision, lane='-387423967#0_0, time=20519.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.10' after earlier collision, lane='-387423967#0_0, time=20519.00.
+Warning: Vehicle '1c_Belmont_AOI_5561'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.11', lane='-387423967#0_0', gap=-7.38, time=20527.00 stage=move.
+Warning: Clearing jam at calibrator 'ParkSide-52nd-Belmont-EB-2017-135473' at time 20590.00
+Warning: Clearing jam at calibrator 'Belmont-Monmnt-Conshi-NB-12-87722' at time 20619.00
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.11' after earlier collision, lane='-387423967#0_0, time=20648.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5561' after earlier collision, lane='-387423967#0_0, time=20648.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.12'; collision with vehicle '1c_Belmont_AOI_5606', lane='-387423967#0_0', gap=-6.85, time=20651.00 stage=move.
+Warning: Clearing jam at calibrator 'Belmont-Wynn-GrgHill-SB-10-67304' at time 20713.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-SB-05-37672' at time 20716.00
+Warning: Clearing jam at calibrator 'Belmont-GrgHill-Monmnt-SB-16-127937' at time 20743.00
+Warning: Clearing jam at calibrator 'ParkSide-52nd-Belmont-EB-2017-135473' at time 20754.00
+Warning: Removing vehicle '1c_Belmont_AOI_5606' after earlier collision, lane='-387423967#0_0, time=20772.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.18901.12' after earlier collision, lane='-387423967#0_0, time=20772.00.
+Warning: Clearing jam at calibrator 'Belmont-PrkSD-Monument-SB-09-53496' at time 20774.00
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.3'; collision with vehicle '1c_Belmont_AOI_5501', lane='-387423967#0_0', gap=-6.30, time=20801.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5501'; collision with vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.18901.3', lane='-387423967#0_0', gap=-0.94, time=20801.00 stage=move.
+Warning: Clearing jam at calibrator 'Girard-38th-34th-WB-2017-135477' at time 20816.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-PrkSD-NB-05-37671' at time 20839.00
+Warning: Clearing jam at calibrator 'Belmont-Wynn-GrgHill-NB-10-67303' at time 20871.00
+Warning: Removing vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.18901.3' after earlier collision, lane='-387423967#0_0, time=20922.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5501' after earlier collision, lane='-387423967#0_0, time=20922.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.3' after earlier collision, lane='-387423967#0_0, time=20922.00.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.13'; collision with vehicle '1c_Belmont_AOI_5420', lane='49940587#0_0', gap=-7.71, time=20926.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5420'; collision with vehicle '3_Belmont_AOI1134', lane='49940587#0_0', gap=-0.01, time=20926.00 stage=move.
+Warning: Vehicle 'Belmont-Monmnt-Conshi-NB-12-87722.19801.4' performs emergency stop at the end of lane '-195659731#0_1' because of a red traffic light (decel=-8.11, offset=4.28), time=20927.00.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.8'; collision with vehicle '1c_Belmont_AOI_5534', lane='-387423967#0_0', gap=-0.68, time=20927.00 stage=move.
+Warning: Vehicle 'Wynn-PrkSD-Belmont-BTH-EB-15-118680.19801.29' performs emergency stop at the end of lane '134557562#3_0' because of a red traffic light (decel=-2.16, offset=0.03), time=21045.00.
+Warning: Removing vehicle '3_Belmont_AOI1134' after earlier collision, lane='49940587#0_0, time=21047.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5420' after earlier collision, lane='49940587#0_0, time=21047.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.13' after earlier collision, lane='49940587#0_0, time=21047.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5534' after earlier collision, lane='-387423967#0_0, time=21048.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.8' after earlier collision, lane='-387423967#0_0, time=21048.00.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.12'; collision with vehicle '1c_Belmont_AOI_5565', lane='-387423967#0_0', gap=-4.85, time=21051.00 stage=move.
+Warning: Clearing jam at calibrator 'Belmont-BmontMansn-PrkSD-NB-09-53723' at time 21081.00
+Warning: Removing vehicle '1c_Belmont_AOI_5565' after earlier collision, lane='-387423967#0_0, time=21172.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.12' after earlier collision, lane='-387423967#0_0, time=21172.00.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.18'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.1', lane='-387423967#0_0', gap=-11.60, time=21180.00 stage=move.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.1'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.0', lane='-387423967#0_0', gap=-2.55, time=21180.00 stage=move.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.0'; collision with vehicle '1c_Belmont_AOI_5569', lane='-387423967#0_0', gap=-3.03, time=21180.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5798'; collision with vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.19801.6', lane='-387423967#2_0', gap=-7.77, time=21209.00 stage=move.
+Warning: Clearing jam at calibrator 'Wynn-54th-PrkSD-BTH-EB-02-47475' at time 21223.00
+Warning: Removing vehicle '1c_Belmont_AOI_5569' after earlier collision, lane='-387423967#0_0, time=21301.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.0' after earlier collision, lane='-387423967#0_0, time=21301.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.1' after earlier collision, lane='-387423967#0_0, time=21301.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.18' after earlier collision, lane='-387423967#0_0, time=21301.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.6'; collision with vehicle '1c_Belmont_AOI_5823', lane='-387423967#1_0', gap=-7.48, time=21309.00 stage=move.
+Warning: Vehicle '1c_Belmont_AOI_5823'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.5', lane='-387423967#1_0', gap=-2.47, time=21309.00 stage=move.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.19'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.4', lane='-387423967#0_0', gap=-6.67, time=21323.00 stage=move.
+Warning: Removing vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.19801.6' after earlier collision, lane='-387423967#2_0, time=21330.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5798' after earlier collision, lane='-387423967#2_0, time=21330.00.
+Warning: Clearing jam at calibrator 'Wynn-PrkSD-Belmont-BTH-EB-15-118680' at time 21420.00
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.5' after earlier collision, lane='-387423967#1_0, time=21430.00.
+Warning: Removing vehicle '1c_Belmont_AOI_5823' after earlier collision, lane='-387423967#1_0, time=21430.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.6' after earlier collision, lane='-387423967#1_0, time=21430.00.
+Warning: Clearing jam at calibrator 'Belmont-Monmnt-Conshi-NB-12-87722' at time 21440.00
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.4' after earlier collision, lane='-387423967#0_0, time=21444.00.
+Warning: Removing vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.19' after earlier collision, lane='-387423967#0_0, time=21444.00.
+Warning: Vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.8'; collision with vehicle '1c_Belmont_AOI_5703', lane='-387423967#0_0', gap=-6.38, time=21447.00 stage=move.
+Warning: Clearing jam at calibrator 'Belmont-PrkSD-Monument-NB-09-53497' at time 21501.00
+Warning: Removing vehicle '1c_Belmont_AOI_5703' after earlier collision, lane='-387423967#0_0, time=21568.00.
+Warning: Removing vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.8' after earlier collision, lane='-387423967#0_0, time=21568.00.
+Warning: Vehicle 'Belmont-Lansdwn-States-SB-11-78089.19801.21'; collision with vehicle 'ParkSide-52nd-Belmont-EB-2017-135473.19801.7', lane='-387423967#0_0', gap=-7.94, time=21570.00 stage=move.
+Error: tcpip::Socket::recvAndCheck @ recv: peer shutdown
+Quitting (on error).

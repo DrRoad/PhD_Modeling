@@ -268,6 +268,7 @@ class Network_Period:
     def fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa):
         #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
         #### BIG CONTRIBUTION PART
+        print("\n\n\t\t\tFilling out worksheet")
         if periodCounter == 0:
             return
         # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
@@ -330,7 +331,7 @@ class Network_Period:
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
-        print("\n[[[<><><>]]]\nStarting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"\n\n[[[<><><>]]]")
+        print("\n[[[<><><>]]]\nStarting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"Current periodCounter = ",periodCounter,"\n\n[[[<><><>]]]")
         wsROW = 0
         for i in range(logger_TEMPDF.shape[0]):
             wsROW +=1 
