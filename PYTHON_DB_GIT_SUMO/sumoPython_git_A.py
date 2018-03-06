@@ -349,7 +349,7 @@ class Network_Period:
                 # logger_TEMPDF.loc[logger_TEMPDF['Belmont_AVEDic_ID'].str.contains(edgeLISTa[6].edgeID),'Total_Trucks']
         wsdf = logger_TEMPDF#pd.DataFrame(ws.values,columns=logger_TEMPDF.columns)
         wb.save(PATH_to_Save_to)
-        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t\t this should match ws: ",ws,"\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter],"\n\wsdf = ",wsdf)
+        print("\n>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]= ",wb[wb.get_sheet_names()[periodCounter-1]],"\n\t\t\t\t\t this should match ws: ",ws,"\n[[[[<<<<Next Period>>>>]]]]: ",wb.get_sheet_names()[periodCounter])#,"\n\wsdf = ",wsdf)
         return wb, wsdf
         
        

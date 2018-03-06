@@ -37,7 +37,7 @@ PennDOT_Daily_Variance_TG3_DF = pd.read_excel("C:\Dropbox\Phd_R_Ms\Asset_Use_N_M
 Month_LIST = PennDOT_AADT_day_month_TG3_DF.columns.tolist()
 Day_LIST = PennDOT_AADT_day_month_TG3_DF.index[0:7].tolist()
 print(Month_LIST,"\n\n", Day_LIST)
-simMONTH = int(input("Greetings human.\nWhat month are you seeking?   "))
+simMONTH = int(input("\n\n\nGreetings human...\n\tWhat month are you seeking?   "))
 simWEEKnum = 1
 
 configPATH_LIST = list()
