@@ -30,28 +30,6 @@ sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
 sumoBinary = "C:/Sumo/bin/sumo"
 # pd.set_option('display.max_rows', 5)
 
-# loading_FROM = input("\n\t\t<><><> press d to run from Drexel location <><><>")
-# print("loading_FROM = ",loading_FROM)
-# if loading_FROM == str("d"):
-    # configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
-# else:
-# Run_list_TXT = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Run_list_FILE.txt'
-# with open(Run_list_TXT,'a') as f:
-    # XMLdataRL = open(Run_list_TXT).readlines()
-    # run_LIST = list()
-    # for line in range(len(XMLdataRL)):
-        # if '00' in XMLdataRL[line]:
-            # run_LIST.append(int(XMLdataRL[line]))
-        # else:
-            # next
-    # print(max(run_LIST))
-    # new_run = '\n00'+str(max(run_LIST)+1)
-    # f.write(new_run)
-# print(new_run)
-
-# configPATH_MASTER = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
-# configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
-
 
 PennDOT_AADT_day_month_TG3_DF = pd.read_excel("C:\Dropbox\Phd_R_Ms\Asset_Use_N_Management_Complete_Model\DropBox_ToolBox__MASTER__refresh_with_GIT\PennDOT AADT factors by day of week and month.xlsx")
 PennDOT_Daily_Variance_TG3_DF = pd.read_excel("C:\Dropbox\Phd_R_Ms\Asset_Use_N_Management_Complete_Model\DropBox_ToolBox__MASTER__refresh_with_GIT\PennDOT vphph factors_TG3.xlsx")
@@ -70,49 +48,40 @@ for day in range(len(Day_LIST)):
 for simDAY in range(len(configPATH_LIST)):
     print("$$$$$******$$$$$$********\nIts a new day ",Month_LIST[simMONTH],", ",Day_LIST[simDAY],"\n",configPATH_LIST[simDAY])
     configPATH = configPATH_LIST[simDAY]
-    # print("configPATH = ",configPATH)
+    print("configPATH = ",configPATH)
     sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
     sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
     # %colors Linux
     PERIOD_VARRIABLE = 3600#SP.Initializer.inputPeriod_asNumber(new=1)
-    fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(display=1,prefix=1,port=1)
-    SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=1,port=0)
-    SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=0,port=1))
+    fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=1,prefix=1,port=1)
+    SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=1,port=0)
+    SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=0,port=1))
     SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="0")
         # Ask for Steps to take or Time to run until
-    typeRun = 'T'#SP.Runner.runtypeAsker()
+    typeRun = '2'#SP.Runner.runtypeAsker()
     Start_Time = int(traci.simulation.getCurrentTime()/1000) 
     print("======",SUMO_outPUT_PREFIX,"======")
-    #SP.Initializer.runSUMO(SUMO_Traci_PORT,useCase="Continue")[0]
-    # estimated_Run_Time = input("...\n\n\nHow long will you run this file for... ")
-    # if estimated_Run_Time == '':
     estimated_Run_Time = 90000
-        # print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
     steps_TT = int(estimated_Run_Time)
-    # Initalize Files
+    ##### Initalize Files #####
     if simDAY == 0:
         edge_t0_PATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
         edge_t0_DF = pd.read_excel(edge_t0_PATH)
+        edgeLISTa = SP.Edge.create_Edge_Instances(edge_t0_DF)
     else:
         edge_t0_DF = new_beginining_DF
-    edgeLISTa = SP.Edge.create_Edge_Instances(edge_t0_DF)
+#         edgeLISTa = SP.Edge.create_Edge_Instances(edge_t0_DF)
     wb = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,PATH=None)[0]
     periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,display=0)[1]
 
     # Take a step(s)
-    SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
+    SP.Runner.releaseTraci(edge_t0_DF,Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
     ###Create a new excel file for next day. if simDAY == 0: load from TEMPLATE / else: Load from first sheet from last bit of code 
-    SP.Network_Period.fillOutworksheet(edge_t0_PATH,SUMO_outPUT_PREFIX,periodCounter=24,edgeLISTa=edgeLISTa)[3]
-    wb = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,PATH=None)[0]
-    last_sheet = len(wb.get_sheet_names())
-    new_beginining_DF  = pd.DateFrame(wb.get_sheet_names()[last_sheet])
+    new_beginining_DF = SP.Network_Period.fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter=24,edgeLISTa=edgeLISTa)
+    print(len(wb.get_sheet_names()),wb.get_sheet_names(),"\nnew_beginining_DF = ", new_beginining_DF,"\nedge_t0_DF = " , edge_t0_DF) #wb = 
+    print("Testing edgeLISTa[48].__dict__ ...\n",edgeLISTa[48].__dict__,"\n======",SUMO_outPUT_PREFIX,"======")
     traci.close()
-# continue01 = 0
-# continue01 = str(input("Press x to exit"))
-# while continue01 != "x":
-    # SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
-    # continue01 = str(input("Press x to exit"))
-    # break
+
     
 ### I am up to here ###
 # class Edge():

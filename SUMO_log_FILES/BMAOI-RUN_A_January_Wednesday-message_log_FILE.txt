@@ -1,0 +1,30 @@
+***Starting server on port 5454 ***
+Loading net-file from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5_ALL.net.xml'... done (186ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml'... done (3ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml'... done (10ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml'... done (10ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\TslOffset-12-6-17.add.xml'... done (1ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min_January_Wednesday.xml'... done (404ms).
+Loading done.
+Simulation started with time: 18001.00
+Simulation ended at time: 21608.00
+Reason: TraCI requested termination.
+Performance: 
+ Duration: 74989ms
+ Real time factor: 48.1004
+ UPS: 13616.837136
+Vehicles: 
+ Inserted: 4401 (Loaded: 5990)
+ Running: 772
+ Waiting: 0
+Teleports: 0 (Collisions: 67)
+Emergency Stops: 7
+Statistics (avg):
+ RouteLength: 2618.64
+ Duration: 244.24
+ WaitingTime: 73.87
+ TimeLoss: 149.17
+ DepartDelay: -0.03
+
+DijkstraRouter answered 14260 queries and explored 418.52 edges on average.
+DijkstraRouter spent 1221ms answering queries (0.09ms on average).
