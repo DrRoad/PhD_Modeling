@@ -394,7 +394,6 @@ class Initializer:
                 entry_LINE = TXTrunlistLines[line]
                 if 'Monday' in TXTrunlistLines[line]:
                     # 'Week' in TXTrunlistLines[line]:
-                    
                     run_LIST.append(TXTrunlistLines[line])
                     run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(1)
                     run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(4)
@@ -406,9 +405,9 @@ class Initializer:
                 else:
                     new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))
                     new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))+'\n'
-                    f.write(new_run_str)
-            print("new_run_str = ",new_run_str)
-            print("max(run_LIST) = ",max(run_LIST))
+                    # f.write(new_run_str)
+        print("new_run_str = ",new_run_str)
+        print("max(run_LIST) = ",max(run_LIST))
         return new_run_str_send
 
     def oneUP_sumocfg(simMONTH,simDAY,configPATH):
