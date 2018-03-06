@@ -11,7 +11,7 @@
 	<ignore-route-errors value="true"/>  #Buses being distributed on side roads
 	<step-method.ballistic value="false"/>
 	<!--<mingap-violation value="0"/>  http://sumo.dlr.de/trac.wsgi/ticket/1102?action=diff&version=10 -->
-	<collision.action value= "remove"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
+	<collision.action value= "warn"/> <!--"remove" "teleport" "warn" "none" http://sumo.dlr.de/wiki/Simulation/Safety/> -->
 	<collision.stoptime value="120"/> <!-- Small value to try to get rid of jams -->
 	<collision.check-junctions value="false"/>
 	<waiting-time-memory value="10"/>
@@ -33,7 +33,7 @@
 	<step-length value="1"/>
 </time>
 <output>
-    <output-prefix value="BMAOI-RUN_A_July_Tuesday-"/>
+    <output-prefix value="BMAOI-RUN_A_July_Tuesday_WeekTest_1-"/>
 	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
 	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
 <!-- 	<save-state.times value="86400"/>

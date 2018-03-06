@@ -24,7 +24,7 @@ import time
 import sumolib
 # import cProfile, pstats , io
 import pandas as pd
-# import sumoPython_git_A as SP
+import sumoPython_git_A as SP
 import openpyxl as OPENxlsx
 sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
 sumoBinary = "C:/Sumo/bin/sumo"
@@ -41,8 +41,9 @@ simMONTH = int(input("\n\n\nGreetings human...\n\t\tWhat month are you seeking? 
 simWEEKnum = 1
 
 configPATH_LIST = list()
-for day in range(len(Day_LIST)):
-    configPATH_LIST.append('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\BMAOI_sumcfg_'+Month_LIST[simMONTH]+'_'+Day_LIST[day]+'.sumocfg')
+for simDAY in range(len(Day_LIST)):
+    configPATH_LIST.append('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\BMAOI_sumcfg_'+Month_LIST[simMONTH]+'_'+Day_LIST[simDAY]+'.sumocfg')
+    SP.Initializer.add_new_run_to_Run_list_FILE(simMONTH,simDAY,configPATH_LIST[simDAY])
 
 
 for simDAY in range(len(configPATH_LIST)):
@@ -51,6 +52,9 @@ for simDAY in range(len(configPATH_LIST)):
     print("configPATH = ",configPATH)
     sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
     sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
+    
+    
+    
     # %colors Linux
     PERIOD_VARRIABLE = 3600#SP.Initializer.inputPeriod_asNumber(new=1)
     fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=1,prefix=1,port=1)

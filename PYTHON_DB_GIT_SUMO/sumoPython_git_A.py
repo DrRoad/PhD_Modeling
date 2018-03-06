@@ -383,6 +383,35 @@ class Initializer:
         else:
             print("PERIOD_VARRIABLE = ", PERIOD_VARRIABLE)
         return int(PERIOD_VARRIABLE)
+        
+        
+    def add_new_run_to_Run_list_FILE(simMONTH,simDAY,configPATH):
+        configPATH
+        XML_sumocfg = open(configPATH,'r') #open(caliXMLTESTPATH,'r')
+        XMLsumocfg_LIST = XML_sumocfg.readlines()
+        XML_sumocfg.close()        #'/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
+        with open(configPATH,'w') as f:
+            run_LIST = list()
+            for line in range(len(XMLsumocfg_LIST)):
+                if 'Week' in XMLsumocfg_LIST[line]:
+                    entry_LINE = XMLsumocfg_LIST[line]
+                    run_LIST.append(XMLsumocfg_LIST[line])
+                    run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(1)
+                    run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(4)
+                    run_LIST.append(run_i)
+                    new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i))+1)+'\n'
+    #                 f.write(new_run_str)
+                    print(new_run_str)
+                else:
+                    next
+            f.write(new_run_str)
+            print("new_run_str = ",new_run_str)
+            print("run_LIST = ",run_LIST)
+        return new_run_str
+        
+        
+        
+
 
 
     def startSUMO(sumoCmd,sumoGUICmd, SUMO_Traci_PORT,useCase,GUI_01):
