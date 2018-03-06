@@ -1,0 +1,790 @@
+***Starting server on port 5454 ***
+Loading net-file from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5_ALL.net.xml'... done (156ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml'... done (2ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml'... done (6ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml'... done (11ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\TslOffset-12-6-17.add.xml'... done (1ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min_January_Monday.xml'... done (75ms).
+Loading done.
+
+#*#*
+
+Simulation started with time: 18001.00
+Simulation ended at time: 87916.00
+Reason: TraCI requested termination.
+Performance: 
+ Duration: 2531096ms
+ Real time factor: 27.6224
+ UPS: 28508.437452
+Vehicles: 
+ Inserted: 173832 (Loaded: 280508)
+ Running: 0
+ Waiting: 0
+Teleports: 2691 (Collisions: 1205, Jam: 1076, Yield: 845, Wrong Lane: 770)
+Emergency Stops: 155
+Statistics (avg):
+ RouteLength: 1.#J
+ Duration: 415.10
+ WaitingTime: 268.82
+ TimeLoss: 367.29
+ DepartDelay: 7.03
+
+#*#*
+<><><periodCounter =  24
+memory use: 0.9295120239257812
+
+
+****$$$$*****$$$$$****$$$$$$
+Reset_Edge_CasheFiles has started
+memory use: 0.9278030395507812
+
+
+****$$$$*****$$$$$****$$$$$$
+Reset_Edge_CasheFiles has started
+
+[[[<><><>]]]
+Starting myWrite_to_excel()
+         PATH_to_Save_to:  /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_RUN_A_January_Monday_PeriodBook.xlsx
+         Current Worksheet:  <Worksheet "Period_82801_to_86401"> Current periodCounter =  24
+
+[[[<><><>]]]
+                                <Writing Headers>
+
+Please be true ...  False
+
+>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]=  <Worksheet "Period_82801_to_86401">
+                                         this should match ws:  <Worksheet "Period_82801_to_86401">
+[[[[<<<<Next Period>>>>]]]]:  Period_86401_to_90001
+
+
+<><><><Changing SUMO EGDE MAX SPEED><><><>
+
+
+[[[[MAX SPEEDS]]]]              Current Time: 86401.0
+
+<>-12150712#3  :  31.36 ;
+<>><<><><><><
+ -12150712#3 's max speed = 31.36
+\<><><><                <><><><><><
+Testing edgeLISTa[48].__dict__ ...
+ {'PCR': 86.734213821477667, 'meanSpeed': 9, 'Effort': -1.0, 'Dynamic_Max_Speed': 30.899999999999999, 'vehidLIST': {'vehID_k': 'veh_k_Type'}, 'AGE_t': 136802, 'edgeID': '387423966', 'adaptTraveltime': -1.0, 'IRI': 52.03511419965303, 'AGE_0': 4, 'AADT_Calc': 16250.270144456639, 'OCPNY': 0.013190755918252188, 'layer1_6in_35_50': 0.38, 'ASS_CALI': nan, 'ESAL_TOT': 804.2763000001999, 'ADDT_Calc': 0, 'net': <sumolib.net.Net object at 0x000002BC06103EF0>, 'layer_1_dpth_in': 12, 'ADDT_rand': 16250.270144456639, 'truckCount': 2628, 'carCount': 9609, 'AVE_QLTH': 0, 'layer2_6in_10_25': 0.17000000000000001, 'SNC': 8.0999999999999996, 'layer3_12in_5_17': 0.20999999999999999, 'Bel_Dic_ID': 48, 'originalMAXSPEED': 27.87}
+====== RUN_A_January_Monday ======
+                                ====== RUN_A_January_Monday ======
+Step #86410.00Warning: Vehicle '1c_Belmont_AOI_22963'; collision with vehicle '1c_Belmont_AOI_23700', lane='-387423967#0_0', gap=-7.04, time=86410.00 stage=move.
+Step #86428.00Warning: Removing vehicle '3_Belmont_AOI4731' after earlier collision, lane='12118189_0, time=86428.00.
+Warning: Removing vehicle '3_Belmont_AOI4729' after earlier collision, lane='12118189_0, time=86428.00.
+Step #86439.00Warning: Vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.5'; collision with vehicle '1c_Belmont_AOI_23723', lane='-387423967#2_0', gap=-7.97, time=86439.00 stage=move.
+Step #86501.00Warning: Teleporting vehicle '1c_Belmont_AOI_23150'; waited too long (yield), lane=':110208759_10_0', time=86501.00.
+Step #86531.00Warning: Removing vehicle '1c_Belmont_AOI_23700' after earlier collision, lane='-387423967#0_0, time=86531.00.
+Warning: Removing vehicle '1c_Belmont_AOI_22963' after earlier collision, lane='-387423967#0_0, time=86531.00.
+Step #86560.00Warning: Removing vehicle '1c_Belmont_AOI_23723' after earlier collision, lane='-387423967#2_0, time=86560.00.
+Warning: Removing vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.5' after earlier collision, lane='-387423967#2_0, time=86560.00.
+Step #86662.00Warning: Vehicle '1c_Belmont_AOI_23150' ends teleporting on edge '-12180067#1', time 86662.00.
+Step #86752.00Warning: Vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.4'; collision with vehicle '1c_Belmont_AOI_23626', lane='-387423967#0_0', gap=-7.15, time=86752.00 stage=move.
+Step #86807.00Warning: Teleporting vehicle '1c_Belmont_AOI_23227'; waited too long (yield), lane=':110208759_10_0', time=86807.00.
+Step #86873.00Warning: Removing vehicle '1c_Belmont_AOI_23626' after earlier collision, lane='-387423967#0_0, time=86873.00.
+Warning: Removing vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.4' after earlier collision, lane='-387423967#0_0, time=86873.00.
+Step #86876.00Warning: Vehicle '1c_Belmont_AOI_23677'; collision with vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.3', lane='-387423967#0_0', gap=-6.23, time=86876.00 stage=move.
+Step #86917.00Warning: Teleporting vehicle '3_Belmont_AOI4740'; waited too long (wrong lane), lane='12180067#2_0', time=86917.00.
+Step #86966.00Warning: Vehicle '1c_Belmont_AOI_23227' ends teleporting on edge '-12156611#0', time 86966.00.
+Step #86997.00Warning: Removing vehicle 'GrgeHill-Wynn_BTH-02-WB-33087.83701.3' after earlier collision, lane='-387423967#0_0, time=86997.00.
+Warning: Removing vehicle '1c_Belmont_AOI_23677' after earlier collision, lane='-387423967#0_0, time=86997.00.
+Step #87025.00Warning: Vehicle '3_Belmont_AOI4740' ends teleporting on edge '-12156611#0', time 87025.00.
+Step #87112.00Warning: Teleporting vehicle '1c_Belmont_AOI_23264'; waited too long (yield), lane=':110208759_10_0', time=87112.00.
+Step #87254.00Warning: Vehicle '1c_Belmont_AOI_23264' ends teleporting on edge '-12156611#0', time 87254.00.
+Step #87417.00Warning: Teleporting vehicle '1c_Belmont_AOI_23263'; waited too long (yield), lane=':110208759_10_0', time=87417.00.
+Step #87476.00Warning: Vehicle '1c_Belmont_AOI_23263' ends teleporting on edge '-12156611#0', time 87476.00.
+Step #87915.00<>1ms ~= 1000.00*RT, ~0.00UPS, TraCI: 7ms, vehicles TOT 173832 A
+<><>
+<><><>
+periodCounter =  87915.0
+
+
+                        Filling out worksheet
+
+
+<><><periodCounter =  24
+
+[[[<><><>]]]
+Starting myWrite_to_excel()
+         PATH_to_Save_to:  /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_RUN_A_January_Monday_PeriodBook.xlsx
+         Current Worksheet:  <Worksheet "Period_82801_to_86401"> Current periodCounter =  24
+
+[[[<><><>]]]
+                                <Writing Headers>
+
+Please be true ...  False
+
+>>>Data written to:: wb[wb.get_sheet_names()[periodCounter-1]]=  <Worksheet "Period_82801_to_86401">
+                                         this should match ws:  <Worksheet "Period_82801_to_86401">
+[[[[<<<<Next Period>>>>]]]]:  Period_86401_to_90001
+
+
+<><><><Changing SUMO EGDE MAX SPEED><><><>
+
+
+[[[[MAX SPEEDS]]]]              Current Time: 87915.0
+
+<>-12150712#3  :  31.36 ;
+<>><<><><><><
+ -12150712#3 's max speed = 31.36
+\<><><><                <><><><><><
+Testing edgeLISTa[48].__dict__ ...
+ {'PCR': 86.731751301552848, 'meanSpeed': 30, 'Effort': -1.0, 'Dynamic_Max_Speed': 30.899999999999999, 'vehidLIST': {'vehID_k': 'veh_k_Type', '1c_Belmont_AOI_23713': 'Car_communuter', '4_Belmont_AOI599': 'Single_Rear_Truck', '1c_Belmont_AOI_23667': 'Car_communuter', '1c_Belmont_AOI_22202': 'Car_communuter', '3_Belmont_AOI4745': 'Panel_Truck', '3_Belmont_AOI4734': 'Panel_Truck', '1c_Belmont_AOI_23716': 'Car_communuter', '1c_Belmont_AOI_23263': 'Car_communuter', '3_Belmont_AOI4747': 'Panel_Truck', '3_Belmont_AOI4744': 'Panel_Truck', '1c_Belmont_AOI_23702': 'Car_communuter', '1c_Belmont_AOI_23690': 'Car_communuter', '3_Belmont_AOI4646': 'Panel_Truck', '1c_Belmont_AOI_23646': 'Car_communuter', '1c_Belmont_AOI_23728': 'Car_communuter'}, 'AGE_t': 139830, 'edgeID': '387423966', 'adaptTraveltime': -1.0, 'IRI': 52.035891423645005, 'AGE_0': 4, 'AADT_Calc': 16250.270144456639, 'OCPNY': -2.9992306550076337e-16, 'layer1_6in_35_50': 0.38, 'ASS_CALI': nan, 'ESAL_TOT': 804.8826000002005, 'ADDT_Calc': 0, 'net': <sumolib.net.Net object at 0x000002BC06103EF0>, 'layer_1_dpth_in': 12, 'ADDT_rand': 16250.270144456639, 'truckCount': 2634, 'carCount': 9618, 'AVE_QLTH': 0, 'layer2_6in_10_25': 0.17000000000000001, 'SNC': 8.0999999999999996, 'layer3_12in_5_17': 0.20999999999999999, 'Bel_Dic_ID': 48, 'originalMAXSPEED': 27.87}
+====== RUN_A_January_Monday ======
+                                ====== RUN_A_January_Monday ======
+25 ['Period_1_to_3601', 'Period_3601_to_7201', 'Period_7201_to_10801', 'Period_10801_to_14401', 'Period_14401_to_18001', 'Period_18001_to_21601', 'Period_21601_to_25201', 'Period_25201_to_28801', 'Period_28801_to_32401', 'Period_32401_to_36001', 'Period_36001_to_39601', 'Period_39601_to_43201', 'Period_43201_to_46801', 'Period_46801_to_50401', 'Period_50401_to_54001', 'Period_54001_to_57601', 'Period_57601_to_61201', 'Period_61201_to_64801', 'Period_64801_to_68401', 'Period_68401_to_72001', 'Period_72001_to_75601', 'Period_75601_to_79201', 'Period_79201_to_82801', 'Period_82801_to_86401', 'Period_86401_to_90001']
+new_beginining_DF =     Belmont_AVEDic_ID  Edge_ID  Condition_Index State_of_Condition  \
+0        -12150712#3        0        97.951683               Good
+1        -12150712#4        1        97.591361               Good
+2        -12150712#6        2        96.154744               Good
+3        -12327906#0        3        99.448269               Good
+4       -196358954#0        4        89.128933               Good
+5       -196358954#3        5        88.325413               Good
+6       -196358956#2        6        93.946772               Good
+7         -387423966        7        87.654131               Good
+8         -423956981        8        93.925578               Good
+9         -423956982        9        91.821180               Good
+10        -423965484       10        91.139892               Good
+11      -423967058#0       11        96.486048               Good
+12      -423967058#1       12        96.545680               Good
+13        -423967352       13        95.101645               Good
+14        -423967353       14        93.278567               Good
+15        -423967354       15        93.315521               Good
+16        -423967355       16        95.042766               Good
+17        -423967356       17        92.821875               Good
+18        -423967357       18        93.317454               Good
+19      -423967358#1       19        94.005201               Good
+20      -423967358#2       20        94.010499               Good
+21      -423967359#0       21        92.485307               Good
+22      -423967359#1       22        90.202323               Good
+23        -424803245       23        93.938674               Good
+24      -424803247#1       24        93.912783               Good
+25        -424824619       25        96.905935               Good
+26        -424824620       26        97.131359               Good
+27        -424824621       27        93.978804               Good
+28        -424978161       28        99.673650               Good
+29      -424978642.0       29        84.644111               Good
+..               ...      ...              ...                ...
+50         423956979       50        96.476759               Good
+51         423956980       51        93.038460               Good
+52         423965484       52        94.168221               Good
+53       423967058#1       53        93.432107               Good
+54         423967352       54        92.865591               Good
+55         423967353       55        91.928772               Good
+56         423967354       56        91.883293               Good
+57         423967355       57        92.896763               Good
+58         423967356       58        91.213880               Good
+59       423967358#0       59        92.012783               Good
+60       423967358#2       60        92.457677               Good
+61       423967359#0       61        91.553883               Good
+62       423967359#1       62        92.475036               Good
+63         424803245       63        96.529345               Good
+64       424803247#0       64        96.557211               Good
+65         424824619       65        93.854033               Good
+66         424824620       66        93.785599               Good
+67         424824621       67        96.438303               Good
+68       424978639.0       68        92.949181               Good
+69     424978639.102       69        90.674512               Good
+70         424978640       70        91.647495               Good
+71         424978643       71        91.396800               Good
+72         424978644       72        91.023155               Good
+73         424978646       73        92.782062               Good
+74         448887867       74        97.151938               Good
+75         448887868       75        93.404473               Good
+76         448887869       76        97.007877               Good
+77       448887870#0       77        96.978060               Good
+78       448887871#0       78        94.953510               Good
+79       448887871#1       79        96.089420               Good
+
+    Dynamic_Max_Speed  meanSpeed  Total_Vehicles  Total_Trucks   ESAL_TOT  \
+0           31.363920          0            1724           476   152.9736
+1           31.350428          0            2366           604   179.8834
+2           31.294925          0            3860           969   287.1737
+3           31.418192          0             903           182    41.2047
+4           30.979869          0           13040          2855   811.8795
+5           30.938701          0           13500          2945   871.8885
+6           31.204048          0            7172          1428   452.0708
+7           30.903418          0           11996          3108   922.0216
+8           31.203141          0            7190          1542   453.6536
+9           31.109739          0            9712          2047   610.8155
+10          31.078011          0           10457          2320   661.6959
+11          31.307971          0            3370           897   262.4311
+12          31.310303          0            3358           890   257.9776
+13          31.252448          0            4018          1201   365.8219
+14          31.175146          0            6663          1700   501.9741
+15          31.176762          0            6664          1715   499.2143
+16          31.250027          0            4562          1249   370.2191
+17          31.155004          0            7156          1826   536.0810
+18          31.176846          0            6658          1701   499.0699
+19          31.206543          0            5818          1522   447.7072
+20          31.206769          0            5423          1478   447.3115
+21          31.139955          0            7425          1901   561.2168
+22          31.033104          0           10372          2492   731.7160
+23          31.203702          0            7133          1525   452.6756
+24          31.202594          0            7200          1544   454.6092
+25          31.324291          0            2915           811   231.0728
+26          31.332956          0            2463           695   214.2376
+27          31.205416          0            6423          1525   449.6786
+28          31.426124          0             564           103    24.3727
+29          30.734714          0           15644          3833  1146.8177
+..                ...        ...             ...           ...        ...
+50          31.307607          0            4341           877   263.1248
+51          31.164596          0            8605          1668   519.9059
+52          31.213479          0            6845          1513   435.5324
+53          31.181846          0            7994          1555   490.5073
+54          31.156946          0            8360          1694   532.8162
+55          31.114681          0            9772          1943   602.7803
+56          31.112594          0            9746          1922   606.1768
+57          31.158329          0            7788          1662   530.4882
+58          31.081493          0           10701          2172   656.1703
+59          31.118528          0            9624          1901   596.5061
+60          31.138711          0            8619          1790   563.2803
+61          31.097380          0           10059          2019   630.7780
+62          31.139493          0            8753          1776   561.9839
+63          31.309665          0            4288           863   259.1975
+64          31.310754          0            4319           867   257.1164
+65          31.200076          0            7440          1516   458.9968
+66          31.197138          0            7358          1490   464.1076
+67          31.306100          0            4305           881   265.9968
+68          31.160651          0            8377          1772   526.5735
+69          31.055903          0           10729          2298   696.4517
+70          31.101721          0           10140          2016   623.7868
+71          31.090063          0           10416          2117   642.5093
+72          31.072499          0           10245          2082   670.4141
+73          31.153233          0            8520          1728   539.0544
+74          31.333743          0            3827           826   212.7007
+75          31.180643          0            8946          1773   492.5711
+76          31.328218          0            3918           833   223.4595
+77          31.327071          0            3763           854   225.6863
+78          31.246347          0            6965          1415   376.8850
+79          31.292335          0            5402          1113   292.0523
+
+    AVE_QLTH   ...     Roadway_Designation  layer_1_dpth_6_18_in  \
+0          0   ...        "Urban_Arterial"                    10
+1          0   ...        "Urban_Arterial"                    17
+2          0   ...        "Urban_Arterial"                    12
+3          0   ...        "Urban_Arterial"                    10
+4          0   ...        "Urban_Arterial"                    14
+5          0   ...        "Urban_Arterial"                    16
+6          0   ...        "Urban_Arterial"                    18
+7          0   ...        "Urban_Arterial"                    10
+8          0   ...        "Urban_Arterial"                    17
+9          0   ...        "Urban_Arterial"                    17
+10         0   ...        "Urban_Arterial"                    10
+11         0   ...        "Urban_Arterial"                     7
+12         0   ...        "Urban_Arterial"                     7
+13         0   ...        "Urban_Arterial"                     8
+14         0   ...        "Urban_Arterial"                    12
+15         0   ...        "Urban_Arterial"                    12
+16         0   ...        "Urban_Arterial"                    13
+17         0   ...        "Urban_Arterial"                    14
+18         0   ...        "Urban_Arterial"                    12
+19         0   ...        "Urban_Arterial"                    11
+20         0   ...        "Urban_Arterial"                    12
+21         0   ...        "Urban_Arterial"                    15
+22         0   ...        "Urban_Arterial"                     8
+23         0   ...        "Urban_Arterial"                    13
+24         0   ...        "Urban_Arterial"                    10
+25         0   ...        "Urban_Arterial"                    16
+26         0   ...        "Urban_Arterial"                     7
+27         0   ...        "Urban_Arterial"                    13
+28         0   ...        "Urban_Arterial"                    17
+29         0   ...        "Urban_Arterial"                    16
+..       ...   ...                     ...                   ...
+50         0   ...        "Urban_Arterial"                     6
+51         0   ...        "Urban_Arterial"                    16
+52         0   ...        "Urban_Arterial"                     8
+53         0   ...        "Urban_Arterial"                    10
+54         0   ...        "Urban_Arterial"                    13
+55         0   ...        "Urban_Arterial"                    13
+56         0   ...        "Urban_Arterial"                    11
+57         0   ...        "Urban_Arterial"                    15
+58         0   ...        "Urban_Arterial"                     7
+59         0   ...        "Urban_Arterial"                    15
+60         0   ...        "Urban_Arterial"                     8
+61         0   ...        "Urban_Arterial"                    11
+62         0   ...        "Urban_Arterial"                    16
+63         0   ...        "Urban_Arterial"                    15
+64         0   ...        "Urban_Arterial"                    18
+65         0   ...        "Urban_Arterial"                     7
+66         0   ...        "Urban_Arterial"                    17
+67         0   ...        "Urban_Arterial"                     6
+68         0   ...        "Urban_Arterial"                    12
+69         0   ...        "Urban_Arterial"                    13
+70         0   ...        "Urban_Arterial"                    15
+71         0   ...        "Urban_Arterial"                     9
+72         0   ...        "Urban_Arterial"                     6
+73         0   ...        "Urban_Arterial"                    18
+74         0   ...        "Urban_Arterial"                    12
+75         0   ...        "Urban_Arterial"                    15
+76         0   ...        "Urban_Arterial"                     7
+77         0   ...        "Urban_Arterial"                    11
+78         0   ...        "Urban_Arterial"                    11
+79         0   ...        "Urban_Arterial"                    13
+
+    layer1_6in_35_50  layer2_6in_10_25  layer3_12in_5_17  Flood_Plain  \
+0               0.38              0.14              0.22          999
+1               0.45              0.14              0.11          999
+2               0.44              0.12              0.25          999
+3               0.44              0.16              0.16          999
+4               0.49              0.12              0.25          999
+5               0.36              0.10              0.25          999
+6               0.47              0.12              0.19          999
+7               0.37              0.15              0.17          999
+8               0.35              0.15              0.12          999
+9               0.36              0.08              0.22          999
+10              0.48              0.15              0.11          999
+11              0.38              0.11              0.11          999
+12              0.50              0.06              0.17          999
+13              0.41              0.05              0.21          999
+14              0.37              0.08              0.15          999
+15              0.46              0.11              0.21          999
+16              0.44              0.12              0.22          999
+17              0.46              0.05              0.25          999
+18              0.48              0.08              0.16          999
+19              0.39              0.11              0.17          999
+20              0.40              0.08              0.19          999
+21              0.44              0.12              0.19          999
+22              0.45              0.11              0.15          999
+23              0.48              0.17              0.13          999
+24              0.43              0.12              0.25          999
+25              0.43              0.12              0.22          999
+26              0.35              0.08              0.10          999
+27              0.45              0.08              0.17          999
+28              0.40              0.09              0.24          999
+29              0.39              0.16              0.25          999
+..               ...               ...               ...          ...
+50              0.42              0.11              0.18          999
+51              0.35              0.13              0.20          999
+52              0.44              0.07              0.20          999
+53              0.49              0.08              0.10          999
+54              0.40              0.17              0.21          999
+55              0.50              0.14              0.11          999
+56              0.49              0.05              0.13          999
+57              0.40              0.14              0.20          999
+58              0.42              0.08              0.22          999
+59              0.49              0.15              0.25          999
+60              0.40              0.13              0.23          999
+61              0.48              0.07              0.22          999
+62              0.41              0.13              0.21          999
+63              0.50              0.16              0.13          999
+64              0.39              0.05              0.11          999
+65              0.36              0.09              0.23          999
+66              0.38              0.12              0.12          999
+67              0.37              0.16              0.10          999
+68              0.45              0.11              0.17          999
+69              0.43              0.12              0.20          999
+70              0.39              0.10              0.18          999
+71              0.50              0.17              0.18          999
+72              0.44              0.08              0.12          999
+73              0.49              0.06              0.19          999
+74              0.37              0.16              0.10          999
+75              0.48              0.14              0.14          999
+76              0.41              0.16              0.21          999
+77              0.46              0.09              0.20          999
+78              0.46              0.11              0.10          999
+79              0.48              0.13              0.19          999
+
+    Environmental_Parameters_\nOthers  Original_Max_Speed  ASS_CALI  Prority
+0                                 999               27.78       NaN        9
+1                                 999               27.78       NaN        9
+2                                 999               27.78       NaN        9
+3                                 999               27.78       NaN        9
+4                                 999               27.78       NaN        9
+5                                 999               27.78       NaN        9
+6                                 999               27.78       NaN        9
+7                                 999               27.78       NaN        9
+8                                 999               27.78       NaN        9
+9                                 999               27.78       NaN        9
+10                                999               27.78       NaN        9
+11                                999               27.78       NaN        9
+12                                999               27.78       NaN        9
+13                                999               27.78       NaN        7
+14                                999               27.78       NaN        9
+15                                999               27.78       NaN        9
+16                                999               27.78       NaN        9
+17                                999               27.78       NaN        9
+18                                999               27.78       NaN        9
+19                                999               27.78       NaN        9
+20                                999               27.78       NaN        9
+21                                999               27.78       NaN        9
+22                                999               27.78       NaN        9
+23                                999               27.78       NaN        9
+24                                999               27.78       NaN        9
+25                                999               27.78       NaN        9
+26                                999               27.78       NaN        9
+27                                999               27.78       NaN        9
+28                                999               27.78       NaN        9
+29                                999               27.78       NaN        9
+..                                ...                 ...       ...      ...
+50                                999               27.78       NaN        9
+51                                999               27.78       NaN        9
+52                                999               27.78       NaN        9
+53                                999               27.78       NaN        9
+54                                999               27.78       NaN        7
+55                                999               27.78       NaN        9
+56                                999               27.78       NaN        9
+57                                999               27.78       NaN        9
+58                                999               27.78       NaN        9
+59                                999               27.78       NaN        9
+60                                999               27.78       NaN        9
+61                                999               27.78       NaN        9
+62                                999               27.78       NaN        9
+63                                999               27.78       NaN        9
+64                                999               27.78       NaN        9
+65                                999               27.78       NaN        9
+66                                999               27.78       NaN        9
+67                                999               27.78       NaN        9
+68                                999               27.78       NaN        9
+69                                999               27.78       NaN        9
+70                                999               27.78       NaN        9
+71                                999               27.78       NaN        9
+72                                999               27.78       NaN        9
+73                                999               27.78       NaN        9
+74                                999               27.78       NaN        9
+75                                999               27.78       NaN        9
+76                                999               27.78       NaN        9
+77                                999               27.78       NaN        9
+78                                999               27.78       NaN        9
+79                                999               27.78       NaN        9
+
+[80 rows x 30 columns]
+edge_t0_DF =     Belmont_AVEDic_ID  Edge_ID  Condition_Index State_of_Condition  \
+0        -12150712#3        0        97.951683               Good
+1        -12150712#4        1        97.591361               Good
+2        -12150712#6        2        96.154744               Good
+3        -12327906#0        3        99.448269               Good
+4       -196358954#0        4        89.128933               Good
+5       -196358954#3        5        88.325413               Good
+6       -196358956#2        6        93.946772               Good
+7         -387423966        7        87.654131               Good
+8         -423956981        8        93.925578               Good
+9         -423956982        9        91.821180               Good
+10        -423965484       10        91.139892               Good
+11      -423967058#0       11        96.486048               Good
+12      -423967058#1       12        96.545680               Good
+13        -423967352       13        95.101645               Good
+14        -423967353       14        93.278567               Good
+15        -423967354       15        93.315521               Good
+16        -423967355       16        95.042766               Good
+17        -423967356       17        92.821875               Good
+18        -423967357       18        93.317454               Good
+19      -423967358#1       19        94.005201               Good
+20      -423967358#2       20        94.010499               Good
+21      -423967359#0       21        92.485307               Good
+22      -423967359#1       22        90.202323               Good
+23        -424803245       23        93.938674               Good
+24      -424803247#1       24        93.912783               Good
+25        -424824619       25        96.905935               Good
+26        -424824620       26        97.131359               Good
+27        -424824621       27        93.978804               Good
+28        -424978161       28        99.673650               Good
+29      -424978642.0       29        84.644111               Good
+..               ...      ...              ...                ...
+50         423956979       50        96.476759               Good
+51         423956980       51        93.038460               Good
+52         423965484       52        94.168221               Good
+53       423967058#1       53        93.432107               Good
+54         423967352       54        92.865591               Good
+55         423967353       55        91.928772               Good
+56         423967354       56        91.883293               Good
+57         423967355       57        92.896763               Good
+58         423967356       58        91.213880               Good
+59       423967358#0       59        92.012783               Good
+60       423967358#2       60        92.457677               Good
+61       423967359#0       61        91.553883               Good
+62       423967359#1       62        92.475036               Good
+63         424803245       63        96.529345               Good
+64       424803247#0       64        96.557211               Good
+65         424824619       65        93.854033               Good
+66         424824620       66        93.785599               Good
+67         424824621       67        96.438303               Good
+68       424978639.0       68        92.949181               Good
+69     424978639.102       69        90.674512               Good
+70         424978640       70        91.647495               Good
+71         424978643       71        91.396800               Good
+72         424978644       72        91.023155               Good
+73         424978646       73        92.782062               Good
+74         448887867       74        97.151938               Good
+75         448887868       75        93.404473               Good
+76         448887869       76        97.007877               Good
+77       448887870#0       77        96.978060               Good
+78       448887871#0       78        94.953510               Good
+79       448887871#1       79        96.089420               Good
+
+    Dynamic_Max_Speed  meanSpeed  Total_Vehicles  Total_Trucks   ESAL_TOT  \
+0           31.363920          0            1724           476   152.9736
+1           31.350428          0            2366           604   179.8834
+2           31.294925          0            3860           969   287.1737
+3           31.418192          0             903           182    41.2047
+4           30.979869          0           13040          2855   811.8795
+5           30.938701          0           13500          2945   871.8885
+6           31.204048          0            7172          1428   452.0708
+7           30.903418          0           11996          3108   922.0216
+8           31.203141          0            7190          1542   453.6536
+9           31.109739          0            9712          2047   610.8155
+10          31.078011          0           10457          2320   661.6959
+11          31.307971          0            3370           897   262.4311
+12          31.310303          0            3358           890   257.9776
+13          31.252448          0            4018          1201   365.8219
+14          31.175146          0            6663          1700   501.9741
+15          31.176762          0            6664          1715   499.2143
+16          31.250027          0            4562          1249   370.2191
+17          31.155004          0            7156          1826   536.0810
+18          31.176846          0            6658          1701   499.0699
+19          31.206543          0            5818          1522   447.7072
+20          31.206769          0            5423          1478   447.3115
+21          31.139955          0            7425          1901   561.2168
+22          31.033104          0           10372          2492   731.7160
+23          31.203702          0            7133          1525   452.6756
+24          31.202594          0            7200          1544   454.6092
+25          31.324291          0            2915           811   231.0728
+26          31.332956          0            2463           695   214.2376
+27          31.205416          0            6423          1525   449.6786
+28          31.426124          0             564           103    24.3727
+29          30.734714          0           15644          3833  1146.8177
+..                ...        ...             ...           ...        ...
+50          31.307607          0            4341           877   263.1248
+51          31.164596          0            8605          1668   519.9059
+52          31.213479          0            6845          1513   435.5324
+53          31.181846          0            7994          1555   490.5073
+54          31.156946          0            8360          1694   532.8162
+55          31.114681          0            9772          1943   602.7803
+56          31.112594          0            9746          1922   606.1768
+57          31.158329          0            7788          1662   530.4882
+58          31.081493          0           10701          2172   656.1703
+59          31.118528          0            9624          1901   596.5061
+60          31.138711          0            8619          1790   563.2803
+61          31.097380          0           10059          2019   630.7780
+62          31.139493          0            8753          1776   561.9839
+63          31.309665          0            4288           863   259.1975
+64          31.310754          0            4319           867   257.1164
+65          31.200076          0            7440          1516   458.9968
+66          31.197138          0            7358          1490   464.1076
+67          31.306100          0            4305           881   265.9968
+68          31.160651          0            8377          1772   526.5735
+69          31.055903          0           10729          2298   696.4517
+70          31.101721          0           10140          2016   623.7868
+71          31.090063          0           10416          2117   642.5093
+72          31.072499          0           10245          2082   670.4141
+73          31.153233          0            8520          1728   539.0544
+74          31.333743          0            3827           826   212.7007
+75          31.180643          0            8946          1773   492.5711
+76          31.328218          0            3918           833   223.4595
+77          31.327071          0            3763           854   225.6863
+78          31.246347          0            6965          1415   376.8850
+79          31.292335          0            5402          1113   292.0523
+
+    AVE_QLTH   ...     Roadway_Designation  layer_1_dpth_6_18_in  \
+0          0   ...        "Urban_Arterial"                    10
+1          0   ...        "Urban_Arterial"                    17
+2          0   ...        "Urban_Arterial"                    12
+3          0   ...        "Urban_Arterial"                    10
+4          0   ...        "Urban_Arterial"                    14
+5          0   ...        "Urban_Arterial"                    16
+6          0   ...        "Urban_Arterial"                    18
+7          0   ...        "Urban_Arterial"                    10
+8          0   ...        "Urban_Arterial"                    17
+9          0   ...        "Urban_Arterial"                    17
+10         0   ...        "Urban_Arterial"                    10
+11         0   ...        "Urban_Arterial"                     7
+12         0   ...        "Urban_Arterial"                     7
+13         0   ...        "Urban_Arterial"                     8
+14         0   ...        "Urban_Arterial"                    12
+15         0   ...        "Urban_Arterial"                    12
+16         0   ...        "Urban_Arterial"                    13
+17         0   ...        "Urban_Arterial"                    14
+18         0   ...        "Urban_Arterial"                    12
+19         0   ...        "Urban_Arterial"                    11
+20         0   ...        "Urban_Arterial"                    12
+21         0   ...        "Urban_Arterial"                    15
+22         0   ...        "Urban_Arterial"                     8
+23         0   ...        "Urban_Arterial"                    13
+24         0   ...        "Urban_Arterial"                    10
+25         0   ...        "Urban_Arterial"                    16
+26         0   ...        "Urban_Arterial"                     7
+27         0   ...        "Urban_Arterial"                    13
+28         0   ...        "Urban_Arterial"                    17
+29         0   ...        "Urban_Arterial"                    16
+..       ...   ...                     ...                   ...
+50         0   ...        "Urban_Arterial"                     6
+51         0   ...        "Urban_Arterial"                    16
+52         0   ...        "Urban_Arterial"                     8
+53         0   ...        "Urban_Arterial"                    10
+54         0   ...        "Urban_Arterial"                    13
+55         0   ...        "Urban_Arterial"                    13
+56         0   ...        "Urban_Arterial"                    11
+57         0   ...        "Urban_Arterial"                    15
+58         0   ...        "Urban_Arterial"                     7
+59         0   ...        "Urban_Arterial"                    15
+60         0   ...        "Urban_Arterial"                     8
+61         0   ...        "Urban_Arterial"                    11
+62         0   ...        "Urban_Arterial"                    16
+63         0   ...        "Urban_Arterial"                    15
+64         0   ...        "Urban_Arterial"                    18
+65         0   ...        "Urban_Arterial"                     7
+66         0   ...        "Urban_Arterial"                    17
+67         0   ...        "Urban_Arterial"                     6
+68         0   ...        "Urban_Arterial"                    12
+69         0   ...        "Urban_Arterial"                    13
+70         0   ...        "Urban_Arterial"                    15
+71         0   ...        "Urban_Arterial"                     9
+72         0   ...        "Urban_Arterial"                     6
+73         0   ...        "Urban_Arterial"                    18
+74         0   ...        "Urban_Arterial"                    12
+75         0   ...        "Urban_Arterial"                    15
+76         0   ...        "Urban_Arterial"                     7
+77         0   ...        "Urban_Arterial"                    11
+78         0   ...        "Urban_Arterial"                    11
+79         0   ...        "Urban_Arterial"                    13
+
+    layer1_6in_35_50  layer2_6in_10_25  layer3_12in_5_17  Flood_Plain  \
+0               0.38              0.14              0.22          999
+1               0.45              0.14              0.11          999
+2               0.44              0.12              0.25          999
+3               0.44              0.16              0.16          999
+4               0.49              0.12              0.25          999
+5               0.36              0.10              0.25          999
+6               0.47              0.12              0.19          999
+7               0.37              0.15              0.17          999
+8               0.35              0.15              0.12          999
+9               0.36              0.08              0.22          999
+10              0.48              0.15              0.11          999
+11              0.38              0.11              0.11          999
+12              0.50              0.06              0.17          999
+13              0.41              0.05              0.21          999
+14              0.37              0.08              0.15          999
+15              0.46              0.11              0.21          999
+16              0.44              0.12              0.22          999
+17              0.46              0.05              0.25          999
+18              0.48              0.08              0.16          999
+19              0.39              0.11              0.17          999
+20              0.40              0.08              0.19          999
+21              0.44              0.12              0.19          999
+22              0.45              0.11              0.15          999
+23              0.48              0.17              0.13          999
+24              0.43              0.12              0.25          999
+25              0.43              0.12              0.22          999
+26              0.35              0.08              0.10          999
+27              0.45              0.08              0.17          999
+28              0.40              0.09              0.24          999
+29              0.39              0.16              0.25          999
+..               ...               ...               ...          ...
+50              0.42              0.11              0.18          999
+51              0.35              0.13              0.20          999
+52              0.44              0.07              0.20          999
+53              0.49              0.08              0.10          999
+54              0.40              0.17              0.21          999
+55              0.50              0.14              0.11          999
+56              0.49              0.05              0.13          999
+57              0.40              0.14              0.20          999
+58              0.42              0.08              0.22          999
+59              0.49              0.15              0.25          999
+60              0.40              0.13              0.23          999
+61              0.48              0.07              0.22          999
+62              0.41              0.13              0.21          999
+63              0.50              0.16              0.13          999
+64              0.39              0.05              0.11          999
+65              0.36              0.09              0.23          999
+66              0.38              0.12              0.12          999
+67              0.37              0.16              0.10          999
+68              0.45              0.11              0.17          999
+69              0.43              0.12              0.20          999
+70              0.39              0.10              0.18          999
+71              0.50              0.17              0.18          999
+72              0.44              0.08              0.12          999
+73              0.49              0.06              0.19          999
+74              0.37              0.16              0.10          999
+75              0.48              0.14              0.14          999
+76              0.41              0.16              0.21          999
+77              0.46              0.09              0.20          999
+78              0.46              0.11              0.10          999
+79              0.48              0.13              0.19          999
+
+    Environmental_Parameters_\nOthers  Original_Max_Speed  ASS_CALI  Prority
+0                                 999               27.78       NaN        9
+1                                 999               27.78       NaN        9
+2                                 999               27.78       NaN        9
+3                                 999               27.78       NaN        9
+4                                 999               27.78       NaN        9
+5                                 999               27.78       NaN        9
+6                                 999               27.78       NaN        9
+7                                 999               27.78       NaN        9
+8                                 999               27.78       NaN        9
+9                                 999               27.78       NaN        9
+10                                999               27.78       NaN        9
+11                                999               27.78       NaN        9
+12                                999               27.78       NaN        9
+13                                999               27.78       NaN        7
+14                                999               27.78       NaN        9
+15                                999               27.78       NaN        9
+16                                999               27.78       NaN        9
+17                                999               27.78       NaN        9
+18                                999               27.78       NaN        9
+19                                999               27.78       NaN        9
+20                                999               27.78       NaN        9
+21                                999               27.78       NaN        9
+22                                999               27.78       NaN        9
+23                                999               27.78       NaN        9
+24                                999               27.78       NaN        9
+25                                999               27.78       NaN        9
+26                                999               27.78       NaN        9
+27                                999               27.78       NaN        9
+28                                999               27.78       NaN        9
+29                                999               27.78       NaN        9
+..                                ...                 ...       ...      ...
+50                                999               27.78       NaN        9
+51                                999               27.78       NaN        9
+52                                999               27.78       NaN        9
+53                                999               27.78       NaN        9
+54                                999               27.78       NaN        7
+55                                999               27.78       NaN        9
+56                                999               27.78       NaN        9
+57                                999               27.78       NaN        9
+58                                999               27.78       NaN        9
+59                                999               27.78       NaN        9
+60                                999               27.78       NaN        9
+61                                999               27.78       NaN        9
+62                                999               27.78       NaN        9
+63                                999               27.78       NaN        9
+64                                999               27.78       NaN        9
+65                                999               27.78       NaN        9
+66                                999               27.78       NaN        9
+67                                999               27.78       NaN        9
+68                                999               27.78       NaN        9
+69                                999               27.78       NaN        9
+70                                999               27.78       NaN        9
+71                                999               27.78       NaN        9
+72                                999               27.78       NaN        9
+73                                999               27.78       NaN        9
+74                                999               27.78       NaN        9
+75                                999               27.78       NaN        9
+76                                999               27.78       NaN        9
+77                                999               27.78       NaN        9
+78                                999               27.78       NaN        9
+79                                999               27.78       NaN        9
+
+[80 rows x 30 columns]
+Testing edgeLISTa[48].__dict__ ...
+ {'PCR': 86.731751301552848, 'meanSpeed': 30, 'Effort': -1.0, 'Dynamic_Max_Speed': 30.899999999999999, 'vehidLIST': {'vehID_k': 'veh_k_Type', '1c_Belmont_AOI_23713': 'Car_communuter', '4_Belmont_AOI599': 'Single_Rear_Truck', '1c_Belmont_AOI_23667': 'Car_communuter', '1c_Belmont_AOI_22202': 'Car_communuter', '3_Belmont_AOI4745': 'Panel_Truck', '3_Belmont_AOI4734': 'Panel_Truck', '1c_Belmont_AOI_23716': 'Car_communuter', '1c_Belmont_AOI_23263': 'Car_communuter', '3_Belmont_AOI4747': 'Panel_Truck', '3_Belmont_AOI4744': 'Panel_Truck', '1c_Belmont_AOI_23702': 'Car_communuter', '1c_Belmont_AOI_23690': 'Car_communuter', '3_Belmont_AOI4646': 'Panel_Truck', '1c_Belmont_AOI_23646': 'Car_communuter', '1c_Belmont_AOI_23728': 'Car_communuter'}, 'AGE_t': 139830, 'edgeID': '387423966', 'adaptTraveltime': -1.0, 'IRI': 52.035891423645005, 'AGE_0': 4, 'AADT_Calc': 16250.270144456639, 'OCPNY': -2.9992306550076337e-16, 'layer1_6in_35_50': 0.38, 'ASS_CALI': nan, 'ESAL_TOT': 804.8826000002005, 'ADDT_Calc': 0, 'net': <sumolib.net.Net object at 0x000002BC06103EF0>, 'layer_1_dpth_in': 12, 'ADDT_rand': 16250.270144456639, 'truckCount': 2634, 'carCount': 9618, 'AVE_QLTH': 0, 'layer2_6in_10_25': 0.17000000000000001, 'SNC': 8.0999999999999996, 'layer3_12in_5_17': 0.20999999999999999, 'Bel_Dic_ID': 48, 'originalMAXSPEED': 27.87}
+====== RUN_A_January_Monday ======
+Don't forget to COMPILE METRICS!!!!!
+Simulation ended at time: 87916.00ehicles TOT 173832 ACT 0 BUF 0
+Reason: TraCI requested termination.
+Performance:
+ Duration: 2531096ms
+ Real time factor: 27.6224
+ UPS: 28508.437452
+Vehicles:
+ Inserted: 173832 (Loaded: 280508)
+ Running: 0
+ Waiting: 0
+Teleports: 2691 (Collisions: 1205, Jam: 1076, Yield: 845, Wrong Lane: 770)
+Emergency Stops: 155
+Statistics (avg):
+ RouteLength: 1.#J
+ Duration: 415.10
+ WaitingTime: 268.82
+ TimeLoss: 367.29
+ DepartDelay: 7.03

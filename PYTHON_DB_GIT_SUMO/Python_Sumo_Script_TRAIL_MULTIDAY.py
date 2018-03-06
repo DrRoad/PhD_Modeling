@@ -24,7 +24,7 @@ import time
 import sumolib
 # import cProfile, pstats , io
 import pandas as pd
-import sumoPython_git_A as SP
+# import sumoPython_git_A as SP
 import openpyxl as OPENxlsx
 sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
 sumoBinary = "C:/Sumo/bin/sumo"
@@ -37,7 +37,7 @@ PennDOT_Daily_Variance_TG3_DF = pd.read_excel("C:\Dropbox\Phd_R_Ms\Asset_Use_N_M
 Month_LIST = PennDOT_AADT_day_month_TG3_DF.columns.tolist()
 Day_LIST = PennDOT_AADT_day_month_TG3_DF.index[0:7].tolist()
 print(Month_LIST,"\n\n", Day_LIST)
-simMONTH = int(input("\n\n\nGreetings human...\n\tWhat month are you seeking?   "))
+simMONTH = int(input("\n\n\nGreetings human...\n\t\tWhat month are you seeking?   "))
 simWEEKnum = 1
 
 configPATH_LIST = list()
@@ -61,7 +61,7 @@ for simDAY in range(len(configPATH_LIST)):
     typeRun = 'T'#SP.Runner.runtypeAsker()
     Start_Time = int(traci.simulation.getCurrentTime()/1000) 
     print("======",SUMO_outPUT_PREFIX,"======")
-    estimated_Run_Time = 90000
+    estimated_Run_Time = 97200# 90000
     steps_TT = int(estimated_Run_Time)
     ##### Initalize Files #####
     if simDAY == 0:

@@ -218,7 +218,7 @@ class Edge():
             edgeLISTa[counter].Dynamic_Max_Speed = maxSpeed_i
             counter += 1
             if maxSpeed_i <= 30:
-                print("The new speed for edge ",rd," is now ",round(maxSpeed_i.iloc[0],2))
+                print("The new speed for edge ",rd," is now ",maxSpeed_i," <= maxSpeed_i")#round(maxSpeed_i.iloc[0],2))
         ### Need a new method to change driver imperfection based on road damage
         ## traci.vehicle.setImperfection(vehID..., function relating road index to driver imperfection)
         
@@ -330,14 +330,15 @@ class Network_Period:
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
         print("\n[[[<><><>]]]\nStarting myWrite_to_excel()\n\t PATH_to_Save_to: ",PATH_to_Save_to,"\n\t Current Worksheet: ",ws,"Current periodCounter = ",periodCounter,"\n\n[[[<><><>]]]")
-        wsROW = 1
+        wsROW = 0
         for i in range(logger_TEMPDF.shape[0]):
             wsROW +=1 
             wsCOL =0
             for j in range(logger_TEMPDF.shape[1]):
                 wsCOL +=1
                 if i == 1:
-                    ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
+                    ws.cell(row="A", column=1, value=logger_TEMPDF.columns[j])
+                    # ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
                     if i == 1 and j == 1:
                         print("\t\t\t\t<Writing Headers>")
                     ws.cell(row=wsROW+1, column=wsCOL, value=logger_TEMPDF.iloc[i,j])
