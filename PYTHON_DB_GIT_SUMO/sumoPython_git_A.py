@@ -20,8 +20,8 @@ memoryUse = 0
 pid = os.getpid()
 py = psutil.Process(pid)
 ##### periodCounter = 0#/PERIOD_VARRIABLE # was 0
-sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
-sumoBinary = "C:/Sumo/bin/sumo"
+# sumoGUIBinary = "C:/Sumo/bin/sumo-gui" #-0.32.0
+# sumoBinary = "C:/Sumo/bin/sumo"
 
 
 # sumoGUIBinary = "C:/Sumo/bin/sumo-gui"
@@ -33,10 +33,10 @@ sumoBinary = "C:/Sumo/bin/sumo"
 # if loading_FROM == str("d"):
     # configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg"
 # else:
-configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
-print("configPATH = ",configPATH)
-sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
-sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
+# configPATH = "C:/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DB.sumocfg"
+# print("configPATH = ",configPATH)
+# sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
+# sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
 
 
 SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
@@ -45,7 +45,7 @@ SUMO_outPUT_PREFIX = ""#"BMAO_RUN_4_V30"
 # --vehroute-output.sorted true --vehroute-output.intended-depart true --vehroute-output.route-length true --vehroute-output.write-unfinished false --load-state true --no-warnings false --no-step-log false --duration-log.statistics true --ignore-route-errors true --step-method.ballistic false --collision.action teleport --collision.stoptime 20 --collision.check-junctions false --waiting-time-memory 10 --time-to-impatience 120 --max-depart-delay -1 --device.rerouting.probability 0.85 --device.rerouting.period 60 --device.rerouting.output, "C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\RE-Routing_output.xml", "--start"]
 
 # PATH_Network_DF_Period_0t00_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_TEMPLATE.csv'
-PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+# PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
 # PATH_edge_i_cashe_TEMPLATE = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Edge_i_cashe_TEMPLATE.csv' 
 PATH_BMAOI_edgeCasheFILES = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES'
 PATH_Network_DF_Period_0t00_DF = '/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/Network_DF_Period_0t00_DF.csv'
@@ -87,13 +87,13 @@ class Edge():
 
         #self.Original_Max_Speed = 27.78 # (m/s) or 
         
-    def set(self,edgeID, Bel_Dic_ID):
+    def set(self,edge_t0_DF,edgeID, Bel_Dic_ID):
         self.edgeID = edgeID
         self.Bel_Dic_ID = Bel_Dic_ID #Belmont_AVEDic[edgeID]
         self.net = sumolib.net.readNet('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml')
         self.vehidLIST = {'vehID_k' : 'veh_k_Type'} # https://stackoverflow.com/questions/1024847/add-new-keys-to-a-dictionary
         self.originalMAXSPEED = 27.87# (m/s) self.net.getEdge(edgeID).getSpeed()
-        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
+        logger_TEMPDF =edge_t0_DF
         self.AGE_0 = logger_TEMPDF.loc[Bel_Dic_ID,'AGE_0',]
         self.ADDT_rand = logger_TEMPDF.loc[Bel_Dic_ID,'AADT_rand']
         self.ASS_CALI = logger_TEMPDF.loc[Bel_Dic_ID,'ASS_CALI']
@@ -166,7 +166,7 @@ class Edge():
         # print(traci.edge.getEffort(self.edgeID,traci.simulation.getCurrentTime()/1000))
         
     @classmethod # means class instead of self (Edge.create_Edge_Instances() becomes create_Edge_Instances(Edge))
-    def create_Edge_Instances(cls):
+    def create_Edge_Instances(cls,edge_t0_DF):
         # @staticmethod # means no self
         # def create_Edge_Instances():
         tabber = "<>"
@@ -178,7 +178,7 @@ class Edge():
             edgeLISTa.append(edgeNAME)
             # print(edgeLISTa[counter])
             edgeLISTa[counter]= cls()
-            edgeLISTa[counter].set(Belmont_Ave[counter],counter)
+            edgeLISTa[counter].set(edge_t0_DF,Belmont_Ave[counter],counter)
             edgeLISTa[counter].getTravel_times_n_Effort()
             print("Edge = ", counter,tabber,end='\r',flush=True)#, edgeLISTa[counter].__dict__)
             counter = counter + 1
@@ -263,9 +263,9 @@ class Network_Period:
             wb.save(filename = PATH_to_Save_to)
         wb.save(filename = PATH_to_Save_to)
         wb.close()
-        return wb, periodNamesLISTa 
+        return wb, periodNamesLISTa, PATH_to_Save_to
         
-    def fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa):
+    def fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter,edgeLISTa):#,periodNamesLISTa):
         #https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/
         #### BIG CONTRIBUTION PART
         print("\n\n\t\t\tFilling out worksheet")
@@ -274,7 +274,7 @@ class Network_Period:
         # PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
         print("\n\n<><><periodCounter = ",int(round(periodCounter)))
         periodCounter = int(round(periodCounter))#periodCounter = int(round(periodCounter)-1) # "-1" because we want to fill in the sheet from the perivious period.
-        logger_TEMPDF =pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
+        logger_TEMPDF = edge_t0_DF#pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx) #creates a template
         # logger_TEMPDF =pd.read_excel(SP.PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         counter = 0
         #for edge_i in Belmont_Ave[:]:
@@ -386,7 +386,7 @@ class Initializer:
         return int(PERIOD_VARRIABLE)
 
 
-    def startSUMO(SUMO_Traci_PORT,useCase,GUI_01):
+    def startSUMO(sumoCmd,sumoGUICmd, SUMO_Traci_PORT,useCase,GUI_01):
         # sumoCmd = [sumoBinary,"--remote-port",SUMO_Traci_PORT,"--begin", 0, "--step-length", 1, "--net-file", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5.net.xml", "--additional-files", "C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\tslOffset-12-6-17.add.xml,C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min.xml", "--vehroute-output.exit-times", "true", "--ignore-route-errors", "true", "--start"]
         sumoCmd #= [sumoBinary, "-c", configPATH, "--start"]
         sumoGUICmd #= [sumoGUIBinary, "-c", configPATH, "--start"]
@@ -508,7 +508,7 @@ class Runner:
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
             print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
-            Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)
+            Network_Period.fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)
                     
 
     def other_parts_not_yet_implemented():

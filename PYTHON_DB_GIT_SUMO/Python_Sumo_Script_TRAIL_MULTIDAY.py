@@ -1,8 +1,8 @@
 ## Last worked on 3/5/2018
 
 
-## GIT COMMIT AND PUSH # python /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py
-## GIT COMMIT AND PUSH # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script.py ## GIT COMMIT AND PUSH
+## GIT COMMIT AND PUSH # python /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script_TRAIL_MULTIDAY.py
+## GIT COMMIT AND PUSH # run /Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/PYTHON_DB_GIT_SUMO/Python_Sumo_Script_TRAIL_MULTIDAY.py ## GIT COMMIT AND PUSH
 ## GIT COMMIT AND PUSH
 ## I think best just to run with Jupyter Notebook... for debugging.
 
@@ -67,9 +67,9 @@ for day in range(len(Day_LIST)):
     configPATH_LIST.append('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\BMAOI_sumcfg_'+Month_LIST[simMONTH]+'_'+Day_LIST[day]+'.sumocfg')
 
 
-for days in range(len(configPATH_LIST)):
-    print("$$$$$******$$$$$$********\nIts a new day ",Month_LIST[simMONTH],", ",Day_LIST[days],"\n",configPATH_LIST[days])
-    configPATH = configPATH_LIST[days]
+for simDAY in range(len(configPATH_LIST)):
+    print("$$$$$******$$$$$$********\nIts a new day ",Month_LIST[simMONTH],", ",Day_LIST[simDAY],"\n",configPATH_LIST[simDAY])
+    configPATH = configPATH_LIST[simDAY]
     # print("configPATH = ",configPATH)
     sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
     sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
@@ -78,7 +78,7 @@ for days in range(len(configPATH_LIST)):
     fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(display=1,prefix=1,port=1)
     SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=1,port=0)
     SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(display=0,prefix=0,port=1))
-    SP.Initializer.startSUMO(sumoCmd,SUMO_Traci_PORT,useCase=str(1),GUI_01=0)
+    SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="0")
         # Ask for Steps to take or Time to run until
     typeRun = 'T'#SP.Runner.runtypeAsker()
     Start_Time = int(traci.simulation.getCurrentTime()/1000) 
@@ -90,13 +90,22 @@ for days in range(len(configPATH_LIST)):
         # print("You did not specify how long you wanted to run until so the default value = ", estimated_Run_Time)
     steps_TT = int(estimated_Run_Time)
     # Initalize Files
-    edgeLISTa = SP.Edge.create_Edge_Instances()
+    if simDAY == 0:
+        edge_t0_PATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
+        edge_t0_DF = pd.read_excel(edge_t0_PATH)
+    else:
+        edge_t0_DF = new_beginining_DF
+    edgeLISTa = SP.Edge.create_Edge_Instances(edge_t0_DF)
     wb = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,PATH=None)[0]
     periodNamesLISTa = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,display=0)[1]
 
     # Take a step(s)
     SP.Runner.releaseTraci(Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
-    SP.Network_Period.fillOutworksheet(SUMO_outPUT_PREFIX,periodCounter = 24,edgeLISTa=edgeLISTa)
+    ###Create a new excel file for next day. if simDAY == 0: load from TEMPLATE / else: Load from first sheet from last bit of code 
+    SP.Network_Period.fillOutworksheet(edge_t0_PATH,SUMO_outPUT_PREFIX,periodCounter=24,edgeLISTa=edgeLISTa)[3]
+    wb = SP.Network_Period.load_n_create_Excel_NetworkFile(SUMO_outPUT_PREFIX,PERIOD_VARRIABLE,steps_TT,PATH=None)[0]
+    last_sheet = len(wb.get_sheet_names())
+    new_beginining_DF  = pd.DateFrame(wb.get_sheet_names()[last_sheet])
     traci.close()
 # continue01 = 0
 # continue01 = str(input("Press x to exit"))
