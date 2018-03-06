@@ -337,7 +337,7 @@ class Network_Period:
             for j in range(logger_TEMPDF.shape[1]):
                 wsCOL +=1
                 if i == 1:
-                    ws.cell(row="A", column=1, value=logger_TEMPDF.columns[j])
+                    ws.cell(row=1, column=1, value=logger_TEMPDF.columns[j])
                     # ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
                     if i == 1 and j == 1:
                         print("\t\t\t\t<Writing Headers>")
@@ -385,27 +385,60 @@ class Initializer:
         return int(PERIOD_VARRIABLE)
         
         
-    def add_new_run_to_Run_list_FILE(simMONTH,simDAY,configPATH):
-        configPATH
-        XML_sumocfg = open(configPATH,'r') #open(caliXMLTESTPATH,'r')
-        XMLsumocfg_LIST = XML_sumocfg.readlines()
-        XML_sumocfg.close()        #'/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
-        with open(configPATH,'w') as f:
+    def add_new_run_to_Run_list_FILE(simMONTH,simDAY):
+        Run_list_TXT = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
+        with open(Run_list_TXT,'a') as f:
+            TXTrunlistLines = open(Run_list_TXT).readlines()
             run_LIST = list()
-            for line in range(len(XMLsumocfg_LIST)):
-                if 'Week' in XMLsumocfg_LIST[line]:
-                    entry_LINE = XMLsumocfg_LIST[line]
-                    run_LIST.append(XMLsumocfg_LIST[line])
+            for line in range(len(TXTrunlistLines)):
+                entry_LINE = TXTrunlistLines[line]
+                if 'Monday' in TXTrunlistLines[line]:
+                    # 'Week' in TXTrunlistLines[line]:
+                    
+                    run_LIST.append(TXTrunlistLines[line])
                     run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(1)
                     run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(4)
                     run_LIST.append(run_i)
                     new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i))+1)+'\n'
-    #                 f.write(new_run_str)
+                    new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i))+1)
+                    f.write(new_run_str)
                     print(new_run_str)
                 else:
-                    next
-            f.write(new_run_str)
+                    new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))
+                    new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))+'\n'
+                    f.write(new_run_str)
             print("new_run_str = ",new_run_str)
+            print("max(run_LIST) = ",max(run_LIST))
+        return new_run_str_send
+
+    def oneUP_sumocfg(simMONTH,simDAY,configPATH):
+        configPATH
+        XML_sumocfg = open(configPATH,'r') #open(caliXMLTESTPATH,'r')
+        XMLsumocfg_LIST = XML_sumocfg.readlines()
+        XML_sumocfg.close()        #'/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
+        new_run_str = Initializer.add_new_run_to_Run_list_FILE(simMONTH,simDAY)
+        with open(configPATH,'w') as f:
+            run_LIST = list()
+            for line in range(len(XMLsumocfg_LIST)):
+                if '<output-prefix value=' in XMLsumocfg_LIST[line]:
+                    repl_i = '    <output-prefix value="'+new_run_str+'-"/>\n'
+                    f.write(repl_i)
+                    print("new_run_str = ",new_run_str, "\nrepl_i = ",repl_i)
+    #                 entry_LINE = XMLsumocfg_LIST[line]
+    #                 run_LIST.append(XMLsumocfg_LIST[line])
+    #                 run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)-"/>',entry_LINE, re.IGNORECASE).group(1)
+    #                 run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)-"/>',entry_LINE, re.IGNORECASE).group(4)
+    #                 print(run_i)
+    #                 run_LIST.append(run_i)
+    #                 new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(run_i)+1)+'-"/>'
+    # #                 XMLsumocfg_LIST[line] = new_run_str
+    #                 XMLsumocfg_LIST[line] = new_run_str
+    #                 f.write(new_run_str)
+    #                 print("new_run_str = ",new_run_str)
+                else:
+    #                 next
+                    f.write(XMLsumocfg_LIST[line])
+    #         print("new_run_str = ",new_run_str)
             print("run_LIST = ",run_LIST)
         return new_run_str
         
@@ -580,6 +613,8 @@ class RunFileInfo:
                         # print(line)
                         SUMO_outPUT_PREFIX_LINE = line
                         SUMO_outPUT_PREFIX = re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2)
+                        # run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(1)
+                        # run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(4)
                         termLIST.append(re.search('<output-prefix value="(.*)-(.*)-"/>',SUMO_outPUT_PREFIX_LINE, re.IGNORECASE).group(2))
                         SUMO_outPUT_PREFIX = termLIST[0]
                         # print("\nSUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX,"\n")
