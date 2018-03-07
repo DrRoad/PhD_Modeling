@@ -41,9 +41,10 @@ simMONTH = int(input("\n\n\nGreetings human...\n\t\tWhat month are you seeking? 
 simWEEKnum = 1
 
 configPATH_LIST = list()
+run_LIST = list()
 for simDAY in range(len(Day_LIST)):
     configPATH_LIST.append('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\BMAOI_sumcfg_'+Month_LIST[simMONTH]+'_'+Day_LIST[simDAY]+'.sumocfg')
-    SP.Initializer.oneUP_sumocfg(Month_LIST[simMONTH],Day_LIST[simDAY],configPATH_LIST[simDAY])
+    SP.Initializer.oneUP_sumocfg(Month_LIST[simMONTH],Day_LIST[simDAY],configPATH_LIST[simDAY],run_LIST)
 
 
 for simDAY in range(len(configPATH_LIST)):

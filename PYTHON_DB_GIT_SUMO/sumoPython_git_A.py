@@ -385,42 +385,54 @@ class Initializer:
         return int(PERIOD_VARRIABLE)
         
         
-    def add_new_run_to_Run_list_FILE(simMONTH,simDAY):
+    def add_new_run_to_Run_list_FILE(simMONTH,simDAY,run_LIST):
         Run_list_TXT = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
-        with open(Run_list_TXT,'a') as f:
-            TXTrunlistLines = open(Run_list_TXT).readlines()
-            run_LIST = list()
-            for line in range(len(TXTrunlistLines)):
-                entry_LINE = TXTrunlistLines[line]
+#         with open(Run_list_TXT,'r') as f:
+        TXTrunlistLines = open(Run_list_TXT).readlines()
+        for line in range(len(TXTrunlistLines)):
+            print("line = ",line, "range(len(TXTrunlistLines)) = ",range(len(TXTrunlistLines)))
+            entry_LINE = TXTrunlistLines[line]
+            if simDAY == 'Monday':
                 if 'Monday' in TXTrunlistLines[line]:
                     # 'Week' in TXTrunlistLines[line]:
-                    run_LIST.append(TXTrunlistLines[line])
+#                         run_LIST.append(TXTrunlistLines[line])
                     run_group = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(1)
                     run_i = re.search('(.*)-RUN_A_(.*)_(.*)_WeekTest_(.*)\n',entry_LINE, re.IGNORECASE).group(4)
-                    run_LIST.append(run_i)
-                    new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i))+1)+'\n'
-                    new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i))+1)
-                    f.write(new_run_str)
-                    print(new_run_str)
-                else:
-                    new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))
-                    new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(int(max(run_i)))+'\n'
+                    print("run_i = ",run_i)
+#                         run_LIST.append(run_i)
+                    run_LIST.append(int(run_i)+1)
+                    next_run_to_List = int(run_i)+1 #max(run_LIST)
+                    new_run_str = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(next_run_to_List)+'\n'
+                    new_run_str_send = run_group+'-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(next_run_to_List)
+                    if line == len(TXTrunlistLines)-1:
+                        newentry = open(Run_list_TXT,'a') #open(cali_XML_output,'w')
+                        newentry.write(new_run_str)
+                        newentry.close()
+#                     f.write(new_run_str)
+                    print("Monday - new_run_str = ",new_run_str)
+                    print("Monday - run_LIST = ",run_LIST)
+#                     return new_run_str_send, run_LIST
+            else:
+                next_run_to_List = max(run_LIST)
+                new_run_str_send = 'BMAOI-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(next_run_to_List)
+                new_run_str = 'BMAOI-RUN_A_'+simMONTH+'_'+simDAY+'_WeekTest_'+str(next_run_to_List)+'\n'
                     # f.write(new_run_str)
-        print("new_run_str = ",new_run_str)
-        print("max(run_LIST) = ",max(run_LIST))
-        return new_run_str_send
+            print("else: new_run_str = ",new_run_str)
+            print("else: max(run_LIST) = ",max(run_LIST))
+        return new_run_str_send, run_LIST
 
-    def oneUP_sumocfg(simMONTH,simDAY,configPATH):
+    def oneUP_sumocfg(simMONTH,simDAY,configPATH,run_LIST):
         configPATH
+        print("configPATH = ",configPATH)
         XML_sumocfg = open(configPATH,'r') #open(caliXMLTESTPATH,'r')
         XMLsumocfg_LIST = XML_sumocfg.readlines()
         XML_sumocfg.close()        #'/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
-        new_run_str = Initializer.add_new_run_to_Run_list_FILE(simMONTH,simDAY)
+        new_run_str = add_new_run_to_Run_list_FILE(simMONTH,simDAY,run_LIST)
         with open(configPATH,'w') as f:
             run_LIST = list()
             for line in range(len(XMLsumocfg_LIST)):
                 if '<output-prefix value=' in XMLsumocfg_LIST[line]:
-                    repl_i = '    <output-prefix value="'+new_run_str+'-"/>\n'
+                    repl_i = '    <output-prefix value="'+new_run_str[0]+'-"/>\n'
                     f.write(repl_i)
                     print("new_run_str = ",new_run_str, "\nrepl_i = ",repl_i)
     #                 entry_LINE = XMLsumocfg_LIST[line]
