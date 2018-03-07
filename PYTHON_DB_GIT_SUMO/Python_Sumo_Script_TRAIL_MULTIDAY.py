@@ -44,7 +44,7 @@ configPATH_LIST = list()
 run_LIST = list()
 for simDAY in range(len(Day_LIST)):
     configPATH_LIST.append('C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\BMAOI_sumcfg_'+Month_LIST[simMONTH]+'_'+Day_LIST[simDAY]+'.sumocfg')
-    SP.Initializer.oneUP_sumocfg(Month_LIST[simMONTH],Day_LIST[simDAY],configPATH_LIST[simDAY],run_LIST)
+    # SP.Initializer.oneUP_sumocfg(Month_LIST[simMONTH],Day_LIST[simDAY],configPATH_LIST[simDAY],run_LIST)
 
 
 for simDAY in range(len(configPATH_LIST)):
@@ -53,14 +53,16 @@ for simDAY in range(len(configPATH_LIST)):
     print("configPATH = ",configPATH)
     sumoCmd = [sumoBinary, "-c", configPATH, "--start"]
     sumoGUICmd = [sumoGUIBinary, "-c", configPATH, "--start"]
+    oneUP_sumocfg = SP.Initializer.oneUP_sumocfg(Month_LIST[simMONTH],Day_LIST[simDAY],configPATH_LIST[simDAY],run_LIST)
     
-    
-    
+    run_LIST = oneUP_sumocfg[0][1]
+    SUMO_outPUT_PREFIX = oneUP_sumocfg[0][0]
+    print("\n\n\nrun_LIST = ",run_LIST,"SUMO_outPUT_PREFIX = ",SUMO_outPUT_PREFIX)
     # %colors Linux
     PERIOD_VARRIABLE = 3600#SP.Initializer.inputPeriod_asNumber(new=1)
     fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=1,prefix=1,port=1)
-    SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=1,port=0)
-    SUMO_Traci_PORT = int(SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=0,port=1))
+    #SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=1,port=0)
+    SUMO_Traci_PORT = 5454#SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=0,port=1)
     SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="0")
         # Ask for Steps to take or Time to run until
     typeRun = 'T'#SP.Runner.runtypeAsker()

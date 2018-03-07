@@ -35,3 +35,44 @@
 	<step-length value="1"/>
 </time>
 <output>
+    <output-prefix value="BMAOI-RUN_A_January_Monday_WeekTest_5-"/>
+	<!-- NOTES on different runs::: See Excel File https://www.dropbox.com/s/7tye9ywl459em4b/RUN_Tracker_DB_ToolBox_V1.xlsx?dl=0-->
+	<!-- <netstate-dump value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetState_Dump.xml"/> -->
+<!-- 	<save-state.times value="86400"/>
+	<save-state.files value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-stateFILES\NetWork-State-file-86400.xml"/> -->
+	<summary value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-summaryFILES\Summary_output.xml"/>
+	<queue-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-queueFILES\QUEUE_output.xml"/>
+	<tripinfo-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-tripFILES\TRIP_output.xml"/>
+	<vehroute-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-VehRouteFILES\Veh_Route_output.xml"/>
+	<vehroute-output.exit-times value="false"/>
+	<vehroute-output.sorted value="false"/>
+	<vehroute-output.intended-depart value="false"/>
+	<vehroute-output.route-length value="true"/>
+    <vehroute-output.write-unfinished value="false"/>
+	<!-- <lanechange-output value=".\Lane_Change_output.xml"/>
+	<link-output value=".\LinkStates.xml"/> -->
+	<!-- <emission-output value="C:\Sumo\runs\BelmontC_AOI_main\BelmontC_AOI-outPUT\BMAOI_C-EmissionFILES\Emissions_output.xml"/> --> <!-- big files -->
+</output>
+<report>
+    <verbose value="true"/>
+	<no-warnings value="false"/>
+	<no-step-log value="false"/>
+	<!-- <xsd:element name="duration-log.disable" type="boolOptionType" minOccurs="0"/> -->
+	<duration-log.statistics value="true"/>
+    <error-log value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\SUMO_log_FILES\error_log_FILE.txt"/>
+    <message-log value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\SUMO_log_FILES\message_log_FILE.txt"/>
+</report>
+<traci_server>
+	<remote-port value="5454"/> 
+	<!-- <python-scrpit value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\PYTHON_GIT_SUMO\Python_Sumo_Script.py"/>   -->
+    <!-- http://sumo.dlr.de/wiki/SUMO  -->
+</traci_server>
+<random_number>
+    <random value="true"/>
+    <seed value="11111"/>
+</random_number>
+<gui_only>
+	<gui-settings-file value="C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\OSM_Clipped_View_settings-Real_world-currentoccupancy.xml"/> <!-- "C:\Sumo\runs\West_Philly\OSM_Clipped_View_settings_2.xml"/> -->
+	<start value="false"/>
+</gui_only>
+</configuration>

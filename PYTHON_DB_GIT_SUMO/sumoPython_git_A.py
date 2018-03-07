@@ -242,8 +242,8 @@ class Network_Period:
             print("Loading and creating Excel Network File", "SUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX)
         if PATH == None:
             PATH_Network_DF_Period_0t00_TEMPLATExlsx = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/Network_DF_Period_0t00_TEMPLATE.xlsx'
-            PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" + SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
-            OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+            PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" + str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
+            OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" + str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
         full_Run_Time = 90000 #steps_TT
         Network_DF_Period_0t00xlsx=pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
@@ -315,7 +315,7 @@ class Network_Period:
         Edge.setNewMaxSpeed(edgeLISTa,logger_TEMPDF)
         Edge.getMaxSpeed(edgeLISTa,logger_TEMPDF)
         print("Testing edgeLISTa[48].__dict__ ...\n",edgeLISTa[48].__dict__,"\n======",SUMO_outPUT_PREFIX,"======")
-        print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
+        print("\t\t\t\t======",str(SUMO_outPUT_PREFIX),"======")
         return wsdf#, wb 
             
     def myWrite_to_excel(logger_TEMPDF,periodCounter,SUMO_outPUT_PREFIX,edgeLISTa):
@@ -324,8 +324,8 @@ class Network_Period:
         ### TRY THIS http://pbpython.com/improve-pandas-excel-output.html and then this https://codereview.stackexchange.com/questions/180405/writing-excelsheet-from-python-dataframe
         # from openpyxl import load_workbook
         ## openpyxl.worksheet.Worksheet.cell() method from  
-        PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
-        OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +SUMO_outPUT_PREFIX + "_PeriodBook.xlsx"
+        PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" +str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
+        OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" +str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
         wb =  OPENxlsx.load_workbook(filename = PATH_to_Save_to)
         periodCounter = int(round(periodCounter))
         ws = wb[wb.get_sheet_names()[periodCounter-1]]
@@ -427,7 +427,7 @@ class Initializer:
         XML_sumocfg = open(configPATH,'r') #open(caliXMLTESTPATH,'r')
         XMLsumocfg_LIST = XML_sumocfg.readlines()
         XML_sumocfg.close()        #'/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_sumcfg_MONTH_DAY_FILES/SUMOCFG_MONTH_DAY_run_FILE.txt'
-        new_run_str = add_new_run_to_Run_list_FILE(simMONTH,simDAY,run_LIST)
+        new_run_str = Initializer.add_new_run_to_Run_list_FILE(simMONTH,simDAY,run_LIST)
         with open(configPATH,'w') as f:
             run_LIST = list()
             for line in range(len(XMLsumocfg_LIST)):
@@ -451,7 +451,7 @@ class Initializer:
                     f.write(XMLsumocfg_LIST[line])
     #         print("new_run_str = ",new_run_str)
             print("run_LIST = ",run_LIST)
-        return new_run_str
+        return new_run_str, run_LIST
         
         
         
@@ -524,7 +524,7 @@ class Runner:
     
         ###Run the Code####
     def releaseTraci(edge_t0_DF,Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT=None):
-        print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
+        print("\t\t\t\t======",str(SUMO_outPUT_PREFIX),"======")
         #Defining the Constants
         if steps_TT == None:
             steps_TT = 0
@@ -579,7 +579,7 @@ class Runner:
             edgeLISTa[i].log()
         if (periodCounter/PERIOD_VARRIABLE).is_integer():
             periodCounter = (periodCounter/PERIOD_VARRIABLE)
-            print("\t\t\t\t======",SUMO_outPUT_PREFIX,"======")
+            print("\t\t\t\t======",str(SUMO_outPUT_PREFIX),"======")
             Network_Period.fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter,edgeLISTa)
                     
 
@@ -607,8 +607,8 @@ class RunFileInfo:
         import re
         # global SUMO_outPUT_PREFIX
         # global SUMO_Traci_PORT
-        SUMO_outPUT_PREFIX = prefix
-        SUMO_Traci_PORT = port
+        SUMO_outPUT_PREFIX = 0
+        SUMO_Traci_PORT = 0
         # if loading_FROM == str("d"):
             # readfromPATH = '/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/Belmont_AOI_git/Belmont_AOI-runFILES/BMAOI_TRACI_DXL.sumocfg'
         # else:
@@ -640,7 +640,7 @@ class RunFileInfo:
                             termLIST.append(re.search('<remote-port value="(.*)"/>',SUMO_outPUT_Port_LINE, re.IGNORECASE).group(1))
                             return SUMO_Traci_PORT
         if display == 1:
-            print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\n\SUMO_Traci_PORT = ", SUMO_Traci_PORT)
+            print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\n\SUMO_Traci_PORT = ", SUMO_Traci_PORT,"\n\n")
         return SUMO_outPUT_PREFIX, SUMO_Traci_PORT#, print("\nSUMO_outPUT_PREFIX = ", SUMO_outPUT_PREFIX,"\nSUMO_Traci_PORT = ", SUMO_Traci_PORT)
         
 print("Your new sumoPython_git_A has been loaded!")
