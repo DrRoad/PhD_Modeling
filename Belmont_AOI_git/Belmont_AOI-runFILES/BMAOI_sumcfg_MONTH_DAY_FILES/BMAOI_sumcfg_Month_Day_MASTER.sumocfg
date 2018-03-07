@@ -29,7 +29,7 @@
 </routing>
 <time>
 	<begin value="18001"/> <!-- DVRPC trips start at 1080 :: 21600 sec = 6am -->
-	<end value="87400"/> 
+	<end value="86400"/> 
     <!-- 72000 = 8pm ; 86400 seconds in a day {this needs to be kept blank to allow cars to finish their routes  -->
 	<step-length value="1"/>
 </time>
