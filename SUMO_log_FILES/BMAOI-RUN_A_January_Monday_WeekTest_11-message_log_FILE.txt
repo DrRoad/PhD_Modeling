@@ -1,0 +1,34 @@
+***Starting server on port 5454 ***
+Loading net-file from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V7.net.xml'... done (201ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml'... done (2ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml'... done (9ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml'... done (12ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\TslOffset-12-6-17.add.xml'... done (1ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min_January_Monday.xml'... done (100ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\rerouter_372018.xml'... done (3ms).
+Loading done.
+Simulation started with time: 18001.00
+Running start /B "" "C:\Sumo\/bin/netedit" --registry-viewport -s C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V7.net.xml.
+Performance: 
+ Duration: 4867718ms
+ Real time factor: 16.2705
+ UPS: 18437.913412
+Vehicles: 
+ Inserted: 191697 (Loaded: 311752)
+ Running: 0
+ Waiting: 13
+Teleports: 2269 (Collisions: 739, Jam: 1301, Yield: 409, Wrong Lane: 559)
+Emergency Stops: 115
+Statistics (avg):
+ RouteLength: 1.#J
+ Duration: 468.19
+ WaitingTime: 257.18
+ TimeLoss: 415.90
+ DepartDelay: 11.59
+
+DijkstraRouter answered 22716 queries and explored 168.69 edges on average.
+DijkstraRouter spent 1865ms answering queries (0.08ms on average).
+AStarRouter answered 6218 queries and explored 369.66 edges on average.
+AStarRouter spent 1025ms answering queries (0.16ms on average).
+DijkstraRouter answered 928658 queries and explored 558.13 edges on average.
+DijkstraRouter spent 112682ms answering queries (0.12ms on average).

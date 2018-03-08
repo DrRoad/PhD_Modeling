@@ -1,0 +1,31 @@
+<additionals>
+    <rerouter id="rerouter_2" edges="12111684" probability="1.00" off="0" x="4157.41" y="1810.17">
+        <interval begin="0" end="86400">
+            <destProbReroute id="-12150712#3" probability="0.25"/>
+            <destProbReroute id="-42706763#2" probability="0.25"/>
+            <destProbReroute id="32121248#14" probability="0.25"/>
+            <destProbReroute id="485212847#0" probability="0.25"/>
+        </interval>
+    </rerouter>
+    <rerouter id="I_76EB" edges="43119835#1-AddedOnRampEdge" probability="1.00" off="0" x="4157.41" y="1810.17">
+        <interval begin="0" end="86400">
+            <destProbReroute id="12111684" probability="0.33"/>
+            <destProbReroute id="49887339.0" probability="0.33"/>
+            <destProbReroute id="-43117599" probability="0.33"/>
+        </interval>
+    </rerouter>
+    <rerouter id="52st_n_Parkway" edges="486653626#1" probability="1.00" off="0" x="4157.41" y="1810.17">
+        <interval begin="0" end="86400">
+            <destProbReroute id="196358983#8" probability="0.33"/>
+            <destProbReroute id="12319898#1" probability="0.33"/>
+            <destProbReroute id="63067896" probability="0.33"/>
+        </interval>
+    </rerouter>
+    <rerouter id="52st_n_Lancaster_SB" edges="49916295#0-AddedOffRampEdge" probability="1.00" off="0" x="4157.41" y="1810.17">
+        <interval begin="0" end="86400">
+            <destProbReroute id="32121248#14" probability="0.33"/>
+            <destProbReroute id="-42706763#2" probability="0.33"/>
+            <destProbReroute id="485212847#0" probability="0.33"/>
+        </interval>
+    </rerouter>
+</additionals>

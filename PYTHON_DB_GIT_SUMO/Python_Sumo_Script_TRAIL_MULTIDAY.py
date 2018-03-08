@@ -11,7 +11,7 @@
 
 
 ## GIT COMMIT AND PUSH
-
+############################# http://sumo.dlr.de/wiki/Simulation/Rerouter#Closing_a_Street
 
 # Ask for Parameters
     # Period Length...
@@ -63,7 +63,7 @@ for simDAY in range(len(configPATH_LIST)):
     fileINFO = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=1,prefix=1,port=1)
     #SUMO_outPUT_PREFIX = SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=1,port=0)
     SUMO_Traci_PORT = 5454#SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=0,port=1)
-    SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="1")
+    SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="0")
         # Ask for Steps to take or Time to run until
     typeRun = 'T'#SP.Runner.runtypeAsker()
     Start_Time = int(traci.simulation.getCurrentTime()/1000) 

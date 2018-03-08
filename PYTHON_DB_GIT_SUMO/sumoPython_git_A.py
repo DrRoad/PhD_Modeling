@@ -245,7 +245,7 @@ class Network_Period:
             PATH_to_Save_to = "/Dropbox/Phd_R_Ms/PhD_Modeling_DB_GIT/BMAOI_Dbox-DataFrames/Network_" + str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
             OLD_PATH_to_Save_to = "/Sumo/runs/BelmontC_AOI_main/BelmontC_AOI-outPUT/BMAOI_C-DataFrames/BMAOI_edgeCasheFILES/Network_" + str(SUMO_outPUT_PREFIX) + "_PeriodBook.xlsx"
         wb = OPENxlsx.Workbook()
-        full_Run_Time = 97200 #steps_TT
+        full_Run_Time = 108000 #steps_TT
         Network_DF_Period_0t00xlsx=pd.read_excel(PATH_Network_DF_Period_0t00_TEMPLATExlsx)
         periodNamesLISTa = list()
         for period in range(int(int(full_Run_Time)/PERIOD_VARRIABLE)):
