@@ -65,7 +65,7 @@ for simDAY in range(len(configPATH_LIST)):
     SUMO_Traci_PORT = 5454#SP.RunFileInfo.GetSimulationRunPrefix(configPATH,display=0,prefix=0,port=1)
     SP.Initializer.startSUMO(sumoCmd,sumoGUICmd,SUMO_Traci_PORT,useCase=str(1),GUI_01="0")
         # Ask for Steps to take or Time to run until
-    typeRun = 'T'#SP.Runner.runtypeAsker()
+    typeRun = '4'#SP.Runner.runtypeAsker()
     Start_Time = int(traci.simulation.getCurrentTime()/1000) 
     print("======",SUMO_outPUT_PREFIX,"======")
     estimated_Run_Time = 97200# 90000
@@ -84,7 +84,7 @@ for simDAY in range(len(configPATH_LIST)):
     # Take a step(s)
     SP.Runner.releaseTraci(edge_t0_DF,Start_Time,typeRun,edgeLISTa,PERIOD_VARRIABLE,SUMO_outPUT_PREFIX,periodNamesLISTa,steps_TT)
     ###Create a new excel file for next day. if simDAY == 0: load from TEMPLATE / else: Load from first sheet from last bit of code 
-    new_beginining_DF = SP.Network_Period.fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter=24,edgeLISTa=edgeLISTa)
+    new_beginining_DF = SP.Network_Period.fillOutworksheet(edge_t0_DF,SUMO_outPUT_PREFIX,periodCounter=1,edgeLISTa=edgeLISTa)
     print(len(wb.get_sheet_names()),wb.get_sheet_names(),"\nnew_beginining_DF = ", new_beginining_DF,"\nedge_t0_DF = " , edge_t0_DF) #wb = 
     print("Testing edgeLISTa[48].__dict__ ...\n",edgeLISTa[48].__dict__,"\n======",SUMO_outPUT_PREFIX,"======\nDon't forget to COMPILE METRICS!!!!!")
     traci.close()

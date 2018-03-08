@@ -1,0 +1,10 @@
+***Starting server on port 5454 ***
+Loading net-file from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V7.net.xml'... done (174ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml'... done (3ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml'... done (8ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml'... done (10ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\TslOffset-12-6-17.add.xml'... done (1ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min_January_Monday.xml'... done (78ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\rerouter_372018.xml'... done (1ms).
+Loading done.
+Simulation started with time: 18001.00

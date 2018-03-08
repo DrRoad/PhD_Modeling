@@ -337,7 +337,7 @@ class Network_Period:
             for j in range(logger_TEMPDF.shape[1]):
                 wsCOL +=1
                 if i == 1:
-                    ws.cell(row=1, column=1, value=logger_TEMPDF.columns[j])
+                    ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
                     # ws.cell(row=wsROW, column=wsCOL, value=logger_TEMPDF.columns[j])
                     if i == 1 and j == 1:
                         print("\t\t\t\t<Writing Headers>")
@@ -542,7 +542,7 @@ class Runner:
                 Runner.thingsTodoWhileStepping(edge_t0_DF,edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1
         elif str(typeRun) == "2": 
-            steps_TT = input("How many steps would you like to take? ")
+            steps_TT = 86400 #input("How many steps would you like to take? ")
             #No_next_steps = int(steps_TT)
             if addTesterTrucks == "1":
                 traci.simulationStep()
@@ -564,12 +564,12 @@ class Runner:
             print("\nCurrent Time is: ",str(traci.simulation.getCurrentTime()/1000))
             # import ipdb
             # ipdb.set_trace()
-            NextTimeToStop = input("\nWhat time (in seconds) would you like this run of the simulation to end at? ... ")
+            NextTimeToStop = 86400#input("\nWhat time (in seconds) would you like this run of the simulation to end at? ... ")
             NextTimeToStop = int(NextTimeToStop)
             print("\t\t\t<><>Running until time: ",NextTimeToStop,"<><>")
             while traci.simulation.getCurrentTime()/1000 < NextTimeToStop:
                 traci.simulationStep()
-                Runner.thingsTodoWhileStepping(edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
+                Runner.thingsTodoWhileStepping(edge_t0_DF,edgeLISTa,PERIOD_VARRIABLE,periodCounter,SUMO_outPUT_PREFIX,periodNamesLISTa)
                 periodCounter += 1       #(1/PERIOD_VARRIABLE)
         print("<>\n<><>\n<><><>\nperiodCounter = ",periodCounter)#, "periodNamesLISTa = ",periodNamesLISTa)
         return # edgeLISTa

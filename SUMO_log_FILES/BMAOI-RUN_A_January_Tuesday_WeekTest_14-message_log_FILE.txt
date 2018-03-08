@@ -1,0 +1,27 @@
+***Starting server on port 5454 ***
+Loading net-file from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5_ALL.net.xml'... done (212ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI_3a.pol.xml'... done (2ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI.vType.add.xml'... done (8ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-routeFILES\Belmount_AOI.routeDISTRIBUTION4.add.xml'... done (11ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\TslOffset-12-6-17.add.xml'... done (2ms).
+Loading additional-files from 'C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\BMAOI_sumcfg_MONTH_DAY_FILES\Belmount_AOI-caliborators-DB-V6-SUMO31-15min_January_Tuesday.xml'... done (96ms).
+Loading done.
+Simulation started with time: 18001.00
+Running start /B "" "C:\Sumo\/bin/netedit" --registry-viewport -s C:\Dropbox\Phd_R_Ms\PhD_Modeling_DB_GIT\Belmont_AOI_git\Belmont_AOI-runFILES\Belmount_AOI-V5_ALL.net.xml.
+Performance: 
+ Duration: 301920ms
+ Real time factor: 18.0843
+ UPS: 6802.411235
+Vehicles: 
+ Inserted: 7378 (Loaded: 10342)
+ Running: 878
+ Waiting: 6
+Teleports: 46 (Collisions: 16, Jam: 1, Yield: 13, Wrong Lane: 32)
+Emergency Stops: 6
+Statistics (avg):
+ RouteLength: 1.#J
+ Duration: 261.04
+ WaitingTime: 110.14
+ TimeLoss: 198.83
+ DepartDelay: 0.43
+
